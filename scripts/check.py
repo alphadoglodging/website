@@ -88,6 +88,18 @@ for page in PAGES:
         if "$XX" in line:
             warnings.append(f"Placeholder $XX: {page.name}:{n}")
 
+# 6. Every redirect in site/_redirects points at a page or file that exists.
+redirects = SITE / "_redirects"
+if redirects.exists():
+    for n, line in enumerate(redirects.read_text(encoding="utf-8").splitlines(), 1):
+        parts = line.split()
+        if len(parts) < 2 or parts[0].startswith("#"):
+            continue
+        target = parts[1].split("#")[0].strip("/")
+        if parts[1].startswith("/") and target:
+            if not ((SITE / target).exists() or (SITE / f"{target}.html").exists()):
+                errors.append(f"Redirect to missing page: _redirects:{n} -> {parts[1]}")
+
 for w in warnings:
     print(f"WARNING  {w}")
 for e in errors:
