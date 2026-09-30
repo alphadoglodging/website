@@ -336,3 +336,26 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--orange);outline-off
 .tab-btn[aria-selected="true"]{color:var(--orange-deep)}
 .tab-btn[aria-selected="true"]::after{content:"";position:absolute;left:18px;right:18px;bottom:-1px;height:3px;background:var(--orange);border-radius:3px 3px 0 0}
 .tab-panel[hidden]{display:none}
+
+/* ── Footer legal links ──────────────────────────────────────────── */
+.foot-legal{display:flex;flex-wrap:wrap;gap:4px 16px}
+.foot-legal a{color:#8F877C}
+
+/* ── Legal pages (privacy, terms, cookies, disclaimer) ───────────── */
+.legal{max-width:780px;margin:0 auto;font-size:.98rem;line-height:1.7}
+.legal h2{font-size:1.35rem;margin:2.4em 0 .7em;scroll-margin-top:100px}
+.legal h3{font-family:var(--body);font-size:1.05rem;font-weight:700;margin:1.8em 0 .6em;scroll-margin-top:100px}
+.legal h2:first-child,.legal h3:first-child{margin-top:0}
+.legal p,.legal ul{margin-bottom:1em}
+.legal ul{padding-left:1.4em}
+.legal ul ul{margin:.4em 0 0}
+.legal li{margin-bottom:.4em}
+.legal a{color:var(--orange-deep);font-weight:600;overflow-wrap:anywhere}
+.legal [id]{scroll-margin-top:100px}
+.legal .scroll-x{margin:1.2em 0 1.6em;border:1px solid var(--line);border-radius:var(--r)}
+.legal table{width:100%;border-collapse:collapse;background:#fff;font-size:.9rem}
+.legal table:has(th){min-width:520px}
+.legal td:first-child:not(:only-child){white-space:nowrap}
+.legal th{background:var(--black);color:#fff;font-family:var(--body);font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;text-align:left;padding:12px 16px}
+.legal td{padding:12px 16px;border-top:1px solid var(--line);vertical-align:top}
+.legal tr:first-child td{border-top:0}
