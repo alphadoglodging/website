@@ -57,6 +57,7 @@ How PartnerPress developers make, review, publish, and roll back changes to this
    - Leftover WordPress `wp-content` links.
    - Header or footer differences between pages.
    - Redirects in `site/_redirects` that point to a page that doesn't exist.
+   - Pages missing the Google Analytics tag. Copy the tag block from any existing page into a new page's `<head>`.
 
    Warnings (large images, `$XX` placeholders) are worth fixing but don't block.
 6. **Commit.** Keep one logical change per commit. Write the message in the imperative, describing what a site visitor would notice, for example "Update holiday closure dates on contact page".

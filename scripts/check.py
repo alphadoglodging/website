@@ -75,6 +75,13 @@ for tag in ("header", "footer"):
                 for name in names:
                     errors.append(f"<{tag}> in {name} differs from the other pages")
 
+# 3b. Every page loads Google Analytics.
+GA_ID = "G-RBP0XGS02Y"
+for page in PAGES:
+    html = page.read_text(encoding="utf-8")
+    if f"googletagmanager.com/gtag/js?id={GA_ID}" not in html or f"gtag('config', '{GA_ID}')" not in html:
+        errors.append(f"Missing Google Analytics tag ({GA_ID}): {page.name}")
+
 # 4. Oversized images (warning only).
 for path in (SITE / "images").rglob("*"):
     if path.suffix.lower() in (".jpg", ".jpeg", ".png", ".webp", ".gif"):
