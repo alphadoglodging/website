@@ -27,6 +27,8 @@ never published.
 | `local-resources.html` | Local Resources |
 | `gallery.html` | Photo & Video Gallery |
 | `pricing-calculator.html` | Pricing Calculator |
+| `privacy-policy.html`, `terms-conditions.html`, `cookie-policy.html`, `disclaimer.html`, `data-subject-access-request.html` | Legal pages (linked in the footer) |
+| `_redirects` | Sends old WordPress addresses to the new pages (Netlify reads it) |
 | `css/styles.css` | All styling & brand colors (edit colors at the top) |
 | `js/main.js` | Menu, animations, lightbox (no need to touch) |
 | `images/` | Put ALL photos and videos here |
@@ -91,8 +93,8 @@ full-screen when clicked automatically.
 ## One rule of thumb
 
 The header (menu) and footer are repeated on every page. If you change
-a menu item, phone number, or hours, make the same change in **all 14
-HTML files** (a find-and-replace across the folder takes seconds in
+a menu item, phone number, or hours, make the same change in **every
+HTML file** (a find-and-replace across the folder takes seconds in
 VS Code or any editor: Edit → Replace in Files).
 
 ## Hosting

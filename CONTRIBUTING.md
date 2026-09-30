@@ -42,7 +42,7 @@ How PartnerPress developers make, review, publish, and roll back changes to this
    ```
    git switch -c update/holiday-hours
    ```
-3. **Edit files in `site/`.** The header and footer are repeated in all 14 HTML files. A change to the menu, phone number, hours, or footer must be made in every page (use find-and-replace across `site/`).
+3. **Edit files in `site/`.** The header and footer are repeated in every HTML file. A change to the menu, phone number, hours, or footer must be made in every page (use find-and-replace across `site/`).
 4. **Preview locally.**
    ```
    python3 -m http.server 8080 --directory site
@@ -56,6 +56,7 @@ How PartnerPress developers make, review, publish, and roll back changes to this
    - Broken local links and missing images.
    - Leftover WordPress `wp-content` links.
    - Header or footer differences between pages.
+   - Redirects in `site/_redirects` that point to a page that doesn't exist.
 
    Warnings (large images, `$XX` placeholders) are worth fixing but don't block.
 6. **Commit.** Keep one logical change per commit. Write the message in the imperative, describing what a site visitor would notice, for example "Update holiday closure dates on contact page".
@@ -78,7 +79,7 @@ The same workflow, without the command line.
 
 1. **Start from the live version.** Set **Current Branch** to `main`, then click **Fetch origin**, and **Pull origin** if it appears.
 2. **Create a branch.** **Current Branch > New Branch**, name it for the change (for example `update/holiday-hours`), and base it on `main`.
-3. **Edit files in `site/`** in your text editor. **Repository > Show in Finder** opens the folder. The same header and footer rule applies: change all 14 pages.
+3. **Edit files in `site/`** in your text editor. **Repository > Show in Finder** opens the folder. The same header and footer rule applies: change every page.
 4. **Preview locally.** Double-click `site/index.html` (or any page) to open it in your browser. Every link on the site is relative, so pages open correctly this way.
 5. **Run the checks.** **Repository > Open in Terminal**, then paste `python3 scripts/check.py` and press Return. Fix any errors it lists. Claude Code users can ask Claude to run the checks instead.
 6. **Commit.** On the **Changes** tab, review the changed files, write a summary such as "Update holiday closure dates on contact page", and click **Commit to update/holiday-hours**.
