@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- ═══ EDIT: Page title & description (what Google shows in search results) ═══ -->
+<title>Gallery | AlphaDog Lodging</title>
+<meta name="description" content="Photos and videos of the AlphaDog pack: daycare play, boarding guests, fresh grooms, hikes, and more.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<meta name="theme-color" content="#232020">
+<meta property="og:title" content="Gallery | AlphaDog Lodging">
+<meta property="og:description" content="Photos and videos of the AlphaDog pack: daycare play, boarding guests, fresh grooms, hikes, and more.">
+<meta property="og:type" content="website">
+<!-- ═══ EDIT: after hosting, set og:image to the FULL address of a photo,
+     e.g. https://alphadoglodging.com/images/hero-poster.jpg — this is
+     the preview image shown when the page is shared/texted ═══ -->
+<link rel="icon" type="image/png" href="images/favicon.png">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<!-- ════════════════════════════════════════════════════════════════
+     HEADER / NAVIGATION — identical on every page.
+     ⚠ If you edit the menu, make the same edit on ALL pages so the
+     nav stays consistent across the site.
+     ═══ NOTE: The "Book Now" button's link is set in ONE place:
+     js/main.js (top of the file). Edit it there and every booking
+     button on every page updates automatically. ═══
+     ════════════════════════════════════════════════════════════════ -->
+<header>
+  <div class="wrap nav">
+    <a href="index.html" class="brand">
+      <img src="images/logo-badge.png" alt="" class="badge-logo">
+      AlphaDog
+    </a>
+    <nav aria-label="Main">
+      <ul class="menu" id="menu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Services <span class="caret">▾</span></a>
+          <div class="dropdown">
+            <a href="daycare-boarding.html"><strong>Daycare &amp; Boarding</strong><span>Outdoor group play, overnight stays</span></a>
+            <a href="enrichment.html"><strong>Enrichment &amp; Hikes</strong><span>AlphaDog Outdoors adventures</span></a>
+            <a href="training.html"><strong>Training</strong><span>Obedience &amp; behavior with Mike Wombacher</span></a>
+            <a href="grooming.html"><strong>Grooming</strong><span>Full-service spa</span></a>
+            <a href="service-training.html"><strong>Service Dog Training</strong><span>AlphaDog Assist program</span></a>
+          </div>
+        </li>
+        <li><a href="gallery.html" class="active">Gallery</a></li>
+        <li><a href="about.html">About <span class="caret">▾</span></a>
+          <div class="dropdown">
+            <a href="about.html"><strong>About &amp; Team</strong><span>Our story, staff &amp; facility</span></a>
+            <a href="faq-policies.html"><strong>FAQ &amp; Policies</strong><span>Requirements, policies &amp; answers</span></a>
+          </div>
+        </li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+    <a href="https://alphadoglodging.portal.gingrapp.com/public/login/Ii9zZWN1cmUvaG9tZSI=" data-gingr="apply" class="btn btn-book nav-book">Apply Now</a>
+    <button class="hamb" id="hamb" aria-label="Open menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<!-- ═══ EDIT: Page banner text ═══ -->
+<section class="page-hero">
+  <svg class="paw-watermark" viewBox="0 0 100 100"><g fill="#E8AC34"><ellipse cx="50" cy="64" rx="20" ry="16"/><ellipse cx="27" cy="44" rx="8" ry="10"/><ellipse cx="42" cy="33" rx="8" ry="10"/><ellipse cx="58" cy="33" rx="8" ry="10"/><ellipse cx="73" cy="44" rx="8" ry="10"/></g></svg>
+  <div class="wrap reveal">
+    <span class="eyebrow">Gallery</span>
+    <h1>Get to know AlphaDog</h1>
+    <p>We're busy collecting the best images to showcase our facility, employees and all the very good dogs we enjoy spending time with every day. Check back for updates! In the meantime, we are posting short videos and images daily on our social media channels (see below).</p>
+  </div>
+</section>
+
+<section class="pad">
+  <div class="wrap">
+
+    <!-- ═══ GALLERY PHOTOS — two groups: the facility, then the dogs.
+         Each tile: thumbnail in src, full-size in data-full (opens full-screen
+         on click). To add one, copy a <figure> line and change the filenames.
+         Photos live in images/gallery/. No captions by design. ═══ -->
+    <div class="sec-head reveal"><span class="eyebrow">Our place</span><h2>The facility</h2></div>
+    <div class="gallery-grid">
+      <figure class="g-item reveal"><img src="images/gallery/fac01.jpg" data-full="images/gallery/fac01-lg.jpg" alt="AlphaDog facility" loading="lazy"></figure>
+      <figure class="g-item reveal"><img src="images/gallery/fac03.jpg" data-full="images/gallery/fac03-lg.jpg" alt="AlphaDog facility" loading="lazy"></figure>
+      <figure class="g-item reveal"><img src="images/gallery/fac08.jpg" data-full="images/gallery/fac08-lg.jpg" alt="AlphaDog facility" loading="lazy"></figure>
+      <figure class="g-item reveal"><img src="images/gallery/fac10.jpg" data-full="images/gallery/fac10-lg.jpg" alt="AlphaDog facility" loading="lazy"></figure>
+    </div>
+
+    <div class="sec-head reveal" style="margin-top:48px"><span class="eyebrow">Our guests</span><h2>The dogs</h2></div>
+    <div class="gallery-grid">
+      <figure class="g-item reveal"><img src="images/gallery/dog01.jpg" data-full="images/gallery/dog01-lg.jpg" alt="A dog at AlphaDog" loading="lazy"></figure>
+      <figure class="g-item reveal"><img src="images/gallery/dog02.jpg" data-full="images/gallery/dog02-lg.jpg" alt="A dog at AlphaDog" loading="lazy"></figure>
+      <figure class="g-item reveal"><img src="images/gallery/dog03.jpg" data-full="images/gallery/dog03-lg.jpg" alt="A dog at AlphaDog" loading="lazy"></figure>
+      <figure class="g-item reveal"><img src="images/gallery/dog04.jpg" data-full="images/gallery/dog04-lg.jpg" alt="A dog at AlphaDog" loading="lazy"></figure>
+      <figure class="g-item reveal"><img src="images/gallery/dog05.jpg" data-full="images/gallery/dog05-lg.jpg" alt="A dog at AlphaDog" loading="lazy"></figure>
+      <figure class="g-item reveal"><img src="images/gallery/dog06.jpg" data-full="images/gallery/dog06-lg.jpg" alt="A dog at AlphaDog" loading="lazy"></figure>
+      <figure class="g-item reveal"><img src="images/gallery/dog07.jpg" data-full="images/gallery/dog07-lg.jpg" alt="A dog at AlphaDog" loading="lazy"></figure>
+      <figure class="g-item reveal"><img src="images/gallery/dog08.jpg" data-full="images/gallery/dog08-lg.jpg" alt="A dog at AlphaDog" loading="lazy"></figure>
+      <figure class="g-item reveal"><img src="images/gallery/dog09.jpg" data-full="images/gallery/dog09-lg.jpg" alt="A dog at AlphaDog" loading="lazy"></figure>
+      <figure class="g-item reveal"><img src="images/gallery/dog10.jpg" data-full="images/gallery/dog10-lg.jpg" alt="A dog at AlphaDog" loading="lazy"></figure>
+      <figure class="g-item reveal"><img src="images/gallery/dog11.jpg" data-full="images/gallery/dog11-lg.jpg" alt="A dog at AlphaDog" loading="lazy"></figure>
+      <figure class="g-item reveal"><img src="images/gallery/dog12.jpg" data-full="images/gallery/dog12-lg.jpg" alt="A dog at AlphaDog" loading="lazy"></figure>
+      <figure class="g-item reveal"><img src="images/gallery/dog13.jpg" data-full="images/gallery/dog13-lg.jpg" alt="A dog at AlphaDog" loading="lazy"></figure>
+      <figure class="g-item reveal"><img src="images/gallery/dog14.jpg" data-full="images/gallery/dog14-lg.jpg" alt="A dog at AlphaDog" loading="lazy"></figure>
+      <figure class="g-item reveal"><img src="images/gallery/dog15.jpg" data-full="images/gallery/dog15-lg.jpg" alt="A dog at AlphaDog" loading="lazy"></figure>
+      <figure class="g-item reveal"><img src="images/gallery/dog16.jpg" data-full="images/gallery/dog16-lg.jpg" alt="A dog at AlphaDog" loading="lazy"></figure>
+      <figure class="g-item reveal"><img src="images/gallery/dog17.jpg" data-full="images/gallery/dog17-lg.jpg" alt="A dog at AlphaDog" loading="lazy"></figure>
+      <figure class="g-item reveal"><img src="images/gallery/dog18.jpg" data-full="images/gallery/dog18-lg.jpg" alt="A dog at AlphaDog" loading="lazy"></figure>
+      <figure class="g-item reveal"><img src="images/gallery/dog19.jpg" data-full="images/gallery/dog19-lg.jpg" alt="A dog at AlphaDog" loading="lazy"></figure>
+      <figure class="g-item reveal"><img src="images/gallery/dog20.jpg" data-full="images/gallery/dog20-lg.jpg" alt="A dog at AlphaDog" loading="lazy"></figure>
+      <figure class="g-item reveal"><img src="images/gallery/dog21.jpg" data-full="images/gallery/dog21-lg.jpg" alt="A dog at AlphaDog" loading="lazy"></figure>
+      <figure class="g-item reveal"><img src="images/gallery/dog23.jpg" data-full="images/gallery/dog23-lg.jpg" alt="A dog at AlphaDog" loading="lazy"></figure>
+      <figure class="g-item reveal"><img src="images/gallery/dog24.jpg" data-full="images/gallery/dog24-lg.jpg" alt="A dog at AlphaDog" loading="lazy"></figure>
+      <figure class="g-item reveal"><img src="images/gallery/dog25.jpg" data-full="images/gallery/dog25-lg.jpg" alt="A dog at AlphaDog" loading="lazy"></figure>
+      <figure class="g-item reveal"><img src="images/gallery/dog26.jpg" data-full="images/gallery/dog26-lg.jpg" alt="A dog at AlphaDog" loading="lazy"></figure>
+      <figure class="g-item reveal"><img src="images/gallery/dog27.jpg" data-full="images/gallery/dog27-lg.jpg" alt="A dog at AlphaDog" loading="lazy"></figure>
+      <figure class="g-item reveal"><img src="images/gallery/dog28.jpg" data-full="images/gallery/dog28-lg.jpg" alt="A dog at AlphaDog" loading="lazy"></figure>
+      <figure class="g-item reveal"><img src="images/gallery/dog29.jpg" data-full="images/gallery/dog29-lg.jpg" alt="A dog at AlphaDog" loading="lazy"></figure>
+      <figure class="g-item reveal"><img src="images/gallery/dog30.jpg" data-full="images/gallery/dog30-lg.jpg" alt="A dog at AlphaDog" loading="lazy"></figure>
+      <figure class="g-item reveal"><img src="images/gallery/dog31.jpg" data-full="images/gallery/dog31-lg.jpg" alt="A dog at AlphaDog" loading="lazy"></figure>
+      <figure class="g-item reveal"><img src="images/gallery/dog32.jpg" data-full="images/gallery/dog32-lg.jpg" alt="A dog at AlphaDog" loading="lazy"></figure>
+      <figure class="g-item reveal"><img src="images/gallery/dog33.jpg" data-full="images/gallery/dog33-lg.jpg" alt="A dog at AlphaDog" loading="lazy"></figure>
+      <figure class="g-item reveal"><img src="images/gallery/dog34.jpg" data-full="images/gallery/dog34-lg.jpg" alt="A dog at AlphaDog" loading="lazy"></figure>
+      <figure class="g-item reveal"><img src="images/gallery/dog35.jpg" data-full="images/gallery/dog35-lg.jpg" alt="A dog at AlphaDog" loading="lazy"></figure>
+      <figure class="g-item reveal"><img src="images/gallery/dog36.jpg" data-full="images/gallery/dog36-lg.jpg" alt="A dog at AlphaDog" loading="lazy"></figure>
+      <figure class="g-item reveal"><img src="images/gallery/dog37.jpg" data-full="images/gallery/dog37-lg.jpg" alt="A dog at AlphaDog" loading="lazy"></figure>
+      <figure class="g-item reveal"><img src="images/gallery/dog38.jpg" data-full="images/gallery/dog38-lg.jpg" alt="A dog at AlphaDog" loading="lazy"></figure>
+      <figure class="g-item reveal"><img src="images/gallery/dog39.jpg" data-full="images/gallery/dog39-lg.jpg" alt="A dog at AlphaDog" loading="lazy"></figure>
+      <figure class="g-item reveal"><img src="images/gallery/dog40.jpg" data-full="images/gallery/dog40-lg.jpg" alt="A dog at AlphaDog" loading="lazy"></figure>
+      <figure class="g-item reveal"><img src="images/gallery/dog41.jpg" data-full="images/gallery/dog41-lg.jpg" alt="A dog at AlphaDog" loading="lazy"></figure>
+      <figure class="g-item reveal"><img src="images/gallery/dog42.jpg" data-full="images/gallery/dog42-lg.jpg" alt="A dog at AlphaDog" loading="lazy"></figure>
+      <figure class="g-item reveal"><img src="images/gallery/dog43.jpg" data-full="images/gallery/dog43-lg.jpg" alt="A dog at AlphaDog" loading="lazy"></figure>
+      <figure class="g-item reveal"><img src="images/gallery/dog44.jpg" data-full="images/gallery/dog44-lg.jpg" alt="A dog at AlphaDog" loading="lazy"></figure>
+      <figure class="g-item reveal"><img src="images/gallery/dog45.jpg" data-full="images/gallery/dog45-lg.jpg" alt="A dog at AlphaDog" loading="lazy"></figure>
+      <figure class="g-item reveal"><img src="images/gallery/dog46.jpg" data-full="images/gallery/dog46-lg.jpg" alt="A dog at AlphaDog" loading="lazy"></figure>
+      <figure class="g-item reveal"><img src="images/gallery/dog47.jpg" data-full="images/gallery/dog47-lg.jpg" alt="A dog at AlphaDog" loading="lazy"></figure>
+      <figure class="g-item reveal"><img src="images/gallery/dog48.jpg" data-full="images/gallery/dog48-lg.jpg" alt="A dog at AlphaDog" loading="lazy"></figure>
+      <figure class="g-item reveal"><img src="images/gallery/dog49.jpg" data-full="images/gallery/dog49-lg.jpg" alt="A dog leaping to catch a tennis ball in the yard at AlphaDog" loading="lazy"></figure>
+    </div>
+
+  </div>
+</section>
+
+<!-- Lightbox viewer — leave this alone; it's what opens photos full-screen -->
+<div class="lightbox" id="lightbox" role="dialog" aria-label="Photo viewer">
+  <img src="" alt="">
+  <div class="lb-cap"></div>
+</div>
+
+<!-- ═══ FOLLOW US — live Instagram posts + social links ═══════════════
+ TO FEATURE A DIFFERENT POST: open the post on instagram.com, copy its
+ URL, and paste it over one of the data-instgrm-permalink URLs below.
+ Note: embeds appear when viewed online, not in a local file:// preview.
+════════════════════════════════════════════════════════════════════ -->
+<section class="alt pad">
+  <div class="wrap">
+    <div class="sec-head reveal" style="display:flex;justify-content:space-between;align-items:flex-end;max-width:none;flex-wrap:wrap;gap:14px">
+      <div><span class="eyebrow">More every week</span><h2>Follow the pack on social</h2></div>
+      <div style="display:flex;gap:18px;flex-wrap:wrap">
+        <a href="https://www.instagram.com/alphadoglodging/" target="_blank" rel="noopener" class="more" style="color:var(--orange-deep);font-weight:600">Instagram →</a>
+        <a href="https://www.facebook.com/alphadoglodging/" target="_blank" rel="noopener" class="more" style="color:var(--orange-deep);font-weight:600">Facebook →</a>
+      </div>
+    </div>
+    <div class="insta-live reveal">
+      <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/alphadoglodging/p/DH6lKcspVt2/" data-instgrm-version="14"></blockquote>
+      <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/alphadoglodging/p/DHwUSh1z9GS/" data-instgrm-version="14"></blockquote>
+      <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/alphadoglodging/p/C_qeoWavpVL/" data-instgrm-version="14"></blockquote>
+    </div>
+    <script async src="https://www.instagram.com/embed.js"></script>
+  </div>
+</section>
+
+<!-- ═══ Bottom call-to-action — edit the text or the button link ═══ -->
+<section class="banner-cta">
+  <div class="wrap inner reveal">
+    <h2>Want your pup featured?</h2>
+    <p>Tag us on Instagram or email your favorite AlphaDog moments. We love showing off the pack.</p>
+    <!-- ═══ EDIT: link the button to your Gingr page or contact page ═══ -->
+    <a href="contact.html" class="btn btn-gold">Contact us</a>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════════════════════
+     FOOTER — identical on every page.
+     ═══ EDIT: address, phone, email, and hours below ═══
+     ⚠ If you edit the footer, make the same edit on ALL pages.
+     ════════════════════════════════════════════════════════════════ -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <img src="images/logo-full.png" alt="AlphaDog Lodging" class="foot-logo">
+        <p style="font-size:.9rem;max-width:32ch">We're a Marin dog daycare, boarding, training and grooming facility with outdoor group play and well-trained, caring staff. Certified Green Business &amp; Climate Smart member.</p>
+        <!-- ═══ EDIT: social links — update the URLs if the handles change ═══ -->
+        <div class="social-row">
+          <a href="https://www.instagram.com/alphadoglodging/" target="_blank" rel="noopener" aria-label="AlphaDog on Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><rect x="2.5" y="2.5" width="19" height="19" rx="5"/><circle cx="12" cy="12" r="4.5"/><circle cx="17.5" cy="6.5" r="1" fill="#fff" stroke="none"/></svg></a>
+          <a href="https://www.facebook.com/alphadoglodging/" target="_blank" rel="noopener" aria-label="AlphaDog on Facebook"><svg width="18" height="18" viewBox="0 0 24 24" fill="#fff"><path d="M13.5 22v-8h2.7l.4-3.2h-3.1V8.7c0-.9.3-1.6 1.6-1.6h1.7V4.2c-.3 0-1.3-.1-2.5-.1-2.5 0-4.2 1.5-4.2 4.3v2.4H7.4V14h2.7v8z"/></svg></a>
+        </div>
+
+      </div>
+      <div><h4>Visit</h4><ul>
+        <li>230 Shoreline Highway</li>
+        <li>Mill Valley, CA 94941</li>
+        <li><a href="tel:4153832111">(415) 383-2111</a></li>
+        <li><a href="mailto:dogs@alphadoglodging.com">dogs@alphadoglodging.com</a></li>
+        <li>Drop-off &amp; pick-up: 7am–7pm daily</li>
+      </ul></div>
+      <div><h4>Services</h4><ul>
+        <li><a href="daycare-boarding.html">Daycare &amp; Boarding</a></li>
+        <li><a href="enrichment.html">Enrichment &amp; Hikes</a></li>
+        <li><a href="training.html">Training</a></li>
+        <li><a href="grooming.html">Grooming</a></li>
+      </ul></div>
+      <div><h4>More</h4><ul>
+        <li><a href="about.html">About &amp; Team</a></li>
+        <li><a href="faq-policies.html">FAQ &amp; Policies</a></li>
+        <li><a href="partners.html">Local Partners</a></li>
+        <li><a href="local-resources.html">Local Resources</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+      </ul></div>
+    </div>
+    <div class="foot-bottom"><span>© 2026 AlphaDog Lodging. All rights reserved.</span><span>Booking powered by Gingr</span></div>
+  </div>
+</footer>
+
+<script src="js/main.js?v=2"></script>
+</body>
+</html>

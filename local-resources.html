@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- ═══ EDIT: Page title & description (what Google shows in search results) ═══ -->
+<title>Local Resources | AlphaDog Lodging</title>
+<meta name="description" content="Recommended local vets, emergency care, trails, and pet resources for dog owners in Mill Valley and Marin County.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<meta name="theme-color" content="#232020">
+<meta property="og:title" content="Local Resources | AlphaDog Lodging">
+<meta property="og:description" content="Recommended local vets, emergency care, trails, and pet resources for dog owners in Mill Valley and Marin County.">
+<meta property="og:type" content="website">
+<!-- ═══ EDIT: after hosting, set og:image to the FULL address of a photo,
+     e.g. https://alphadoglodging.com/images/hero-poster.jpg — this is
+     the preview image shown when the page is shared/texted ═══ -->
+<link rel="icon" type="image/png" href="images/favicon.png">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<!-- ════════════════════════════════════════════════════════════════
+     HEADER / NAVIGATION — identical on every page.
+     ⚠ If you edit the menu, make the same edit on ALL pages so the
+     nav stays consistent across the site.
+     ═══ NOTE: The "Book Now" button's link is set in ONE place:
+     js/main.js (top of the file). Edit it there and every booking
+     button on every page updates automatically. ═══
+     ════════════════════════════════════════════════════════════════ -->
+<header>
+  <div class="wrap nav">
+    <a href="index.html" class="brand">
+      <img src="images/logo-badge.png" alt="" class="badge-logo">
+      AlphaDog
+    </a>
+    <nav aria-label="Main">
+      <ul class="menu" id="menu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Services <span class="caret">▾</span></a>
+          <div class="dropdown">
+            <a href="daycare-boarding.html"><strong>Daycare &amp; Boarding</strong><span>Outdoor group play, overnight stays</span></a>
+            <a href="enrichment.html"><strong>Enrichment &amp; Hikes</strong><span>AlphaDog Outdoors adventures</span></a>
+            <a href="training.html"><strong>Training</strong><span>Obedience &amp; behavior with Mike Wombacher</span></a>
+            <a href="grooming.html"><strong>Grooming</strong><span>Full-service spa</span></a>
+            <a href="service-training.html"><strong>Service Dog Training</strong><span>AlphaDog Assist program</span></a>
+          </div>
+        </li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="about.html">About <span class="caret">▾</span></a>
+          <div class="dropdown">
+            <a href="about.html"><strong>About &amp; Team</strong><span>Our story, staff &amp; facility</span></a>
+            <a href="faq-policies.html"><strong>FAQ &amp; Policies</strong><span>Requirements, policies &amp; answers</span></a>
+          </div>
+        </li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+    <a href="https://alphadoglodging.portal.gingrapp.com/public/login/Ii9zZWN1cmUvaG9tZSI=" data-gingr="apply" class="btn btn-book nav-book">Apply Now</a>
+    <button class="hamb" id="hamb" aria-label="Open menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<!-- ═══ EDIT: Page banner text ═══ -->
+<section class="page-hero">
+  <svg class="paw-watermark" viewBox="0 0 100 100"><g fill="#E8AC34"><ellipse cx="50" cy="64" rx="20" ry="16"/><ellipse cx="27" cy="44" rx="8" ry="10"/><ellipse cx="42" cy="33" rx="8" ry="10"/><ellipse cx="58" cy="33" rx="8" ry="10"/><ellipse cx="73" cy="44" rx="8" ry="10"/></g></svg>
+  <div class="wrap reveal">
+    <span class="eyebrow">Local Resources</span>
+    <h1>Our Marin dog-owner cheat sheet</h1>
+    <p>The local businesses and services we recommend to our own clients, with more on the way.</p>
+  </div>
+</section>
+
+<section class="pad">
+  <div class="wrap" style="max-width:900px">
+
+    <!-- ═══ EDIT: RESOURCES ════════════════════════════════════════
+     To add an entry, copy a whole <div class="res-item">…</div> line.
+     To add a category (Emergency & after-hours care, Favorite
+     dog-friendly trails, Pet supplies, etc.), copy the whole
+     <div class="res-group">…</div> block and edit the <h2>.
+    ═════════════════════════════════════════════════════════════ -->
+
+    <div class="res-group reveal">
+      <h2>Veterinarians</h2>
+      <div class="res-item"><div><b>Alto Tiburon Veterinary Hospital</b><br><span>Our vet partner: family-owned, full-service care from wellness exams to surgery and urgent care. 25 N Knoll Rd, Mill Valley · (415) 383-7700</span></div><a href="https://altotiburon.com" target="_blank" rel="noopener">Website →</a></div>
+    </div>
+
+    <div class="res-group reveal">
+      <h2>Training &amp; behavior guides</h2>
+      <div class="res-item"><div><b>Home Alone: Separation Anxiety in Dogs</b><br><span>A free guide written by our training director, Mike Wombacher, on telling true separation anxiety apart from frustration and boredom, with practical protocols for treating both.</span></div><a href="docs/home-alone-separation-anxiety.pdf" target="_blank" rel="noopener">Read the guide (PDF) →</a></div>
+      <div class="res-item"><div><b>Doggone Good training video series</b><br><span>Free foundational training videos from Mike Wombacher covering the core skills every dog and owner should have.</span></div><a href="https://doggonegood.org/training-video-series/" target="_blank" rel="noopener">Watch the series →</a></div>
+    </div>
+
+    <p class="reveal" style="color:var(--muted);font-size:.95rem;margin-top:26px">This list is just getting started. We'll be adding our favorite trails, emergency care contacts, and local pet businesses soon. Have a recommendation? Tell us at the front desk.</p>
+
+  </div>
+</section>
+
+<!-- ═══ Bottom call-to-action — edit the text or the button link ═══ -->
+<section class="banner-cta">
+  <div class="wrap inner reveal">
+    <h2>Know a great local resource?</h2>
+    <p>Tell us at the front desk. If we love it too, we'll add it to the list.</p>
+    <!-- ═══ EDIT: link the button to your Gingr page or contact page ═══ -->
+    <a href="contact.html" class="btn btn-gold">Contact us</a>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════════════════════
+     FOOTER — identical on every page.
+     ═══ EDIT: address, phone, email, and hours below ═══
+     ⚠ If you edit the footer, make the same edit on ALL pages.
+     ════════════════════════════════════════════════════════════════ -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <img src="images/logo-full.png" alt="AlphaDog Lodging" class="foot-logo">
+        <p style="font-size:.9rem;max-width:32ch">We're a Marin dog daycare, boarding, training and grooming facility with outdoor group play and well-trained, caring staff. Certified Green Business &amp; Climate Smart member.</p>
+        <!-- ═══ EDIT: social links — update the URLs if the handles change ═══ -->
+        <div class="social-row">
+          <a href="https://www.instagram.com/alphadoglodging/" target="_blank" rel="noopener" aria-label="AlphaDog on Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><rect x="2.5" y="2.5" width="19" height="19" rx="5"/><circle cx="12" cy="12" r="4.5"/><circle cx="17.5" cy="6.5" r="1" fill="#fff" stroke="none"/></svg></a>
+          <a href="https://www.facebook.com/alphadoglodging/" target="_blank" rel="noopener" aria-label="AlphaDog on Facebook"><svg width="18" height="18" viewBox="0 0 24 24" fill="#fff"><path d="M13.5 22v-8h2.7l.4-3.2h-3.1V8.7c0-.9.3-1.6 1.6-1.6h1.7V4.2c-.3 0-1.3-.1-2.5-.1-2.5 0-4.2 1.5-4.2 4.3v2.4H7.4V14h2.7v8z"/></svg></a>
+        </div>
+
+      </div>
+      <div><h4>Visit</h4><ul>
+        <li>230 Shoreline Highway</li>
+        <li>Mill Valley, CA 94941</li>
+        <li><a href="tel:4153832111">(415) 383-2111</a></li>
+        <li><a href="mailto:dogs@alphadoglodging.com">dogs@alphadoglodging.com</a></li>
+        <li>Drop-off &amp; pick-up: 7am–7pm daily</li>
+      </ul></div>
+      <div><h4>Services</h4><ul>
+        <li><a href="daycare-boarding.html">Daycare &amp; Boarding</a></li>
+        <li><a href="enrichment.html">Enrichment &amp; Hikes</a></li>
+        <li><a href="training.html">Training</a></li>
+        <li><a href="grooming.html">Grooming</a></li>
+      </ul></div>
+      <div><h4>More</h4><ul>
+        <li><a href="about.html">About &amp; Team</a></li>
+        <li><a href="faq-policies.html">FAQ &amp; Policies</a></li>
+        <li><a href="partners.html">Local Partners</a></li>
+        <li><a href="local-resources.html">Local Resources</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+      </ul></div>
+    </div>
+    <div class="foot-bottom"><span>© 2026 AlphaDog Lodging. All rights reserved.</span><span>Booking powered by Gingr</span></div>
+  </div>
+</footer>
+
+<script src="js/main.js?v=2"></script>
+</body>
+</html>

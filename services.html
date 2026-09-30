@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- ═══ EDIT: Page title & description (what Google shows in search results) ═══ -->
+<title>Services | AlphaDog Lodging</title>
+<meta name="description" content="Daycare, boarding, obedience training, service dog training, grooming and outdoor enrichment, all under one roof in Mill Valley.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<meta name="theme-color" content="#232020">
+<meta property="og:title" content="Services | AlphaDog Lodging">
+<meta property="og:description" content="Daycare, boarding, obedience training, service dog training, grooming and outdoor enrichment, all under one roof in Mill Valley.">
+<meta property="og:type" content="website">
+<!-- ═══ EDIT: after hosting, set og:image to the FULL address of a photo,
+     e.g. https://alphadoglodging.com/images/hero-poster.jpg — this is
+     the preview image shown when the page is shared/texted ═══ -->
+<link rel="icon" type="image/png" href="images/favicon.png">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<!-- ════════════════════════════════════════════════════════════════
+     HEADER / NAVIGATION — identical on every page.
+     ⚠ If you edit the menu, make the same edit on ALL pages so the
+     nav stays consistent across the site.
+     ═══ NOTE: The "Book Now" button's link is set in ONE place:
+     js/main.js (top of the file). Edit it there and every booking
+     button on every page updates automatically. ═══
+     ════════════════════════════════════════════════════════════════ -->
+<header>
+  <div class="wrap nav">
+    <a href="index.html" class="brand">
+      <img src="images/logo-badge.png" alt="" class="badge-logo">
+      AlphaDog
+    </a>
+    <nav aria-label="Main">
+      <ul class="menu" id="menu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html" class="active">Services <span class="caret">▾</span></a>
+          <div class="dropdown">
+            <a href="daycare-boarding.html"><strong>Daycare &amp; Boarding</strong><span>Outdoor group play, overnight stays</span></a>
+            <a href="enrichment.html"><strong>Enrichment &amp; Hikes</strong><span>AlphaDog Outdoors adventures</span></a>
+            <a href="training.html"><strong>Training</strong><span>Obedience &amp; behavior with Mike Wombacher</span></a>
+            <a href="grooming.html"><strong>Grooming</strong><span>Full-service spa</span></a>
+            <a href="service-training.html"><strong>Service Dog Training</strong><span>AlphaDog Assist program</span></a>
+          </div>
+        </li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="about.html">About <span class="caret">▾</span></a>
+          <div class="dropdown">
+            <a href="about.html"><strong>About &amp; Team</strong><span>Our story, staff &amp; facility</span></a>
+            <a href="faq-policies.html"><strong>FAQ &amp; Policies</strong><span>Requirements, policies &amp; answers</span></a>
+          </div>
+        </li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+    <a href="https://alphadoglodging.portal.gingrapp.com/public/login/Ii9zZWN1cmUvaG9tZSI=" data-gingr="apply" class="btn btn-book nav-book">Apply Now</a>
+    <button class="hamb" id="hamb" aria-label="Open menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<!-- ═══ EDIT: Page banner text ═══ -->
+<section class="page-hero">
+  <svg class="paw-watermark" viewBox="0 0 100 100"><g fill="#E8AC34"><ellipse cx="50" cy="64" rx="20" ry="16"/><ellipse cx="27" cy="44" rx="8" ry="10"/><ellipse cx="42" cy="33" rx="8" ry="10"/><ellipse cx="58" cy="33" rx="8" ry="10"/><ellipse cx="73" cy="44" rx="8" ry="10"/></g></svg>
+  <div class="wrap reveal">
+    <span class="eyebrow">Services</span>
+    <h1>Everything your dog needs, under one roof</h1>
+    <p>We weave all of our services into one regulated, supervised routine for the health and happiness of the dogs.</p>
+  </div>
+</section>
+
+<section class="pad">
+  <div class="wrap">
+    <div class="svc-grid">
+      <div class="card reveal"><div class="ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#E8862E" stroke-width="2"><path d="M3 10l9-7 9 7v9a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg></div><h3>Daycare &amp; Boarding</h3><p>Outdoor group play on 18 turf yards by day, warm and cozy lodging by night, with staff on site around the clock.</p><a class="more" href="daycare-boarding.html">Learn more</a></div>
+      <div class="card reveal"><div class="ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#E8862E" stroke-width="2"><path d="M3 17l5-5 4 4 8-9M21 7v5h-5"/></svg></div><h3>Enrichment &amp; Hikes</h3><p>AlphaDog Outdoors adds trail hikes, sniffaris, beach romps, and structured play sessions to any stay.</p><a class="more" href="enrichment.html">Learn more</a></div>
+      <div class="card reveal"><div class="ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#E8862E" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M5 21c0-4 3-6 7-6s7 2 7 6"/></svg></div><h3>Training</h3><p>We offer obedience, behavior modification, and board-and-train programs designed by master trainer Mike Wombacher.</p><a class="more" href="training.html">Learn more</a></div>
+      <div class="card reveal"><div class="ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#E8862E" stroke-width="2"><path d="M14 4l6 6M3 21l3-1 11-11-2-2L4 18z"/></svg></div><h3>Grooming</h3><p>Our spa is full-service and includes baths, brush-outs, nail trims, and breed-specific styling, easy to add to any daycare or boarding day.</p><a class="more" href="grooming.html">Learn more</a></div>
+      <div class="card reveal"><div class="ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#E8862E" stroke-width="2"><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7z"/></svg></div><h3>Service Dog Training</h3><p>AlphaDog Assist trains dogs for migraine alerting, smoke and gas detection, PTSD support, and more.</p><a class="more" href="service-training.html">Learn more</a></div>
+      <div class="card feature reveal"><h3>Current specials</h3><p><!-- ═══ EDIT: describe your current promotion here, or delete this card ═══ -->Ask the front desk about this season's specials and package pricing.</p><a class="more" href="contact.html">Get in touch</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ STAY ESTIMATOR callout — links to the pricing calculator ═══ -->
+<section class="alt pad" style="padding-top:56px;padding-bottom:56px">
+  <div class="wrap reveal" style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:22px">
+    <div style="max-width:56ch">
+      <span class="eyebrow">Plan ahead</span>
+      <h2 style="font-size:1.75rem;margin-top:8px">Know the cost before you book</h2>
+      <p style="color:var(--muted);margin-top:8px">Mix and match daycare, boarding, training, outdoor adventures, and grooming — and watch the total update live.</p>
+    </div>
+    <a href="pricing-calculator.html" class="btn btn-book" style="padding:15px 28px">Estimate your dog's stay</a>
+  </div>
+</section>
+
+<!-- ═══ Bottom call-to-action — edit the text or the button link ═══ -->
+<section class="banner-cta">
+  <div class="wrap inner reveal">
+    <h2>Not sure which service fits?</h2>
+    <p>Start with a complimentary assessment. Our team will meet your dog and recommend the right mix of play, training, and enrichment.</p>
+    <!-- ═══ EDIT: link the button to your Gingr page or contact page ═══ -->
+    <a href="contact.html" class="btn btn-gold">Contact us</a>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════════════════════
+     FOOTER — identical on every page.
+     ═══ EDIT: address, phone, email, and hours below ═══
+     ⚠ If you edit the footer, make the same edit on ALL pages.
+     ════════════════════════════════════════════════════════════════ -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <img src="images/logo-full.png" alt="AlphaDog Lodging" class="foot-logo">
+        <p style="font-size:.9rem;max-width:32ch">We're a Marin dog daycare, boarding, training and grooming facility with outdoor group play and well-trained, caring staff. Certified Green Business &amp; Climate Smart member.</p>
+        <!-- ═══ EDIT: social links — update the URLs if the handles change ═══ -->
+        <div class="social-row">
+          <a href="https://www.instagram.com/alphadoglodging/" target="_blank" rel="noopener" aria-label="AlphaDog on Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><rect x="2.5" y="2.5" width="19" height="19" rx="5"/><circle cx="12" cy="12" r="4.5"/><circle cx="17.5" cy="6.5" r="1" fill="#fff" stroke="none"/></svg></a>
+          <a href="https://www.facebook.com/alphadoglodging/" target="_blank" rel="noopener" aria-label="AlphaDog on Facebook"><svg width="18" height="18" viewBox="0 0 24 24" fill="#fff"><path d="M13.5 22v-8h2.7l.4-3.2h-3.1V8.7c0-.9.3-1.6 1.6-1.6h1.7V4.2c-.3 0-1.3-.1-2.5-.1-2.5 0-4.2 1.5-4.2 4.3v2.4H7.4V14h2.7v8z"/></svg></a>
+        </div>
+
+      </div>
+      <div><h4>Visit</h4><ul>
+        <li>230 Shoreline Highway</li>
+        <li>Mill Valley, CA 94941</li>
+        <li><a href="tel:4153832111">(415) 383-2111</a></li>
+        <li><a href="mailto:dogs@alphadoglodging.com">dogs@alphadoglodging.com</a></li>
+        <li>Drop-off &amp; pick-up: 7am–7pm daily</li>
+      </ul></div>
+      <div><h4>Services</h4><ul>
+        <li><a href="daycare-boarding.html">Daycare &amp; Boarding</a></li>
+        <li><a href="enrichment.html">Enrichment &amp; Hikes</a></li>
+        <li><a href="training.html">Training</a></li>
+        <li><a href="grooming.html">Grooming</a></li>
+      </ul></div>
+      <div><h4>More</h4><ul>
+        <li><a href="about.html">About &amp; Team</a></li>
+        <li><a href="faq-policies.html">FAQ &amp; Policies</a></li>
+        <li><a href="partners.html">Local Partners</a></li>
+        <li><a href="local-resources.html">Local Resources</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+      </ul></div>
+    </div>
+    <div class="foot-bottom"><span>© 2026 AlphaDog Lodging. All rights reserved.</span><span>Booking powered by Gingr</span></div>
+  </div>
+</footer>
+
+<script src="js/main.js?v=2"></script>
+</body>
+</html>

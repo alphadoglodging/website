@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- ═══ EDIT: Page title & description (what Google shows in search results) ═══ -->
+<title>Stay Estimator | AlphaDog Lodging</title>
+<meta name="description" content="Estimate the total cost of your dog's stay: daycare or boarding, training, outdoor adventures, and grooming, all in one place.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<meta name="theme-color" content="#232020">
+<meta property="og:title" content="Stay Estimator | AlphaDog Lodging">
+<meta property="og:description" content="Estimate the total cost of your dog's stay: daycare or boarding, training, outdoor adventures, and grooming, all in one place.">
+<meta property="og:type" content="website">
+<link rel="icon" type="image/png" href="images/favicon.png">
+<link rel="stylesheet" href="css/styles.css">
+
+<!-- ═══ CALCULATOR STYLES — everything below is specific to this page.
+     Colors come from the site-wide tokens in css/styles.css. ═══ -->
+<style>
+.pc-grid{display:grid;grid-template-columns:1.5fr 1fr;gap:28px;align-items:start}
+.pc-card{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:26px 28px;margin-bottom:20px}
+.pc-card h3{font-size:1.25rem;margin-bottom:4px}
+.pc-card .hint{color:var(--muted);font-size:.88rem;margin-bottom:18px}
+.pc-field{margin-bottom:16px}
+.pc-field:last-child{margin-bottom:0}
+.pc-label{display:block;font-weight:600;font-size:.92rem;margin-bottom:8px}
+.pc-pills{display:flex;flex-wrap:wrap;gap:8px}
+.pc-pill{position:relative}
+.pc-pill input{position:absolute;opacity:0;inset:0;cursor:pointer}
+.pc-pill span{display:inline-block;padding:10px 16px;border:1px solid var(--line);border-radius:999px;font-size:.9rem;font-weight:600;background:var(--cloud);transition:.18s;cursor:pointer}
+.pc-pill input:checked+span{background:var(--black);color:#fff;border-color:var(--black)}
+.pc-pill input:focus-visible+span{outline:2px solid var(--orange);outline-offset:2px}
+.pc-inline{display:flex;flex-wrap:wrap;gap:18px 28px}
+.pc-stepper{display:flex;align-items:center;gap:0;border:1px solid var(--line);border-radius:10px;overflow:hidden;width:max-content}
+.pc-stepper button{width:38px;height:40px;border:none;background:var(--cloud);font-size:1.15rem;font-weight:700;cursor:pointer;color:var(--black)}
+.pc-stepper button:hover{background:var(--yellow-soft)}
+.pc-stepper input{width:52px;height:40px;border:none;border-left:1px solid var(--line);border-right:1px solid var(--line);text-align:center;font:inherit;font-weight:700}
+.pc-stepper input:focus-visible{outline:2px solid var(--orange);outline-offset:-2px}
+.pc-select{width:100%;max-width:340px;height:44px;padding:0 12px;border:1px solid var(--line);border-radius:10px;font:inherit;font-size:.92rem;background:#fff}
+.pc-addon{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:12px 0;border-bottom:1px solid var(--line)}
+.pc-addon:last-child{border-bottom:none;padding-bottom:0}
+.pc-addon .nm{font-weight:600;font-size:.94rem}
+.pc-addon .pr{color:var(--muted);font-size:.85rem}
+.pc-summary{position:sticky;top:96px;background:var(--black);color:#fff;border-radius:var(--r);padding:30px;overflow:hidden}
+.pc-summary .paw-watermark{position:absolute;right:-30px;bottom:-30px;width:160px;opacity:.08}
+.pc-summary h3{font-size:1.3rem;margin-bottom:18px;color:#fff}
+.pc-line{display:flex;justify-content:space-between;gap:12px;font-size:.9rem;padding:7px 0;border-bottom:1px dashed rgba(255,255,255,.15)}
+.pc-line .l{color:#DDD6CB}
+.pc-line .v{font-weight:600;white-space:nowrap}
+.pc-total{display:flex;justify-content:space-between;align-items:baseline;margin-top:16px;padding-top:14px;border-top:2px solid var(--yellow)}
+.pc-total .l{font-weight:700}
+.pc-total .v{font-family:var(--display);font-size:1.9rem;font-weight:700;color:var(--yellow)}
+.pc-note{font-size:.78rem;color:#B8B0A4;margin-top:14px;line-height:1.5}
+.pc-tip{display:none;margin-top:12px;background:rgba(232,172,52,.14);border:1px solid rgba(232,172,52,.4);border-radius:10px;padding:10px 14px;font-size:.82rem;color:#F5E3BC}
+.pc-tip.show{display:block}
+.pc-tip a{color:var(--yellow);font-weight:600}
+.pc-empty{color:#B8B0A4;font-size:.9rem}
+.pc-summary .btn{display:block;text-align:center;margin-top:18px}
+@media(max-width:920px){.pc-grid{grid-template-columns:1fr}.pc-summary{position:static}}
+@media(prefers-reduced-motion:reduce){.pc-pill span,.pc-stepper button{transition:none}}
+</style>
+</head>
+<body>
+
+<!-- ════════════════════════════════════════════════════════════════
+     HEADER / NAVIGATION — identical on every page.
+     ⚠ If you edit the menu, make the same edit on ALL pages so the
+     nav stays consistent across the site.
+     ═══ NOTE: The "Book Now" button's link is set in ONE place:
+     js/main.js (top of the file). Edit it there and every booking
+     button on every page updates automatically. ═══
+     ════════════════════════════════════════════════════════════════ -->
+<header>
+  <div class="wrap nav">
+    <a href="index.html" class="brand">
+      <img src="images/logo-badge.png" alt="" class="badge-logo">
+      AlphaDog
+    </a>
+    <nav aria-label="Main">
+      <ul class="menu" id="menu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Services <span class="caret">▾</span></a>
+          <div class="dropdown">
+            <a href="daycare-boarding.html"><strong>Daycare &amp; Boarding</strong><span>Outdoor group play, overnight stays</span></a>
+            <a href="enrichment.html"><strong>Enrichment &amp; Hikes</strong><span>AlphaDog Outdoors adventures</span></a>
+            <a href="training.html"><strong>Training</strong><span>Obedience &amp; behavior with Mike Wombacher</span></a>
+            <a href="grooming.html"><strong>Grooming</strong><span>Full-service spa</span></a>
+            <a href="service-training.html"><strong>Service Dog Training</strong><span>AlphaDog Assist program</span></a>
+          </div>
+        </li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="about.html">About <span class="caret">▾</span></a>
+          <div class="dropdown">
+            <a href="about.html"><strong>About &amp; Team</strong><span>Our story, staff &amp; facility</span></a>
+            <a href="faq-policies.html"><strong>FAQ &amp; Policies</strong><span>Requirements, policies &amp; answers</span></a>
+          </div>
+        </li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+    <a href="https://alphadoglodging.portal.gingrapp.com/public/login/Ii9zZWN1cmUvaG9tZSI=" data-gingr="apply" class="btn btn-book nav-book">Apply Now</a>
+    <button class="hamb" id="hamb" aria-label="Open menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<!-- ═══ EDIT: Page banner text ═══ -->
+<section class="page-hero">
+  <svg class="paw-watermark" viewBox="0 0 100 100"><g fill="#E8AC34"><ellipse cx="50" cy="64" rx="20" ry="16"/><ellipse cx="27" cy="44" rx="8" ry="10"/><ellipse cx="42" cy="33" rx="8" ry="10"/><ellipse cx="58" cy="33" rx="8" ry="10"/><ellipse cx="73" cy="44" rx="8" ry="10"/></g></svg>
+  <div class="wrap reveal">
+    <span class="eyebrow">Stay estimator</span>
+    <h1>Build your dog's stay</h1>
+    <p>Pick a stay, add the extras, and watch the total update as you go. No surprises at the front desk.</p>
+  </div>
+</section>
+
+<section class="pad">
+  <div class="wrap">
+    <div class="pc-grid">
+
+      <!-- ══════════════════ LEFT: THE OPTIONS ══════════════════ -->
+      <div class="reveal">
+
+        <!-- ─── 1. THE STAY ─── -->
+        <div class="pc-card">
+          <h3>1. The stay</h3>
+          <p class="hint">Every visit starts with a daycare day or boarding night. Two or more dogs from the same family get a discounted per-dog rate, and stays long enough to reach a package (11+ or 17+ days/nights) are priced at the package rate. Both are applied automatically below.</p>
+          <div class="pc-field">
+            <span class="pc-label" id="lbl-stay">Type of stay</span>
+            <div class="pc-pills" role="radiogroup" aria-labelledby="lbl-stay">
+              <label class="pc-pill"><input type="radio" name="stay" value="full" checked><span>Full-day daycare · $61</span></label>
+              <label class="pc-pill"><input type="radio" name="stay" value="half"><span>Half-day daycare · $50</span></label>
+              <label class="pc-pill"><input type="radio" name="stay" value="board"><span>Overnight boarding · $90</span></label>
+            </div>
+          </div>
+          <div class="pc-inline">
+            <div class="pc-field">
+              <label class="pc-label" for="days" id="days-label">Days</label>
+              <div class="pc-stepper">
+                <button type="button" data-minus="days" aria-label="Fewer days">−</button>
+                <input type="number" id="days" min="1" max="90" value="1" inputmode="numeric">
+                <button type="button" data-plus="days" aria-label="More days">+</button>
+              </div>
+            </div>
+            <div class="pc-field">
+              <label class="pc-label" for="dogs">Dogs</label>
+              <div class="pc-stepper">
+                <button type="button" data-minus="dogs" aria-label="Fewer dogs">−</button>
+                <input type="number" id="dogs" min="1" max="6" value="1" inputmode="numeric">
+                <button type="button" data-plus="dogs" aria-label="More dogs">+</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ─── 2. TRAINING ─── -->
+        <div class="pc-card">
+          <h3>2. Training</h3>
+          <p class="hint">Training at AlphaDog is an add-on to a full daycare day or boarding stay, and runs Monday–Friday. Enter the number of days one dog will train.</p>
+          <div class="pc-field">
+            <label class="pc-label" for="train-program">Program</label>
+            <select class="pc-select" id="train-program">
+              <option value="0" selected>No training</option>
+              <option value="104">Obedience Training · $104/day</option>
+              <option value="69">Yard Behavioral Level 1 · $69/day</option>
+              <option value="98">Yard Behavioral Level 2 · $98/day</option>
+              <option value="52">Handling Training · $52/day</option>
+            </select>
+          </div>
+          <div class="pc-inline">
+            <div class="pc-field">
+              <label class="pc-label" for="train-days">Training days</label>
+              <div class="pc-stepper">
+                <button type="button" data-minus="train-days" aria-label="Fewer training days">−</button>
+                <input type="number" id="train-days" min="0" max="90" value="0" inputmode="numeric">
+                <button type="button" data-plus="train-days" aria-label="More training days">+</button>
+              </div>
+            </div>
+          </div>
+          <p class="hint" style="margin:14px 0 0">Please contact <a href="mailto:dogs@alphadoglodging.com" style="color:var(--orange-deep);font-weight:600">dogs@alphadoglodging.com</a> for private training inquiries.</p>
+          <a href="training.html#programs" target="_blank" rel="noopener" class="btn" style="margin-top:16px;background:transparent;color:var(--orange-deep);border:1.5px solid var(--orange-deep);padding:10px 20px;font-size:.88rem">Learn about our training programs →</a>
+        </div>
+
+        <!-- ─── 3. OUTDOOR ADVENTURES ─── -->
+        <div class="pc-card">
+          <h3>3. Outdoor adventures</h3>
+          <p class="hint">AlphaDog Outdoors sessions, priced per session. Add as many as you like across the stay.</p>
+          <!-- ═══ EDIT: OUTDOORS PRICES — keep these in sync with the
+               table on enrichment.html and the data-price values. ═══ -->
+          <div class="pc-addon"><div><div class="nm">Tug &amp; Toss</div><div class="pr">$15 per session</div></div>
+            <div class="pc-stepper"><button type="button" data-minus="ado-tug" aria-label="Fewer Tug and Toss sessions">−</button><input type="number" id="ado-tug" data-price="15" data-name="Tug &amp; Toss" min="0" max="90" value="0" inputmode="numeric"><button type="button" data-plus="ado-tug" aria-label="More Tug and Toss sessions">+</button></div></div>
+          <div class="pc-addon"><div><div class="nm">Flirt Pole</div><div class="pr">$25 per session</div></div>
+            <div class="pc-stepper"><button type="button" data-minus="ado-flirt" aria-label="Fewer Flirt Pole sessions">−</button><input type="number" id="ado-flirt" data-price="25" data-name="Flirt Pole" min="0" max="90" value="0" inputmode="numeric"><button type="button" data-plus="ado-flirt" aria-label="More Flirt Pole sessions">+</button></div></div>
+          <div class="pc-addon"><div><div class="nm">Edible Enrichment</div><div class="pr">$5 per session</div></div>
+            <div class="pc-stepper"><button type="button" data-minus="ado-edible" aria-label="Fewer Edible Enrichment sessions">−</button><input type="number" id="ado-edible" data-price="5" data-name="Edible Enrichment" min="0" max="90" value="0" inputmode="numeric"><button type="button" data-plus="ado-edible" aria-label="More Edible Enrichment sessions">+</button></div></div>
+          <div class="pc-addon"><div><div class="nm">Snuggle Session</div><div class="pr">$10 per session</div></div>
+            <div class="pc-stepper"><button type="button" data-minus="ado-snuggle" aria-label="Fewer Snuggle sessions">−</button><input type="number" id="ado-snuggle" data-price="10" data-name="Snuggle Session" min="0" max="90" value="0" inputmode="numeric"><button type="button" data-plus="ado-snuggle" aria-label="More Snuggle sessions">+</button></div></div>
+          <div class="pc-addon"><div><div class="nm">Find It!</div><div class="pr">$15 per session</div></div>
+            <div class="pc-stepper"><button type="button" data-minus="ado-findit" aria-label="Fewer Find It sessions">−</button><input type="number" id="ado-findit" data-price="15" data-name="Find It!" min="0" max="90" value="0" inputmode="numeric"><button type="button" data-plus="ado-findit" aria-label="More Find It sessions">+</button></div></div>
+          <div class="pc-addon"><div><div class="nm">Solo Walk (30 min)</div><div class="pr">$45 per walk</div></div>
+            <div class="pc-stepper"><button type="button" data-minus="ado-walk30" aria-label="Fewer 30 minute walks">−</button><input type="number" id="ado-walk30" data-price="45" data-name="Solo Walk (30 min)" min="0" max="90" value="0" inputmode="numeric"><button type="button" data-plus="ado-walk30" aria-label="More 30 minute walks">+</button></div></div>
+          <div class="pc-addon"><div><div class="nm">Solo Walk (60 min)</div><div class="pr">$65 per walk</div></div>
+            <div class="pc-stepper"><button type="button" data-minus="ado-walk60" aria-label="Fewer 60 minute walks">−</button><input type="number" id="ado-walk60" data-price="65" data-name="Solo Walk (60 min)" min="0" max="90" value="0" inputmode="numeric"><button type="button" data-plus="ado-walk60" aria-label="More 60 minute walks">+</button></div></div>
+          <div class="pc-addon"><div><div class="nm">Pack Hike (60 min)</div><div class="pr">$40 per hike</div></div>
+            <div class="pc-stepper"><button type="button" data-minus="ado-hike" aria-label="Fewer pack hikes">−</button><input type="number" id="ado-hike" data-price="40" data-name="Pack Hike (60 min)" min="0" max="90" value="0" inputmode="numeric"><button type="button" data-plus="ado-hike" aria-label="More pack hikes">+</button></div></div>
+        </div>
+
+        <!-- ─── 4. GROOMING ─── -->
+        <div class="pc-card">
+          <h3>4. Grooming</h3>
+          <p class="hint">A spa visit before pick-up. Bath prices are a range; the final price depends on coat condition and temperament, confirmed before we start.</p>
+          <div class="pc-inline">
+            <div class="pc-field">
+              <label class="pc-label" for="groom-pkg">Package</label>
+              <select class="pc-select" id="groom-pkg">
+                <option value="none" selected>No grooming</option>
+                <option value="beta">Beta Bath</option>
+                <option value="alpha">Alpha Bath</option>
+                <option value="luna">Luna's Full Groom</option>
+                <option value="vip">Alpha VIP Groom</option>
+              </select>
+            </div>
+            <div class="pc-field">
+              <label class="pc-label" for="groom-size">Dog size</label>
+              <select class="pc-select" id="groom-size">
+                <option value="mini" selected>Mini</option>
+                <option value="small">Small</option>
+                <option value="medium">Medium</option>
+                <option value="large">Large</option>
+                <option value="xl">Extra Large</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- ─── 5. EXTRAS ─── -->
+        <div class="pc-card">
+          <h3>5. Extras</h3>
+          <div class="pc-addon"><div><div class="nm">Late pick-up (7–10pm)</div><div class="pr">$20 per evening, arranged in advance</div></div>
+            <div class="pc-stepper"><button type="button" data-minus="late" aria-label="Fewer late pick-ups">−</button><input type="number" id="late" data-price="20" data-name="Late pick-up" min="0" max="90" value="0" inputmode="numeric"><button type="button" data-plus="late" aria-label="More late pick-ups">+</button></div></div>
+        </div>
+      </div>
+
+      <!-- ══════════════════ RIGHT: THE RUNNING TOTAL ══════════════════ -->
+      <aside class="pc-summary reveal" aria-label="Estimated total">
+        <svg class="paw-watermark" viewBox="0 0 100 100"><g fill="#E8AC34"><ellipse cx="50" cy="64" rx="20" ry="16"/><ellipse cx="27" cy="44" rx="8" ry="10"/><ellipse cx="42" cy="33" rx="8" ry="10"/><ellipse cx="58" cy="33" rx="8" ry="10"/><ellipse cx="73" cy="44" rx="8" ry="10"/></g></svg>
+        <h3>Your estimate</h3>
+        <div id="pc-lines" aria-live="polite"></div>
+        <div class="pc-total"><span class="l">Estimated total</span><span class="v" id="pc-total">$0</span></div>
+        <div class="pc-tip" id="tip-stay-pkg">Reach 11 days or nights and <a href="daycare-boarding.html">package pricing</a> (a free day or night) applies automatically — 17 saves even more.</div>
+        <div class="pc-tip" id="tip-train-pkg">Reach 17 training days and <a href="training.html">package savings</a> of 12–18% apply automatically.</div>
+        <p class="pc-note">This is an estimate, not a quote. Holiday and peak periods carry deposits and minimum stays, and final grooming prices are confirmed in person. The front desk will always walk you through exact pricing before you book.</p>
+        <a href="https://alphadoglodging.portal.gingrapp.com/public/login/Ii9zZWN1cmUvaG9tZSI=" data-gingr="apply" class="btn btn-gold">Start your application</a>
+      </aside>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══ Bottom call-to-action — edit the text or the button link ═══ -->
+<section class="banner-cta">
+  <div class="wrap inner reveal">
+    <h2>Questions about pricing?</h2>
+    <p>Tell us about your dog and your schedule, and the front desk will put together the right plan.</p>
+    <a href="contact.html" class="btn btn-gold">Contact us</a>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════════════════════
+     FOOTER — identical on every page.
+     ═══ EDIT: address, phone, email, and hours below ═══
+     ⚠ If you edit the footer, make the same edit on ALL pages.
+     ════════════════════════════════════════════════════════════════ -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <img src="images/logo-full.png" alt="AlphaDog Lodging" class="foot-logo">
+        <p style="font-size:.9rem;max-width:32ch">We're a Marin dog daycare, boarding, training and grooming facility with outdoor group play and well-trained, caring staff. Certified Green Business &amp; Climate Smart member.</p>
+        <!-- ═══ EDIT: social links — update the URLs if the handles change ═══ -->
+        <div class="social-row">
+          <a href="https://www.instagram.com/alphadoglodging/" target="_blank" rel="noopener" aria-label="AlphaDog on Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><rect x="2.5" y="2.5" width="19" height="19" rx="5"/><circle cx="12" cy="12" r="4.5"/><circle cx="17.5" cy="6.5" r="1" fill="#fff" stroke="none"/></svg></a>
+          <a href="https://www.facebook.com/alphadoglodging/" target="_blank" rel="noopener" aria-label="AlphaDog on Facebook"><svg width="18" height="18" viewBox="0 0 24 24" fill="#fff"><path d="M13.5 22v-8h2.7l.4-3.2h-3.1V8.7c0-.9.3-1.6 1.6-1.6h1.7V4.2c-.3 0-1.3-.1-2.5-.1-2.5 0-4.2 1.5-4.2 4.3v2.4H7.4V14h2.7v8z"/></svg></a>
+        </div>
+
+      </div>
+      <div><h4>Visit</h4><ul>
+        <li>230 Shoreline Highway</li>
+        <li>Mill Valley, CA 94941</li>
+        <li><a href="tel:4153832111">(415) 383-2111</a></li>
+        <li><a href="mailto:dogs@alphadoglodging.com">dogs@alphadoglodging.com</a></li>
+        <li>Drop-off &amp; pick-up: 7am–7pm daily</li>
+      </ul></div>
+      <div><h4>Services</h4><ul>
+        <li><a href="daycare-boarding.html">Daycare &amp; Boarding</a></li>
+        <li><a href="enrichment.html">Enrichment &amp; Hikes</a></li>
+        <li><a href="training.html">Training</a></li>
+        <li><a href="grooming.html">Grooming</a></li>
+      </ul></div>
+      <div><h4>More</h4><ul>
+        <li><a href="about.html">About &amp; Team</a></li>
+        <li><a href="faq-policies.html">FAQ &amp; Policies</a></li>
+        <li><a href="partners.html">Local Partners</a></li>
+        <li><a href="local-resources.html">Local Resources</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+      </ul></div>
+    </div>
+    <div class="foot-bottom"><span>© 2026 AlphaDog Lodging. All rights reserved.</span><span>Booking powered by Gingr</span></div>
+  </div>
+</footer>
+
+<script src="js/main.js?v=2"></script>
+
+<!-- ════════════════════════════════════════════════════════════════
+     STAY ESTIMATOR LOGIC — specific to this page.
+     ═══ EDIT: ALL PRICES live in the PRICES object below. Keep them
+     in sync with the tables on daycare-boarding.html, training.html,
+     enrichment.html, and grooming.html whenever rates change. ═══
+     ════════════════════════════════════════════════════════════════ -->
+<script>
+(function(){
+  const PRICES = {
+    // pkg11 / pkg17 = published package price for an 11- or 17-day/night package
+    // of that ONE service, for ONE dog (from daycare-boarding.html).
+    stay: {
+      full:  { label: "Full-day daycare",  single: 61, multi: 56, pkg11: 610, pkg17: 915,  unit: "day" },
+      half:  { label: "Half-day daycare",  single: 50, multi: 46, pkg11: 500, pkg17: 750,  unit: "day" },
+      board: { label: "Overnight boarding", single: 90, multi: 81, pkg11: 900, pkg17: 1350, unit: "night" }
+    },
+    // Training package savings: % off the training fee at these day thresholds
+    // (from training.html). Applied to whichever program is selected.
+    trainPkg: [ {days: 33, pct: 0.18}, {days: 24, pct: 0.15}, {days: 17, pct: 0.12} ],
+    // Grooming: [min, max] for bath ranges, single number for fixed prices
+    grooming: {
+      beta:  { label: "Beta Bath",         mini:[55,65],  small:[65,75],  medium:[75,85],   large:[85,95],   xl:[95,105] },
+      alpha: { label: "Alpha Bath",        mini:[70,80],  small:[80,90],  medium:[90,100],  large:[100,110], xl:[110,120] },
+      luna:  { label: "Luna's Full Groom", mini:85,       small:95,       medium:115,       large:125,       xl:150 },
+      vip:   { label: "Alpha VIP Groom",   mini:95,       small:115,      medium:125,       large:150,       xl:180 }
+    }
+  };
+
+  const $ = id => document.getElementById(id);
+  const money = n => "$" + n.toLocaleString("en-US");
+  const linesEl = $("pc-lines"), totalEl = $("pc-total");
+
+  function clamp(input){
+    const min = +input.min, max = +input.max;
+    let v = parseInt(input.value, 10);
+    if (isNaN(v)) v = min;
+    input.value = Math.min(max, Math.max(min, v));
+    return +input.value;
+  }
+
+  function calc(){
+    const lines = [];
+    let min = 0, max = 0;
+
+    // 1. The stay — multi-dog rate + extended-stay package pricing, auto-applied.
+    const stay = PRICES.stay[document.querySelector('input[name="stay"]:checked').value];
+    const days = clamp($("days")), dogs = clamp($("dogs"));
+    const singleRate = dogs >= 2 ? stay.multi : stay.single;   // per-dog day/night rate
+
+    // Cheapest way to cover N days for ONE dog using any mix of 17- and
+    // 11-day packages plus single days (packages don't have to be used
+    // consecutively, so they stack). Falls back to all single days.
+    function stayPerDog(N){
+      let best = N * singleRate;
+      for (let a = 0; a <= Math.floor(N / 17); a++){
+        for (let b = 0; b <= Math.floor((N - 17 * a) / 11); b++){
+          const rem  = N - 17 * a - 11 * b;
+          const cost = a * stay.pkg17 + b * stay.pkg11 + rem * singleRate;
+          if (cost < best) best = cost;
+        }
+      }
+      return best;
+    }
+
+    const unit      = days === 1 ? stay.unit : stay.unit + "s";
+    const stayFull  = stay.single * days * dogs;                  // full price, no discounts
+    const multiSave = (stay.single - singleRate) * days * dogs;   // 2+ dog savings (0 if 1 dog)
+    const pkgSave   = (singleRate * days - stayPerDog(days)) * dogs; // extended-stay package savings
+
+    min += stayFull; max += stayFull;
+    lines.push([stay.label + " · " + days + " " + unit + (dogs === 1 ? "" : " × " + dogs + " dogs"), money(stayFull)]);
+    if (multiSave > 0){ min -= multiSave; max -= multiSave; lines.push(["Multi-dog rate (2+ dogs)", "−" + money(multiSave)]); }
+    if (pkgSave  > 0){ min -= pkgSave;  max -= pkgSave;  lines.push(["Extended-stay package savings", "−" + money(pkgSave)]); }
+
+    // 2. Training — capped at the length of the stay
+    const tDays = clamp($("train-days")), tSel = $("train-program");
+    const tRate = +tSel.value;
+    if (tRate > 0 && tDays > 0) {
+      const capped = Math.min(tDays, days);
+      if (capped !== tDays) $("train-days").value = capped;
+      const cost = tRate * capped;
+      min += cost; max += cost;
+      lines.push([tSel.options[tSel.selectedIndex].text.split(" · ")[0] + " · " + capped + (capped === 1 ? " day" : " days"), money(cost)]);
+      // Training package savings at 17 / 24 / 33 days
+      const tier = PRICES.trainPkg.find(t => capped >= t.days);
+      if (tier){
+        const tSave = Math.floor(cost * tier.pct);
+        min -= tSave; max -= tSave;
+        lines.push(["Training package savings (" + Math.round(tier.pct * 100) + "%)", "−" + money(tSave)]);
+      }
+    }
+
+    // 3. Outdoors + 5. Extras (any counter with a data-price)
+    document.querySelectorAll("input[data-price]").forEach(input => {
+      const n = clamp(input);
+      if (n > 0) {
+        const cost = +input.dataset.price * n;
+        min += cost; max += cost;
+        lines.push([input.dataset.name + " × " + n, money(cost)]);
+      }
+    });
+
+    // 4. Grooming
+    const pkg = $("groom-pkg").value, size = $("groom-size").value;
+    if (pkg !== "none") {
+      const g = PRICES.grooming[pkg], p = g[size];
+      if (Array.isArray(p)) { min += p[0]; max += p[1]; lines.push([g.label + " · " + $("groom-size").options[$("groom-size").selectedIndex].text, money(p[0]) + "–" + money(p[1])]); }
+      else { min += p; max += p; lines.push([g.label + " · " + $("groom-size").options[$("groom-size").selectedIndex].text, money(p)]); }
+    }
+
+    // Render
+    linesEl.innerHTML = lines.length
+      ? lines.map(([l, v]) => '<div class="pc-line"><span class="l">' + l + '</span><span class="v">' + v + "</span></div>").join("")
+      : '<p class="pc-empty">Pick a stay to get started.</p>';
+    totalEl.textContent = min === max ? money(min) : money(min) + "–" + money(max);
+
+    // Nudges toward the next discount tier (any discount reached is already
+    // applied in the lines above).
+    $("tip-stay-pkg").classList.toggle("show", days >= 1 && days < 11);
+    $("tip-train-pkg").classList.toggle("show", tRate > 0 && Math.min(tDays, days) > 0 && Math.min(tDays, days) < 17);
+
+    // Half-day daycare can't host a training day
+    $("days-label").textContent = stay.unit === "night" ? "Nights" : "Days";
+  }
+
+  // Steppers
+  document.querySelectorAll("[data-plus],[data-minus]").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const input = $(btn.dataset.plus || btn.dataset.minus);
+      input.value = clamp(input) + (btn.dataset.plus ? 1 : -1);
+      clamp(input);
+      calc();
+    });
+  });
+  document.querySelectorAll(".pc-grid input, .pc-grid select").forEach(el => {
+    el.addEventListener("input", calc);
+    el.addEventListener("change", calc);
+  });
+
+  calc();
+})();
+</script>
+</body>
+</html>

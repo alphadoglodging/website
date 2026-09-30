@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- ═══ EDIT: Page title & description (what Google shows in search results) ═══ -->
+<title>Service Dog Training: AlphaDog Assist | AlphaDog Lodging</title>
+<meta name="description" content="AlphaDog Assist trains service dogs for psychiatric support, medical alert, migraine and allergen alert, and mobility assistance. Led by Sierra Berrick and Mike Wombacher.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<meta name="theme-color" content="#232020">
+<meta property="og:title" content="Service Dog Training: AlphaDog Assist | AlphaDog Lodging">
+<meta property="og:description" content="AlphaDog Assist trains service dogs for psychiatric support, medical alert, migraine and allergen alert, and mobility assistance. Led by Sierra Berrick and Mike Wombacher.">
+<meta property="og:type" content="website">
+<!-- ═══ EDIT: after hosting, set og:image to the FULL address of a photo,
+     e.g. https://alphadoglodging.com/images/hero-poster.jpg — this is
+     the preview image shown when the page is shared/texted ═══ -->
+<link rel="icon" type="image/png" href="images/favicon.png">
+<link rel="stylesheet" href="css/styles.css">
+
+<!-- ═══ Page-scoped tweak: the Assist "How it works" section has 4 steps
+     (the shared .steps grid is designed for 3). This overrides the grid
+     to 4 columns on desktop, 2 on tablet, 1 on mobile. Only affects
+     .steps.four, so no other pages are impacted. ═══ -->
+<style>
+  .steps.four{grid-template-columns:repeat(4,1fr)}
+  @media(max-width:900px){ .steps.four{grid-template-columns:1fr 1fr} }
+  @media(max-width:560px){ .steps.four{grid-template-columns:1fr} }
+</style>
+</head>
+<body>
+
+<!-- ════════════════════════════════════════════════════════════════
+     HEADER / NAVIGATION — identical on every page.
+     ⚠ If you edit the menu, make the same edit on ALL pages so the
+     nav stays consistent across the site.
+     ═══ NOTE: The "Book Now" button's link is set in ONE place:
+     js/main.js (top of the file). Edit it there and every booking
+     button on every page updates automatically. ═══
+     ════════════════════════════════════════════════════════════════ -->
+<header>
+  <div class="wrap nav">
+    <a href="index.html" class="brand">
+      <img src="images/logo-badge.png" alt="" class="badge-logo">
+      AlphaDog
+    </a>
+    <nav aria-label="Main">
+      <ul class="menu" id="menu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Services <span class="caret">▾</span></a>
+          <div class="dropdown">
+            <a href="daycare-boarding.html"><strong>Daycare &amp; Boarding</strong><span>Outdoor group play, overnight stays</span></a>
+            <a href="enrichment.html"><strong>Enrichment &amp; Hikes</strong><span>AlphaDog Outdoors adventures</span></a>
+            <a href="training.html"><strong>Training</strong><span>Obedience &amp; behavior with Mike Wombacher</span></a>
+            <a href="grooming.html"><strong>Grooming</strong><span>Full-service spa</span></a>
+            <a href="service-training.html"><strong>Service Dog Training</strong><span>AlphaDog Assist program</span></a>
+          </div>
+        </li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="about.html">About <span class="caret">▾</span></a>
+          <div class="dropdown">
+            <a href="about.html"><strong>About &amp; Team</strong><span>Our story, staff &amp; facility</span></a>
+            <a href="faq-policies.html"><strong>FAQ &amp; Policies</strong><span>Requirements, policies &amp; answers</span></a>
+          </div>
+        </li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+    <a href="https://alphadoglodging.portal.gingrapp.com/public/login/Ii9zZWN1cmUvaG9tZSI=" data-gingr="apply" class="btn btn-book nav-book">Apply Now</a>
+    <button class="hamb" id="hamb" aria-label="Open menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<!-- ═══ EDIT: Page banner text ═══ -->
+<section class="page-hero">
+  <svg class="paw-watermark" viewBox="0 0 100 100"><g fill="#E8AC34"><ellipse cx="50" cy="64" rx="20" ry="16"/><ellipse cx="27" cy="44" rx="8" ry="10"/><ellipse cx="42" cy="33" rx="8" ry="10"/><ellipse cx="58" cy="33" rx="8" ry="10"/><ellipse cx="73" cy="44" rx="8" ry="10"/></g></svg>
+  <div class="wrap reveal">
+    <span class="eyebrow">AlphaDog Assist</span>
+    <h1>Service dogs, trained for real life</h1>
+    <p>Our Assist program was founded and is led by Sierra Berrick, our Service Dog Training Director and a mental health specialist, along with Mike Wombacher, expert dog trainer. The program prepares dogs for real life and teaches them to provide life-changing support for their handlers.</p>
+  </div>
+</section>
+
+<section class="pad">
+  <div class="wrap split">
+    <div class="reveal">
+      <span class="eyebrow">What we train for</span>
+      <h2>Purpose-built partnerships</h2>
+      <p>AlphaDog Assist trains dogs to help with a range of real-world needs. We train the following types of service dogs:</p>
+      <ul>
+        <li><b>Psychiatric service:</b> deep pressure therapy, stress signal recognition, panic attack mitigation, interruption</li>
+        <li><b>Medical alert:</b> medication reminder, medication retrieval, nightmare interruption, hearing alert</li>
+        <li><b>Migraine alert</b></li>
+        <li><b>Allergen alert</b></li>
+        <li><b>Mobility assistance:</b> bracing, fall recovery and prevention, pulling up hills, retrieval, tug, counterbalance</li>
+      </ul>
+      <!-- ═══ EDIT: link the brochure below to your current PDF (upload it
+           to the site folder as files/alphadog-assist-brochure.pdf) ═══ -->
+      <p style="margin-top:18px"><a href="https://alphadoglodging.com/wp-content/uploads/2024/10/alpha-dog-assist-brochure.pdf" target="_blank" rel="noopener" style="color:var(--orange-deep);font-weight:600">Download the AlphaDog Assist brochure (PDF) →</a></p>
+    </div>
+    <div class="media-slot reveal" style="aspect-ratio:16/9;align-self:start">
+      <!-- ═══ SERVICE DOG VIDEO — hosted on Vimeo (video 1229636420). To replace,
+           upload a new video to Vimeo and paste its player URL in the iframe src
+           below. To use a photo instead, replace the <iframe> with:
+           <img src="images/assist.jpg" alt="AlphaDog Assist training" loading="lazy"> ═══ -->
+      <iframe src="https://player.vimeo.com/video/1229636420?h=9595535b03&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" title="AlphaDog Assist service dog training"></iframe>
+    </div>
+  </div>
+</section>
+
+<section class="alt pad">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">How it works</span>
+      <h2>From evaluation to working partner</h2>
+    </div>
+    <div class="steps four">
+      <div class="step reveal"><div class="n">1</div><h3>Consultation</h3><p>We learn about your needs, your situation, and, if you already have a dog, whether they're a good candidate for service dog work.</p></div>
+      <div class="step reveal"><div class="n">2</div><h3>Task training</h3><p>Your dog trains with our team on the specific tasks you depend on, built on a rock-solid obedience foundation.</p></div>
+      <div class="step reveal"><div class="n">3</div><h3>Handler transfer</h3><p>We train you and your dog together, so the partnership works in the real world, not just at our facility.</p></div>
+      <div class="step reveal"><div class="n">4</div><h3>Graduation</h3><p>The handler and dog complete a real-world outing that includes indoor dining, public transportation, and task work in challenging environments. After completion, the team receives a letter of attestation for training (this is separate from the letter teams will need to acquire from their doctor or therapist) and is considered fully trained.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ OUT IN THE REAL WORLD — four working-dog photos. To swap or add,
+     drop the file into images/ and edit the src/alt below. Photos open
+     full-screen when clicked. ═══ -->
+<section class="pad">
+  <div class="wrap" style="max-width:900px">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Out in the real world</span>
+      <h2>AlphaDog Assist in action</h2>
+    </div>
+    <div class="gallery-grid" style="grid-template-columns:1fr 1fr">
+      <figure class="g-item reveal" style="aspect-ratio:3/4">
+        <img src="images/assist-photo-1.jpg" alt="An AlphaDog Assist dog in an 'in training' vest, working out on the sidewalk" loading="lazy">
+      </figure>
+      <figure class="g-item reveal" style="aspect-ratio:3/4">
+        <img src="images/assist-photo-2.jpg" alt="An AlphaDog Assist service dog in vest, working out in public" loading="lazy">
+      </figure>
+      <figure class="g-item reveal" style="aspect-ratio:3/4">
+        <img src="images/assist-photo-3.jpg" alt="An AlphaDog trainer sharing a moment with a service dog in training during a public outing" loading="lazy">
+      </figure>
+      <figure class="g-item reveal" style="aspect-ratio:3/4">
+        <img src="images/assist-photo-4.jpg" alt="A service dog holding a sit-stay while an AlphaDog trainer signals from across the store" loading="lazy">
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ EDIT: SERVICE DOG FAQ — add or edit questions below (copy a
+     whole <details> block to add one). ═══ -->
+<section class="alt pad">
+  <div class="wrap" style="max-width:840px">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Service dog FAQ</span>
+      <h2>Common questions about AlphaDog Assist</h2>
+    </div>
+
+    <details class="faq-item reveal">
+      <summary>What kinds of service dogs do you train?</summary>
+      <div class="a">We train psychiatric service dogs (deep pressure therapy, stress signal recognition, panic attack mitigation, and interruption), medical alert dogs (medication reminders and retrieval, nightmare interruption, and hearing alert), migraine alert, allergen alert, and mobility assistance dogs (bracing, fall recovery and prevention, pulling up hills, retrieval, tug, and counterbalance).</div>
+    </details>
+
+    <details class="faq-item reveal">
+      <summary>Does a vest make a dog a service dog?</summary>
+      <div class="a">No. A vest is just gear. It can signal that a dog is working and shouldn't be distracted, but it doesn't give a dog any abilities on its own. What makes a service dog is the trained task work: the specific, reliable tasks the dog performs to support its handler. That task training, built on a solid obedience foundation, is what our program focuses on.</div>
+    </details>
+
+    <details class="faq-item reveal">
+      <summary>Can you train a dog I already have?</summary>
+      <div class="a">Possibly. Every partnership starts with a consultation, where we learn about your needs and, if you already have a dog, assess whether they're a good candidate for service dog work.</div>
+    </details>
+
+    <details class="faq-item reveal">
+      <summary>What if a service dog can't help with my condition?</summary>
+      <div class="a">That's part of what the consultation is for. Not every need is a fit for service dog work, and we'll be honest with you about whether a trained dog is the right solution for your situation. If it isn't, we'd rather tell you upfront than start a program that won't serve you.</div>
+    </details>
+
+    <details class="faq-item reveal">
+      <summary>Who leads the program?</summary>
+      <div class="a">AlphaDog Assist was founded and is led by Sierra Berrick, our service dog training director and mental health specialist, alongside Mike Wombacher, our expert dog trainer.</div>
+    </details>
+
+    <details class="faq-item reveal">
+      <summary>Do you train the handler too, or just the dog?</summary>
+      <div class="a">Both. During the handler transfer stage we train you and your dog together, so the partnership works out in the real world, not just at our facility.</div>
+    </details>
+
+    <details class="faq-item reveal">
+      <summary>How long does the training take?</summary>
+      <div class="a">It depends. Every dog and every set of tasks is different, so timelines vary with your dog's starting point, the tasks involved, and how training progresses. We'll give you a realistic sense of the timeline during your consultation.</div>
+    </details>
+
+    <details class="faq-item reveal">
+      <summary>What happens at graduation, and is it a certification?</summary>
+      <div class="a">To graduate, the handler and dog complete a real-world outing that includes indoor dining, public transportation, and task work in challenging environments. The team then receives a letter of attestation for training. That's separate from the letter you'll need to obtain from your own doctor or therapist.</div>
+    </details>
+
+    <details class="faq-item reveal">
+      <summary>How do I book a consultation?</summary>
+      <div class="a">Every service dog partnership starts with a conversation. Reach out at <a href="tel:4153832111" style="color:var(--orange-deep);font-weight:600">(415) 383-2111</a> or <a href="mailto:dogs@alphadoglodging.com" style="color:var(--orange-deep);font-weight:600">dogs@alphadoglodging.com</a> and we'll schedule a consultation. You can also <a href="https://alphadoglodging.com/wp-content/uploads/2024/10/alpha-dog-assist-brochure.pdf" target="_blank" rel="noopener" style="color:var(--orange-deep);font-weight:600">download the AlphaDog Assist brochure</a> to learn more first.</div>
+    </details>
+  </div>
+</section>
+
+<!-- ═══ Bottom call-to-action — edit the text or the button link ═══ -->
+<section class="banner-cta">
+  <div class="wrap inner reveal">
+    <h2>Let's talk about your needs</h2>
+    <p>Every service dog partnership starts with a conversation. Reach out and we'll schedule a consultation.</p>
+    <!-- ═══ EDIT: link the button to your Gingr page or contact page ═══ -->
+    <a href="contact.html" class="btn btn-gold">Contact us</a>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════════════════════
+     FOOTER — identical on every page.
+     ═══ EDIT: address, phone, email, and hours below ═══
+     ⚠ If you edit the footer, make the same edit on ALL pages.
+     ════════════════════════════════════════════════════════════════ -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <img src="images/logo-full.png" alt="AlphaDog Lodging" class="foot-logo">
+        <p style="font-size:.9rem;max-width:32ch">We're a Marin dog daycare, boarding, training and grooming facility with outdoor group play and well-trained, caring staff. Certified Green Business &amp; Climate Smart member.</p>
+        <!-- ═══ EDIT: social links — update the URLs if the handles change ═══ -->
+        <div class="social-row">
+          <a href="https://www.instagram.com/alphadoglodging/" target="_blank" rel="noopener" aria-label="AlphaDog on Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><rect x="2.5" y="2.5" width="19" height="19" rx="5"/><circle cx="12" cy="12" r="4.5"/><circle cx="17.5" cy="6.5" r="1" fill="#fff" stroke="none"/></svg></a>
+          <a href="https://www.facebook.com/alphadoglodging/" target="_blank" rel="noopener" aria-label="AlphaDog on Facebook"><svg width="18" height="18" viewBox="0 0 24 24" fill="#fff"><path d="M13.5 22v-8h2.7l.4-3.2h-3.1V8.7c0-.9.3-1.6 1.6-1.6h1.7V4.2c-.3 0-1.3-.1-2.5-.1-2.5 0-4.2 1.5-4.2 4.3v2.4H7.4V14h2.7v8z"/></svg></a>
+        </div>
+
+      </div>
+      <div><h4>Visit</h4><ul>
+        <li>230 Shoreline Highway</li>
+        <li>Mill Valley, CA 94941</li>
+        <li><a href="tel:4153832111">(415) 383-2111</a></li>
+        <li><a href="mailto:dogs@alphadoglodging.com">dogs@alphadoglodging.com</a></li>
+        <li>Drop-off &amp; pick-up: 7am–7pm daily</li>
+      </ul></div>
+      <div><h4>Services</h4><ul>
+        <li><a href="daycare-boarding.html">Daycare &amp; Boarding</a></li>
+        <li><a href="enrichment.html">Enrichment &amp; Hikes</a></li>
+        <li><a href="training.html">Training</a></li>
+        <li><a href="grooming.html">Grooming</a></li>
+      </ul></div>
+      <div><h4>More</h4><ul>
+        <li><a href="about.html">About &amp; Team</a></li>
+        <li><a href="faq-policies.html">FAQ &amp; Policies</a></li>
+        <li><a href="partners.html">Local Partners</a></li>
+        <li><a href="local-resources.html">Local Resources</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+      </ul></div>
+    </div>
+    <div class="foot-bottom"><span>© 2026 AlphaDog Lodging. All rights reserved.</span><span>Booking powered by Gingr</span></div>
+  </div>
+</footer>
+
+<!-- Lightbox viewer — opens a photo full-screen when clicked -->
+<div class="lightbox" id="lightbox" role="dialog" aria-label="Photo viewer">
+  <img src="" alt="">
+  <div class="lb-cap"></div>
+</div>
+
+<script src="https://player.vimeo.com/api/player.js"></script>
+<script src="js/main.js?v=2"></script>
+</body>
+</html>

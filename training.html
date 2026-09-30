@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- ═══ EDIT: Page title & description (what Google shows in search results) ═══ -->
+<title>Dog Training | AlphaDog Lodging</title>
+<meta name="description" content="Obedience, behavior modification, and board-and-train programs designed and directed by master trainer Mike Wombacher.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<meta name="theme-color" content="#232020">
+<meta property="og:title" content="Dog Training | AlphaDog Lodging">
+<meta property="og:description" content="Obedience, behavior modification, and board-and-train programs designed and directed by master trainer Mike Wombacher.">
+<meta property="og:type" content="website">
+<!-- ═══ EDIT: after hosting, set og:image to the FULL address of a photo,
+     e.g. https://alphadoglodging.com/images/hero-poster.jpg — this is
+     the preview image shown when the page is shared/texted ═══ -->
+<link rel="icon" type="image/png" href="images/favicon.png">
+<link rel="stylesheet" href="css/styles.css">
+
+<!-- ═══ TRAINING HERO — two-column banner with the photo beside the text.
+     Specific to this page; colors come from the site-wide tokens. ═══ -->
+<style>
+.hero-split{padding-top:0;padding-bottom:0}
+.hero-split-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center;min-height:420px}
+.hero-split-text{padding:56px 0}
+.hero-split-media{align-self:stretch;position:relative;margin:22px 0}
+.hero-split-media img{width:100%;height:100%;object-fit:cover;border-radius:var(--r);max-height:440px}
+@media(max-width:820px){
+  .hero-split-grid{grid-template-columns:1fr;gap:0;min-height:0}
+  .hero-split-text{padding:46px 0 22px}
+  .hero-split-media{margin:0 0 40px;max-width:360px}
+  .hero-split-media img{max-height:340px}
+}
+</style>
+</head>
+<body>
+
+<!-- ════════════════════════════════════════════════════════════════
+     HEADER / NAVIGATION — identical on every page.
+     ⚠ If you edit the menu, make the same edit on ALL pages so the
+     nav stays consistent across the site.
+     ═══ NOTE: The "Book Now" button's link is set in ONE place:
+     js/main.js (top of the file). Edit it there and every booking
+     button on every page updates automatically. ═══
+     ════════════════════════════════════════════════════════════════ -->
+<header>
+  <div class="wrap nav">
+    <a href="index.html" class="brand">
+      <img src="images/logo-badge.png" alt="" class="badge-logo">
+      AlphaDog
+    </a>
+    <nav aria-label="Main">
+      <ul class="menu" id="menu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Services <span class="caret">▾</span></a>
+          <div class="dropdown">
+            <a href="daycare-boarding.html"><strong>Daycare &amp; Boarding</strong><span>Outdoor group play, overnight stays</span></a>
+            <a href="enrichment.html"><strong>Enrichment &amp; Hikes</strong><span>AlphaDog Outdoors adventures</span></a>
+            <a href="training.html"><strong>Training</strong><span>Obedience &amp; behavior with Mike Wombacher</span></a>
+            <a href="grooming.html"><strong>Grooming</strong><span>Full-service spa</span></a>
+            <a href="service-training.html"><strong>Service Dog Training</strong><span>AlphaDog Assist program</span></a>
+          </div>
+        </li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="about.html">About <span class="caret">▾</span></a>
+          <div class="dropdown">
+            <a href="about.html"><strong>About &amp; Team</strong><span>Our story, staff &amp; facility</span></a>
+            <a href="faq-policies.html"><strong>FAQ &amp; Policies</strong><span>Requirements, policies &amp; answers</span></a>
+          </div>
+        </li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+    <a href="https://alphadoglodging.portal.gingrapp.com/public/login/Ii9zZWN1cmUvaG9tZSI=" data-gingr="apply" class="btn btn-book nav-book">Apply Now</a>
+    <button class="hamb" id="hamb" aria-label="Open menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<!-- ═══ EDIT: Page banner text. The photo beside it is images/training-hero.jpg
+     — swap that file to change it. ═══ -->
+<section class="page-hero hero-split">
+  <svg class="paw-watermark" viewBox="0 0 100 100"><g fill="#E8AC34"><ellipse cx="50" cy="64" rx="20" ry="16"/><ellipse cx="27" cy="44" rx="8" ry="10"/><ellipse cx="42" cy="33" rx="8" ry="10"/><ellipse cx="58" cy="33" rx="8" ry="10"/><ellipse cx="73" cy="44" rx="8" ry="10"/></g></svg>
+  <div class="wrap hero-split-grid reveal">
+    <div class="hero-split-text">
+      <span class="eyebrow">Training</span>
+      <h1>Training that lasts a lifetime</h1>
+      <p>AlphaDog University is our training program, designed and run day to day by Mike Wombacher, one of the Bay Area's most experienced trainers.</p>
+    </div>
+    <div class="hero-split-media">
+      <img src="images/training-hero.jpg" alt="Piper, a red merle Australian shepherd, sitting attentively on leash in the sun" loading="eager">
+    </div>
+  </div>
+</section>
+
+<!-- ═══ TWO WAYS TO TRAIN — training philosophy & formats intro ═══ -->
+<section class="pad">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Training</span>
+      <h2>Two ways to train with us</h2>
+      <p>We follow the LIMA principle (Least Intrusive, Minimally Aversive), starting with positive reinforcement and reward-based techniques, building trust between dog and handler. Our trainers always ask for consent before introducing a new tool.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ HOW IT WORKS — Daycare & Train vs Board & Train ═══ -->
+<section class="alt pad">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Daycare &amp; Train or Board &amp; Train</span>
+      <h2>How it works</h2>
+      <p>Training is an add-on to a daycare day or boarding stay:</p>
+    </div>
+    <div class="door-grid">
+      <div class="door existing reveal">
+        <div class="tag">Daycare &amp; Train</div>
+        <h3>Train by day, home at night</h3>
+        <p>Your dog trains during the day and goes home with you in the evening. We recommend starting with 2–3 days a week. Ideal for obedience foundations, social skills in group settings, and reinforcing existing training, all while your dog's needs are met during your workday.</p>
+        <p style="font-weight:700;color:var(--black)">Daycare rate: $61/day + training fee</p>
+      </div>
+      <div class="door new reveal">
+        <div class="tag">Board &amp; Train</div>
+        <h3>The immersive option</h3>
+        <p>Your dog stays with us and receives structured daily training. We recommend starting with a two-week board &amp; train. Ideal for jump-starting obedience, tackling more complex behavioral challenges, and dogs who thrive on a highly structured environment.</p>
+        <p style="font-weight:700;color:var(--yellow)">Boarding rate: $90 per 24 hours + training fee</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ TRAINING PROGRAMS ═══ -->
+<section class="pad" id="programs" style="scroll-margin-top:90px">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Programs &amp; rates</span>
+      <h2>Training programs</h2>
+    </div>
+    <!-- ═══ EDIT: ADU RATES — from the AlphaDog University onboarding guide ═══ -->
+    <div class="scroll-x reveal">
+      <div class="table-round">
+        <table class="price-table">
+          <tr><th>Program</th><th>What it covers</th><th>Rate</th></tr>
+          <tr><td>Obedience Training</td><td>Basic and advanced commands, recall, and leash manners. Onsite, then offsite (beach, dog park, downtown Mill Valley) once the basics are solid. Leash reactivity can also be addressed.</td><td>$104 / day</td></tr>
+          <tr><td>Yard Behavioral Level 1</td><td>Helps dogs integrate into group settings: rough play, demand barking, fence reactivity, and more. A trainer supervises yard rotations, reducing oversight as behaviors improve.</td><td>$69 / day</td></tr>
+          <tr><td>Yard Behavioral Level 2</td><td>The intensive tier of the same program, for dogs needing closer trainer supervision.</td><td>$98 / day</td></tr>
+          <tr><td>Handling Training</td><td>Systematic desensitization for dogs uncomfortable being approached or handled: staff interactions, collar handling, leash guidance. Two sessions per day.</td><td>$52 / day</td></tr>
+          <tr><td>Private Training</td><td>A trainer meets you at home or another agreed location for hands-on owner involvement with specific training needs.</td><td>$195 / hour</td></tr>
+        </table>
+      </div>
+    </div>
+    <p class="reveal" style="color:var(--muted);font-size:.9rem;margin-top:14px">Training rates exclude daycare or boarding fees. Have a specific concern? Let us know. We're happy to tailor the program to you and your dog.</p>
+  </div>
+</section>
+
+<!-- ═══ TRAINING PACKAGES ═══ -->
+<section class="alt pad">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Save with packages</span>
+      <h2>Training packages</h2>
+    </div>
+    <div class="scroll-x reveal">
+      <div class="table-round">
+        <table class="price-table">
+          <tr><th>Package</th><th>Savings</th><th>Training price</th><th>Total with daycare</th><th>Total with boarding</th></tr>
+          <tr><td>17-Day Package</td><td>12% savings</td><td>$1,556</td><td><b>$2,593</b></td><td>$3,086</td></tr>
+          <tr><td>24-Day Package</td><td>15% savings</td><td>$2,122</td><td><b>$3,586</b></td><td>$4,282</td></tr>
+          <tr><td>33-Day Package</td><td>18% savings</td><td>$2,815</td><td><b>$4,828</b></td><td>$5,785</td></tr>
+        </table>
+      </div>
+    </div>
+    <details class="faq-item reveal" style="margin-top:14px">
+      <summary>What do the package prices include?</summary>
+      <div class="a">Package prices cover training only, not daycare or boarding. The totals columns add the standard daycare rate ($61/day) or boarding rate ($90 per 24 hours) for each day of the package.</div>
+    </details>
+    <details class="faq-item reveal">
+      <summary>Can I combine packages or spread them out?</summary>
+      <div class="a">Yes. Packages may be combined with daycare and boarding packages and don't have to be used consecutively. They can't be applied to <a href="faq-policies.html" style="color:var(--orange-deep);font-weight:600">holiday or peak periods</a>.</div>
+    </details>
+    <p class="reveal" style="margin-top:12px"><a href="pricing-calculator.html" style="color:var(--orange-deep);font-weight:600">Estimate the total for your dog’s whole stay, add-ons included →</a></p>
+  </div>
+</section>
+
+<!-- ═══ LED BY MIKE — intro, photo & video ═══ -->
+<section class="pad">
+  <div class="wrap split">
+    <div class="reveal">
+      <span class="eyebrow">Why train here</span>
+      <h2>Trained where they already play</h2>
+      <p>Most training happens in a quiet room, then falls apart the moment real life shows up. At AlphaDog, training is built into your dog's daycare or boarding day, so they practice new skills surrounded by other dogs, movement, and everyday distractions, the exact conditions where you actually need those skills to hold.</p>
+      <p>What they learn here is what comes home with you: focus that survives a busy sidewalk, manners that hold around other dogs, and a calmer, more confident dog in the places you go together.</p>
+    </div>
+    <div class="media-slot tall reveal">
+      <!-- ═══ EDIT: swap this photo anytime — just replace images/team-mike-full.jpg ═══ -->
+      <img src="images/team-mike-full.jpg" alt="A golden retriever holding a calm down-stay on leash in a Marin park" loading="lazy">
+    </div>
+  </div>
+  <!-- ═══ TRAINING VIDEO — hosted on Vimeo (video 1229637346). To replace,
+       upload a new video to Vimeo and paste its player URL in the iframe src below. ═══ -->
+  <div class="wrap" style="margin-top:56px">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Watch</span>
+      <h2>Boarding and training at AlphaDog</h2>
+      <p>A closer look at how we live, play, and train here in Mill Valley.</p>
+    </div>
+    <div class="media-slot reveal" style="aspect-ratio:16/9">
+      <iframe src="https://player.vimeo.com/video/1229637346?h=727a1fd63f&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" title="Boarding and training at AlphaDog"></iframe>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ MORE ABOUT MIKE — full bio ═══ -->
+<section class="pad">
+  <div class="wrap" style="max-width:840px">
+    <div class="sec-head reveal">
+      <span class="eyebrow">About Mike</span>
+      <h2>The trainer behind the program</h2>
+    </div>
+    <div class="reveal">
+      <p>Mike is the author of three books: <i>There's a Puppy in the House</i>, <i>Good Dog, Happy Baby</i>, and <i>Integrated Dog Training: The Commonsense Visual Guide to Training Any Dog</i>. He has been certified as an expert in dog behavior by the California Superior Court, has been a guest speaker and panelist at the annual California Animal Care and Control Convention, and has appeared on radio and television programs nationwide. He has also written columns and articles about dog behavior for Dog Fancy, Dog World, American Dog, Fit Pregnancy, Boston Whaler, and smaller publications.</p>
+      <p>Over the years, Mike has trained dogs for high-profile clients in the entertainment, financial, and academic worlds, including Charles Schwab, Robin Williams, Linda Ronstadt, Barry Levinson, Chad Hurley (founder of YouTube), Max Levchin (co-founder of PayPal), Jeremy Stoppelman (founder of Yelp), Dr. Robert Sapolsky (author of many books on animal behavior and neurobiology), Joe Satriani, Bob Weir of the Grateful Dead, Kirk Hammett of Metallica, and Michael Tilson Thomas, music director of the San Francisco Symphony:</p>
+      <blockquote style="margin:26px 0 0;padding:22px 28px;border-left:4px solid var(--orange-deep);background:var(--cream,#F7F3EA);border-radius:0 14px 14px 0">
+        <p style="font-family:var(--display);font-style:italic;font-size:1.15rem;margin:0 0 10px">&ldquo;Michael Wombacher is a maestro of dog trainers. His clarity of thinking, sense of humor and skills in communicating make dog training fun for both pet and pet lover.&rdquo;</p>
+        <cite style="font-style:normal;font-size:.9rem;color:var(--muted)">Michael Tilson Thomas, Music Director, San Francisco Symphony</cite>
+      </blockquote>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ TRAINING HOURS & FAQ ═══ -->
+<section class="alt pad">
+  <div class="wrap" style="max-width:840px">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Scheduling &amp; FAQ</span>
+      <h2>Hours, policies, and good questions</h2>
+    </div>
+
+    <details class="faq-item reveal" open>
+      <summary>What is your training approach?</summary>
+      <div class="a">We train in real life, not in a quiet room. Sessions are built into your dog's daycare or boarding day, so they practice new skills around other dogs, movement, and everyday distractions, the same conditions where those skills need to hold up at home and around town. Our program is led by Mike Wombacher, and the focus is always on practical results: reliable focus, good manners around other dogs, and a calmer, more confident dog. When training wraps up, a complimentary tutorial shows you exactly how to keep it going.</div>
+    </details>
+
+    <details class="faq-item reveal">
+      <summary>When does training run?</summary>
+      <div class="a">Training is available Monday–Friday, booked as a full daycare day (7am–7pm). Drop-off is required by 9am (grace period until 9:30am, after which a late fee applies), and dogs arriving after 10am may not receive training. Because sessions are woven into the rhythm of the daycare day, there may also be especially busy days when we can't fit a session in. Pick-up begins at 2:30pm, but dogs are welcome to stay until 7pm at no extra charge.</div>
+    </details>
+
+    <details class="faq-item reveal">
+      <summary>Can I join the training sessions?</summary>
+      <div class="a">For liability reasons, clients can't join sessions, but we have two ways to stay involved. Every dog gets one complimentary <b>tutorial</b>, where a trainer walks you through hand signals, verbal commands, and any new tools. For more hands-on work, <b>private training</b> ($195/hour) brings a trainer to your home or another agreed location.</div>
+    </details>
+
+    <details class="faq-item reveal">
+      <summary>Why would my dog need private training?</summary>
+      <div class="a">Some challenges show up in places we can't recreate here: pulling on the leash in your neighborhood, jumping on guests at the front door, or reactivity on your usual walking route. Private training ($195/hour) brings a trainer to your home or another agreed location to work on those specific situations with you. It's also the best way to learn the handling yourself, so the whole household stays consistent and the progress lasts.</div>
+    </details>
+
+    <details class="faq-item reveal">
+      <summary>What treats do you use?</summary>
+      <div class="a">High-quality freeze-dried beef liver, with freeze-dried chicken breast, salmon, and string cheese as alternates. For shy dogs we usually recommend skipping breakfast to boost motivation. For picky eaters, allergies, puppies under 1 year, or sensitive stomachs, please provide your own training treats. And for any dog, you're always welcome to send your favorite treats from home. We're happy to use them.</div>
+    </details>
+
+    <details class="faq-item reveal">
+      <summary>What are the late, no-show, and cancellation policies?</summary>
+      <div class="a">Late arrivals: first is a reminder, second is a $25 fee, third is a $61 fee. Please call ahead if you're running behind. No-shows: reminder first, then half the training + daycare/boarding fee, then the full fee. Cancellations are free until 7am the day of; after that, a $25 cancellation fee applies.</div>
+    </details>
+
+    <details class="faq-item reveal">
+      <summary>How do I book?</summary>
+      <div class="a">All daycare, boarding, and training reservations go through the front desk. Email <a href="mailto:dogs@alphadoglodging.com" style="color:var(--orange-deep);font-weight:600">dogs@alphadoglodging.com</a>, call <a href="tel:4153832111" style="color:var(--orange-deep);font-weight:600">(415) 383-2111</a>, or stop by. Next-day reservations by 7pm; same-day bookings need approval from the training team. Standing reservations are welcome, but don't apply during holidays and peak periods.</div>
+    </details>
+
+    <details class="faq-item reveal">
+      <summary>Is service dog training part of this program?</summary>
+      <div class="a">Yes! <a href="service-training.html" style="color:var(--orange-deep);font-weight:600">AlphaDog Assist</a>, our service dog program, is led by Sierra Berrick, our service dog training director and mental health specialist, alongside Mike Wombacher. We train psychiatric service, medical alert, migraine alert, allergen alert, and mobility assistance dogs.</div>
+    </details>
+
+    <details class="faq-item reveal">
+      <summary>What happens if I'm late?</summary>
+      <div class="a">Drop-off is required by 9am, with a grace period until 9:30am. After that a late fee applies: the first time is just a reminder, the second is $25, and the third is $61. Dogs arriving after 10am may not be able to train that day, but they're still welcome to stay for daycare. If you're running behind, please call ahead at <a href="tel:4153832111" style="color:var(--orange-deep);font-weight:600">(415) 383-2111</a>.</div>
+    </details>
+  </div>
+</section>
+
+<!-- ═══ Bottom call-to-action — edit the text or the button link ═══ -->
+<section class="banner-cta">
+  <div class="wrap inner reveal">
+    <h2>Start with a conversation</h2>
+    <p>Tell us what you're seeing at home and we'll recommend the right program for your dog.</p>
+    <!-- ═══ EDIT: link the button to your Gingr page or contact page ═══ -->
+    <a href="contact.html" class="btn btn-gold">Contact us</a>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════════════════════
+     FOOTER — identical on every page.
+     ═══ EDIT: address, phone, email, and hours below ═══
+     ⚠ If you edit the footer, make the same edit on ALL pages.
+     ════════════════════════════════════════════════════════════════ -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <img src="images/logo-full.png" alt="AlphaDog Lodging" class="foot-logo">
+        <p style="font-size:.9rem;max-width:32ch">We're a Marin dog daycare, boarding, training and grooming facility with outdoor group play and well-trained, caring staff. Certified Green Business &amp; Climate Smart member.</p>
+        <!-- ═══ EDIT: social links — update the URLs if the handles change ═══ -->
+        <div class="social-row">
+          <a href="https://www.instagram.com/alphadoglodging/" target="_blank" rel="noopener" aria-label="AlphaDog on Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><rect x="2.5" y="2.5" width="19" height="19" rx="5"/><circle cx="12" cy="12" r="4.5"/><circle cx="17.5" cy="6.5" r="1" fill="#fff" stroke="none"/></svg></a>
+          <a href="https://www.facebook.com/alphadoglodging/" target="_blank" rel="noopener" aria-label="AlphaDog on Facebook"><svg width="18" height="18" viewBox="0 0 24 24" fill="#fff"><path d="M13.5 22v-8h2.7l.4-3.2h-3.1V8.7c0-.9.3-1.6 1.6-1.6h1.7V4.2c-.3 0-1.3-.1-2.5-.1-2.5 0-4.2 1.5-4.2 4.3v2.4H7.4V14h2.7v8z"/></svg></a>
+        </div>
+
+      </div>
+      <div><h4>Visit</h4><ul>
+        <li>230 Shoreline Highway</li>
+        <li>Mill Valley, CA 94941</li>
+        <li><a href="tel:4153832111">(415) 383-2111</a></li>
+        <li><a href="mailto:dogs@alphadoglodging.com">dogs@alphadoglodging.com</a></li>
+        <li>Drop-off &amp; pick-up: 7am–7pm daily</li>
+      </ul></div>
+      <div><h4>Services</h4><ul>
+        <li><a href="daycare-boarding.html">Daycare &amp; Boarding</a></li>
+        <li><a href="enrichment.html">Enrichment &amp; Hikes</a></li>
+        <li><a href="training.html">Training</a></li>
+        <li><a href="grooming.html">Grooming</a></li>
+      </ul></div>
+      <div><h4>More</h4><ul>
+        <li><a href="about.html">About &amp; Team</a></li>
+        <li><a href="faq-policies.html">FAQ &amp; Policies</a></li>
+        <li><a href="partners.html">Local Partners</a></li>
+        <li><a href="local-resources.html">Local Resources</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+      </ul></div>
+    </div>
+    <div class="foot-bottom"><span>© 2026 AlphaDog Lodging. All rights reserved.</span><span>Booking powered by Gingr</span></div>
+  </div>
+</footer>
+
+<script src="https://player.vimeo.com/api/player.js"></script>
+<script src="js/main.js?v=2"></script>
+</body>
+</html>

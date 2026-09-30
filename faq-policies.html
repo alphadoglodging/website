@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- ═══ EDIT: Page title & description (what Google shows in search results) ═══ -->
+<title>FAQ & Policies | AlphaDog Lodging</title>
+<meta name="description" content="Requirements, holiday reservation policies, meal schedules, and answers to common questions about daycare and boarding at AlphaDog Lodging.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<meta name="theme-color" content="#232020">
+<meta property="og:title" content="FAQ & Policies | AlphaDog Lodging">
+<meta property="og:description" content="Requirements, holiday reservation policies, meal schedules, and answers to common questions about daycare and boarding at AlphaDog Lodging.">
+<meta property="og:type" content="website">
+<!-- ═══ EDIT: after hosting, set og:image to the FULL address of a photo,
+     e.g. https://alphadoglodging.com/images/hero-poster.jpg — this is
+     the preview image shown when the page is shared/texted ═══ -->
+<link rel="icon" type="image/png" href="images/favicon.png">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<!-- ════════════════════════════════════════════════════════════════
+     HEADER / NAVIGATION — identical on every page.
+     ⚠ If you edit the menu, make the same edit on ALL pages so the
+     nav stays consistent across the site.
+     ═══ NOTE: The "Book Now" button's link is set in ONE place:
+     js/main.js (top of the file). Edit it there and every booking
+     button on every page updates automatically. ═══
+     ════════════════════════════════════════════════════════════════ -->
+<header>
+  <div class="wrap nav">
+    <a href="index.html" class="brand">
+      <img src="images/logo-badge.png" alt="" class="badge-logo">
+      AlphaDog
+    </a>
+    <nav aria-label="Main">
+      <ul class="menu" id="menu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Services <span class="caret">▾</span></a>
+          <div class="dropdown">
+            <a href="daycare-boarding.html"><strong>Daycare &amp; Boarding</strong><span>Outdoor group play, overnight stays</span></a>
+            <a href="enrichment.html"><strong>Enrichment &amp; Hikes</strong><span>AlphaDog Outdoors adventures</span></a>
+            <a href="training.html"><strong>Training</strong><span>Obedience &amp; behavior with Mike Wombacher</span></a>
+            <a href="grooming.html"><strong>Grooming</strong><span>Full-service spa</span></a>
+            <a href="service-training.html"><strong>Service Dog Training</strong><span>AlphaDog Assist program</span></a>
+          </div>
+        </li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="about.html" class="active">About <span class="caret">▾</span></a>
+          <div class="dropdown">
+            <a href="about.html"><strong>About &amp; Team</strong><span>Our story, staff &amp; facility</span></a>
+            <a href="faq-policies.html"><strong>FAQ &amp; Policies</strong><span>Requirements, policies &amp; answers</span></a>
+          </div>
+        </li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+    <a href="https://alphadoglodging.portal.gingrapp.com/public/login/Ii9zZWN1cmUvaG9tZSI=" data-gingr="apply" class="btn btn-book nav-book">Apply Now</a>
+    <button class="hamb" id="hamb" aria-label="Open menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<!-- ═══ EDIT: Page banner text ═══ -->
+<section class="page-hero">
+  <svg class="paw-watermark" viewBox="0 0 100 100"><g fill="#E8AC34"><ellipse cx="50" cy="64" rx="20" ry="16"/><ellipse cx="27" cy="44" rx="8" ry="10"/><ellipse cx="42" cy="33" rx="8" ry="10"/><ellipse cx="58" cy="33" rx="8" ry="10"/><ellipse cx="73" cy="44" rx="8" ry="10"/></g></svg>
+  <div class="wrap reveal">
+    <span class="eyebrow">FAQ &amp; Policies</span>
+    <h1>Good questions, straight answers</h1>
+    <p>Everything you need to know before your dog's first visit, and the policies that keep the whole pack safe.</p>
+  </div>
+</section>
+
+<section class="pad">
+  <div class="wrap" style="max-width:840px">
+
+    <!-- ═══ EDIT: FAQ — each question is one <details class="faq-item">
+         block. Copy a whole block to add one; edit the <summary> (the
+         question) and the <div class="a"> (the answer). ═══ -->
+
+    <details class="faq-item reveal" open>
+      <summary>What does my dog need to visit?</summary>
+      <div class="a">A completed application (via the "Apply Now" button above), with current vaccination records: DHPP (or a variation), Rabies, Bordetella, Canine Influenza, and an annual fecal test covering both Giardia Antigen and Ova/Parasites. We also require proof of current flea/tick treatment, and a collar that follows our guidelines. After we've received everything, our team will contact you to schedule an introductory visit: an Assessment.</div>
+    </details>
+
+    <details class="faq-item reveal">
+      <summary>How does the Assessment work?</summary>
+      <div class="a">Each new dog visits for a complimentary four-hour assessment, where they can be introduced gradually to play groups and team members. To schedule an assessment: complete the steps above and our team will reach out; these are done by appointment only. And if your dog is shy the first time, that's completely fine! We can always try again.</div>
+    </details>
+
+    <details class="faq-item reveal">
+      <summary>What happens if my dog gets muddy?</summary>
+      <div class="a">We can give him a bath, depending on our bathers' availability and the length of your dog's stay!</div>
+    </details>
+
+    <details class="faq-item reveal">
+      <summary>How are play groups decided?</summary>
+      <div class="a">Even within a family, each dog is individually assessed and placed in a play group by energy level, temperament, and play style. This could be a "calm and casual" group for mellow dogs of all sizes, high-energy groups for adolescents and adults, puppy groups sorted by play style, or the dedicated senior group. All groups rotate hourly between play outside and rest inside, so everyone has time to rest and refresh.</div>
+    </details>
+
+    <details class="faq-item reveal">
+      <summary>Do I need a reservation, and how do I book?</summary>
+      <div class="a">Outside of holidays, Daycare rarely needs a reservation, but we suggest one in case capacity is reached. Boarding, and additional services (such as training) always require a reservation. For holiday hours, see below. To book, email <a href="mailto:dogs@alphadoglodging.com" style="color:var(--orange-deep);font-weight:600">dogs@alphadoglodging.com</a>, call <a href="tel:4153832111" style="color:var(--orange-deep);font-weight:600">(415) 383-2111</a>, or stop by the front desk.<br><br>All reservations (and services) during holiday/peak periods need to be confirmed by our front desk team, including standing reservations. They typically require a non-refundable deposit with a minimum stay. Packages and credits cannot be applied toward a deposit. Peak periods include Ski Week, Spring Break, Memorial Day Weekend, 4th of July, Labor Day Weekend, Thanksgiving, and Christmas &amp; New Year's.</div>
+    </details>
+
+    <details class="faq-item reveal">
+      <summary>What are your hours?</summary>
+      <div class="a">
+        <ul style="margin:2px 0 0 18px;padding:0">
+          <li style="margin-bottom:10px"><b>Non-holiday hours</b>
+            <ul style="margin:6px 0 0;padding:0 0 0 18px">
+              <li>Drop-off 7am&ndash;7pm, ideally before 4pm</li>
+              <li>Pick-up 7am&ndash;7pm, with late pick-ups allowed until 10pm for a $20 fee</li>
+            </ul>
+          </li>
+          <li><b>Holiday hours</b>
+            <ul style="margin:6px 0 0;padding:0 0 0 18px">
+              <li>Drop-off 7am&ndash;3pm, with late drop-offs allowed until 7pm for a $46 fee</li>
+              <li>Pick-up 7am&ndash;7pm, with two additional fees: 7&ndash;8pm is a $10 fee, and 8&ndash;10pm is an extra $20 for a total of $30</li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </details>
+
+    <details class="faq-item reveal">
+      <summary>Can I bring food and medication?</summary>
+      <div class="a">We prefer dogs stay on their own diet to avoid tummy troubles, but our house Kirkland Lamb &amp; Rice kibble is available for a small fee. Medication and supplements can be given, and need to be labeled with clear directions.</div>
+    </details>
+
+    <details class="faq-item reveal">
+      <summary>Do you use crates or kennels?</summary>
+      <div class="a">When they are not playing outside, dogs will rest in a crate or kennel in one of our five temperature-controlled buildings. Dogs from the same family sleep together overnight, but may spend some time apart during the day if they are in different groups. You're welcome to bring a bed, blankets, and bones to offer during rest times, but we also have those here at no extra charge.</div>
+    </details>
+
+    <details class="faq-item reveal">
+      <summary>What's your spay/neuter policy? And what about heat cycles?</summary>
+      <div class="a">The team monitors each intact dog individually for behaviors, so they may ask that a dog be altered sooner or wait until after altering to return, in order to keep group play safe. We unfortunately can't accept dogs during a heat cycle, as we'd rather avoid any surprises. Your pup is welcome back as soon as their heat ends or they recover from surgery, and is cleared by their vet for both.</div>
+    </details>
+
+    <details class="faq-item reveal">
+      <summary>Can I see what my dog is up to?</summary>
+      <div class="a">If you join our "Pupdates" program, we send out pictures every other day during boarding. Email your dog's first and last name to <a href="mailto:pupdates@alphadoglodging.com" style="color:var(--orange-deep);font-weight:600">pupdates@alphadoglodging.com</a> to sign up! You can also follow us on <a href="https://www.instagram.com/alphadoglodging/" target="_blank" rel="noopener" style="color:var(--orange-deep);font-weight:600">Instagram</a> for general updates.</div>
+    </details>
+
+  </div>
+</section>
+
+<!-- ═══ Bottom call-to-action — edit the text or the button link ═══ -->
+<section class="banner-cta">
+  <div class="wrap inner reveal">
+    <h2>Still have a question?</h2>
+    <p>Call or email us. A real human at the front desk will get you a real answer.</p>
+    <!-- ═══ EDIT: link the button to your Gingr page or contact page ═══ -->
+    <a href="contact.html" class="btn btn-gold">Contact us</a>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════════════════════
+     FOOTER — identical on every page.
+     ═══ EDIT: address, phone, email, and hours below ═══
+     ⚠ If you edit the footer, make the same edit on ALL pages.
+     ════════════════════════════════════════════════════════════════ -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <img src="images/logo-full.png" alt="AlphaDog Lodging" class="foot-logo">
+        <p style="font-size:.9rem;max-width:32ch">We're a Marin dog daycare, boarding, training and grooming facility with outdoor group play and well-trained, caring staff. Certified Green Business &amp; Climate Smart member.</p>
+        <!-- ═══ EDIT: social links — update the URLs if the handles change ═══ -->
+        <div class="social-row">
+          <a href="https://www.instagram.com/alphadoglodging/" target="_blank" rel="noopener" aria-label="AlphaDog on Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><rect x="2.5" y="2.5" width="19" height="19" rx="5"/><circle cx="12" cy="12" r="4.5"/><circle cx="17.5" cy="6.5" r="1" fill="#fff" stroke="none"/></svg></a>
+          <a href="https://www.facebook.com/alphadoglodging/" target="_blank" rel="noopener" aria-label="AlphaDog on Facebook"><svg width="18" height="18" viewBox="0 0 24 24" fill="#fff"><path d="M13.5 22v-8h2.7l.4-3.2h-3.1V8.7c0-.9.3-1.6 1.6-1.6h1.7V4.2c-.3 0-1.3-.1-2.5-.1-2.5 0-4.2 1.5-4.2 4.3v2.4H7.4V14h2.7v8z"/></svg></a>
+        </div>
+
+      </div>
+      <div><h4>Visit</h4><ul>
+        <li>230 Shoreline Highway</li>
+        <li>Mill Valley, CA 94941</li>
+        <li><a href="tel:4153832111">(415) 383-2111</a></li>
+        <li><a href="mailto:dogs@alphadoglodging.com">dogs@alphadoglodging.com</a></li>
+        <li>Drop-off &amp; pick-up: 7am–7pm daily</li>
+      </ul></div>
+      <div><h4>Services</h4><ul>
+        <li><a href="daycare-boarding.html">Daycare &amp; Boarding</a></li>
+        <li><a href="enrichment.html">Enrichment &amp; Hikes</a></li>
+        <li><a href="training.html">Training</a></li>
+        <li><a href="grooming.html">Grooming</a></li>
+      </ul></div>
+      <div><h4>More</h4><ul>
+        <li><a href="about.html">About &amp; Team</a></li>
+        <li><a href="faq-policies.html">FAQ &amp; Policies</a></li>
+        <li><a href="partners.html">Local Partners</a></li>
+        <li><a href="local-resources.html">Local Resources</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+      </ul></div>
+    </div>
+    <div class="foot-bottom"><span>© 2026 AlphaDog Lodging. All rights reserved.</span><span>Booking powered by Gingr</span></div>
+  </div>
+</footer>
+
+<script src="js/main.js?v=2"></script>
+</body>
+</html>
