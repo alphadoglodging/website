@@ -1,0 +1,38 @@
+# Redirects from the old WordPress site's addresses to the new pages.
+# Netlify reads this file on every deploy. Format: old-path  new-path  status
+# Trailing slashes are matched automatically. Rules are case-sensitive: add a
+# separate rule if an old address with capital letters needs redirecting.
+# Pages with unchanged names (/services/, /local-resources/, the legal pages)
+# need no rule. See CONTRIBUTING.md before editing.
+
+# Pages with search traffic or rankings
+/services/training-programs                  /training            301
+/contact-us                                  /contact             301
+/etc/rates-hours                             /daycare-boarding    301
+/etc                                         /daycare-boarding    301
+
+# Booking pages go straight to Gingr (keep in sync with GINGR_APPLICATION_URL in js/main.js)
+/online-reservations                         https://alphadoglodging.portal.gingrapp.com/public/login/Ii9zZWN1cmUvaG9tZSI=  301
+/etc/application                             https://alphadoglodging.portal.gingrapp.com/public/login/Ii9zZWN1cmUvaG9tZSI=  301
+
+# Brochure PDF, which was linked from every page of the old site
+/wp-content/uploads/2024/10/alpha-dog-assist-brochure.pdf  /docs/alpha-dog-assist-brochure.pdf  301
+
+# Other old pages
+/about-us/team                               /about               301
+/about-us                                    /about               301
+/services/alphadog-outdoors                  /enrichment          301
+/services/training-programs/university       /training            301
+/etc/policies                                /faq-policies        301
+/etc/rates-hours/specials                    /services            301
+/faq                                         /faq-policies        301
+/milo-foundation-partnership                 /partners            301
+/turf-royalty                                /daycare-boarding    301
+/employment                                  /contact             301
+/testimonial                                 /                    301
+/testimonial/*                               /                    301
+
+# Old WordPress sitemaps (Google Search Console may still have them on file)
+/sitemap_index.xml                           /sitemap.xml         301
+/page-sitemap.xml                            /sitemap.xml         301
+/wp-sitemap.xml                              /sitemap.xml         301

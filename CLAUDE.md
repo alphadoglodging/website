@@ -15,5 +15,5 @@ Static HTML site maintained by PartnerPress. Several developers update it from t
 - Many people on this team use GitHub Desktop, not the command line. When a step needs the user to do something in Git, name the GitHub Desktop button or menu item, not a command.
 - For local preview, start the `site` configuration in `.claude/launch.json` (serves `site/` on port 8080). Check changed pages at desktop and phone width before committing.
 - If `scripts/check.py` reports errors, fix them before committing. Mention any warnings to the user.
-- When a change touches the header or footer, apply it to all 14 pages and confirm the check passes.
+- When a change touches the header or footer, apply it to every HTML page in `site/` and confirm the check passes.
 - To roll back, prefer reverting through a pull request (`git revert` on a branch, then push). Say so plainly if Netlify's instant rollback is the better fit, since only the user can do that in the Netlify dashboard.

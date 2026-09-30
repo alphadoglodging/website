@@ -75,6 +75,13 @@ for tag in ("header", "footer"):
                 for name in names:
                     errors.append(f"<{tag}> in {name} differs from the other pages")
 
+# 3b. Every page loads Google Analytics.
+GA_ID = "G-RBP0XGS02Y"
+for page in PAGES:
+    html = page.read_text(encoding="utf-8")
+    if f"googletagmanager.com/gtag/js?id={GA_ID}" not in html or f"gtag('config', '{GA_ID}')" not in html:
+        errors.append(f"Missing Google Analytics tag ({GA_ID}): {page.name}")
+
 # 4. Oversized images (warning only).
 for path in (SITE / "images").rglob("*"):
     if path.suffix.lower() in (".jpg", ".jpeg", ".png", ".webp", ".gif"):
@@ -87,6 +94,18 @@ for page in PAGES:
     for n, line in enumerate(page.read_text(encoding="utf-8").splitlines(), 1):
         if "$XX" in line:
             warnings.append(f"Placeholder $XX: {page.name}:{n}")
+
+# 6. Every redirect in site/_redirects points at a page or file that exists.
+redirects = SITE / "_redirects"
+if redirects.exists():
+    for n, line in enumerate(redirects.read_text(encoding="utf-8").splitlines(), 1):
+        parts = line.split()
+        if len(parts) < 2 or parts[0].startswith("#"):
+            continue
+        target = parts[1].split("#")[0].strip("/")
+        if parts[1].startswith("/") and target:
+            if not ((SITE / target).exists() or (SITE / f"{target}.html").exists()):
+                errors.append(f"Redirect to missing page: _redirects:{n} -> {parts[1]}")
 
 for w in warnings:
     print(f"WARNING  {w}")
