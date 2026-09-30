@@ -5,8 +5,9 @@ just open any `.html` file in a text editor, make your change, save,
 and refresh the browser.
 
 All website files live in the `site/` folder. Paths below are relative
-to `site/`. Everything outside `site/` (this guide, `CLAUDE.md`,
-`netlify.toml`) is for maintenance and is never published.
+to `site/`. Everything outside `site/` (this guide, `CONTRIBUTING.md`,
+`CLAUDE.md`, `scripts/`, and config files) is for maintenance and is
+never published.
 
 ## What's in here
 
@@ -96,6 +97,6 @@ VS Code or any editor: Edit → Replace in Files).
 
 ## Hosting
 
-Hosted on Netlify, deployed from the GitHub repository. Every push to
-the `main` branch publishes the `site/` folder automatically. See
-`CLAUDE.md` for the full update and rollback workflow.
+Hosted on Netlify, deployed from the GitHub repository. Every merge
+into the `main` branch publishes the `site/` folder automatically. See
+`CONTRIBUTING.md` for the full update and rollback workflow.

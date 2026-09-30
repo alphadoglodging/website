@@ -1,2 +1,4 @@
 .DS_Store
 .netlify/
+# Personal Claude Code settings; shared settings go in .claude/settings.json
+.claude/settings.local.json
