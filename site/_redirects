@@ -30,3 +30,8 @@
 /employment                                  /contact             301
 /testimonial                                 /                    301
 /testimonial/*                               /                    301
+
+# Old WordPress sitemaps (Google Search Console may still have them on file)
+/sitemap_index.xml                           /sitemap.xml         301
+/page-sitemap.xml                            /sitemap.xml         301
+/wp-sitemap.xml                              /sitemap.xml         301
