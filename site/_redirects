@@ -1,6 +1,7 @@
 # Redirects from the old WordPress site's addresses to the new pages.
 # Netlify reads this file on every deploy. Format: old-path  new-path  status
-# Trailing slashes and capital letters in old paths are matched automatically.
+# Trailing slashes are matched automatically. Rules are case-sensitive: add a
+# separate rule if an old address with capital letters needs redirecting.
 # Pages with unchanged names (/services/, /local-resources/, the legal pages)
 # need no rule. See CONTRIBUTING.md before editing.
 
