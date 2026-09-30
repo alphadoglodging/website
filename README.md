@@ -4,6 +4,10 @@ A standalone static website. No WordPress, no database, no build tools —
 just open any `.html` file in a text editor, make your change, save,
 and refresh the browser.
 
+All website files live in the `site/` folder. Paths below are relative
+to `site/`. Everything outside `site/` (this guide, `CLAUDE.md`,
+`netlify.toml`) is for maintenance and is never published.
+
 ## What's in here
 
 | File | Page |
@@ -21,6 +25,7 @@ and refresh the browser.
 | `partners.html` | Local Partners (Dog Gone Good, Rocket Dogs, Milo) |
 | `local-resources.html` | Local Resources |
 | `gallery.html` | Photo & Video Gallery |
+| `pricing-calculator.html` | Pricing Calculator |
 | `css/styles.css` | All styling & brand colors (edit colors at the top) |
 | `js/main.js` | Menu, animations, lightbox (no need to touch) |
 | `images/` | Put ALL photos and videos here |
@@ -85,11 +90,12 @@ full-screen when clicked automatically.
 ## One rule of thumb
 
 The header (menu) and footer are repeated on every page. If you change
-a menu item, phone number, or hours, make the same change in **all 13
+a menu item, phone number, or hours, make the same change in **all 14
 HTML files** (a find-and-replace across the folder takes seconds in
 VS Code or any editor: Edit → Replace in Files).
 
 ## Hosting
 
-Upload the whole folder to any static host (Cloudflare Pages, Netlify,
-or your current hosting's public folder). No server setup required.
+Hosted on Netlify, deployed from the GitHub repository. Every push to
+the `main` branch publishes the `site/` folder automatically. See
+`CLAUDE.md` for the full update and rollback workflow.
