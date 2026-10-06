@@ -23,14 +23,14 @@ never published.
 | `about.html` | About & The Team |
 | `contact.html` | Contact |
 | `faq-policies.html` | FAQ & Policies |
-| `partners.html` | Local Partners (Dog Gone Good, Rocket Dogs, Milo) |
+| `partners.html` | Local Partners (Alto Tiburon, Rocket Dog Rescue) |
 | `local-resources.html` | Local Resources |
 | `gallery.html` | Photo & Video Gallery |
 | `pricing-calculator.html` | Pricing Calculator |
 | `privacy-policy.html`, `terms-conditions.html`, `cookie-policy.html`, `disclaimer.html`, `data-subject-access-request.html` | Legal pages (linked in the footer) |
 | `_redirects` | Sends old WordPress addresses to the new pages (Netlify reads it) |
 | `css/styles.css` | All styling & brand colors (edit colors at the top) |
-| `js/main.js` | Menu, animations, lightbox (no need to touch) |
+| `js/main.js` | Menu, animations, lightbox, booking links (only the booking URLs at the top need editing) |
 | `images/` | Put ALL photos and videos here |
 
 ## How to edit anything
@@ -64,41 +64,23 @@ Open `gallery.html` — the big comment at the top of the grid has a
 the block, change the filename and caption. Done. Photos open
 full-screen when clicked automatically.
 
-## Remaining to-dos before launch (search each file for "EDIT")
+## Things that live in one place
 
-- [ ] Walk & hike prices on `enrichment.html` (last two `$XX` placeholders
-      on the site)
-- [ ] Rocket Dogs description + website link (`partners.html` and the
-      homepage partner card)
-- [ ] Milo Foundation website link (`partners.html`)
-- [ ] Local Resources entries (`local-resources.html` — Alto Tiburon is
-      in; the rest are placeholders)
-- [ ] Vaccination/age/spay-neuter specifics in the first FAQ answer
-      (`faq-policies.html`)
-- [ ] A higher-resolution photo of Martha (`images/team-martha.jpg` —
-      current one is small and will look soft on large screens)
-- [ ] Optional: grooming à la carte add-on prices, more team cards
-      (Ashley, Tobias…), current-specials card text on `services.html`
+- **Booking and login buttons** (Gingr): every button reads from the two
+  URLs at the top of `js/main.js`. Change them there.
+- **Home page hero video**: replace it by saving a new file over
+  `images/hero.mp4`. The videos on the Enrichment, Training, and Service
+  Dog Training pages are Vimeo embeds: swap the video ID in the `iframe`.
 
-## Already wired up (no action needed)
+## Header and footer
 
-- Gingr booking/login — all buttons read from the two URLs at the top
-  of `js/main.js`
-- Daycare/boarding rates, salon price list, ADU training rates
-- Hero video (images/hero.mp4) and service dog video — replace by
-  overwriting the files with the same names
-- Google Map on Contact, Yelp reviews link, Instagram/Facebook links
-- All page photos and the gallery
+The header (menu) and footer are repeated on every page. A change to a
+menu item, phone number, or hours must be made in **every HTML file**
+(use find-and-replace across the `site/` folder). `scripts/check.py`
+flags any page that doesn't match.
 
-## One rule of thumb
+## Publishing changes
 
-The header (menu) and footer are repeated on every page. If you change
-a menu item, phone number, or hours, make the same change in **every
-HTML file** (a find-and-replace across the folder takes seconds in
-VS Code or any editor: Edit → Replace in Files).
-
-## Hosting
-
-Hosted on Netlify, deployed from the GitHub repository. Every merge
-into the `main` branch publishes the `site/` folder automatically. See
-`CONTRIBUTING.md` for the full update and rollback workflow.
+Don't edit the live site directly. Every change goes through a branch
+and a pull request. See `CONTRIBUTING.md` for the workflow: preview,
+checks, publishing, and rollback.
