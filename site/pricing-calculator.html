@@ -57,6 +57,10 @@
 .pc-addon:last-child{border-bottom:none;padding-bottom:0}
 .pc-addon .nm{font-weight:600;font-size:.94rem}
 .pc-addon .pr{color:var(--muted);font-size:.85rem}
+.pc-groom-adds{margin-top:16px;border-top:1px solid var(--line);padding-top:6px}
+.pc-groom-adds .pc-label{display:block;margin:8px 0 2px}
+label.pc-addon{cursor:pointer;min-height:44px}
+label.pc-addon input{width:20px;height:20px;flex:none;accent-color:var(--orange-deep);cursor:pointer}
 .pc-summary{position:sticky;top:96px;background:var(--black);color:#fff;border-radius:var(--r);padding:30px;overflow:hidden}
 .pc-summary .paw-watermark{position:absolute;right:-30px;bottom:-30px;width:160px;opacity:.08}
 .pc-summary h3{font-size:1.3rem;margin-bottom:18px;color:#fff}
@@ -223,7 +227,7 @@
         <!-- ─── 4. GROOMING ─── -->
         <div class="pc-card">
           <h3>4. Grooming</h3>
-          <p class="hint">A spa visit before pick-up. Every grooming service includes a nail trim. Bath prices are a range; the final price depends on coat condition and temperament, confirmed before we start.</p>
+          <p class="hint">A spa visit before pick-up. Every grooming service includes a nail trim. Final pricing depends on coat condition, length, and temperament, and we'll confirm it before we start.</p>
           <div class="pc-inline">
             <div class="pc-field">
               <label class="pc-label" for="groom-pkg">Service</label>
@@ -236,13 +240,24 @@
             <div class="pc-field">
               <label class="pc-label" for="groom-size">Dog size</label>
               <select class="pc-select" id="groom-size">
-                <option value="mini" selected>Mini</option>
-                <option value="small">Small</option>
-                <option value="medium">Medium</option>
-                <option value="large">Large</option>
-                <option value="xl">Extra Large</option>
+                <option value="mini" selected>Mini (under 15 lbs)</option>
+                <option value="small">Small (15–25 lbs)</option>
+                <option value="medium">Medium (26–45 lbs)</option>
+                <option value="large">Large (46–70 lbs)</option>
+                <option value="xl">Extra Large (over 70 lbs)</option>
               </select>
             </div>
+          </div>
+          <!-- ═══ EDIT: GROOMING ADD-ONS — data-groom-price is the price;
+               data-from="1" marks a starting price (shown as "$30+").
+               Keep in sync with the Add-ons box on grooming.html. ═══ -->
+          <div class="pc-groom-adds">
+            <span class="pc-label">Add-ons (with a bath or haircut)</span>
+            <label class="pc-addon"><div><div class="nm">Dematting</div><div class="pr">$30+, depends on coat condition and length</div></div><input type="checkbox" data-groom-price="30" data-from="1" data-name="Dematting"></label>
+            <label class="pc-addon"><div><div class="nm">Extra brush out</div><div class="pr">$25+, depends on coat condition and length</div></div><input type="checkbox" data-groom-price="25" data-from="1" data-name="Extra brush out"></label>
+            <label class="pc-addon"><div><div class="nm">De-shedding</div><div class="pr">$30</div></div><input type="checkbox" data-groom-price="30" data-name="De-shedding"></label>
+            <label class="pc-addon"><div><div class="nm">Teeth brushing</div><div class="pr">$15</div></div><input type="checkbox" data-groom-price="15" data-name="Teeth brushing"></label>
+            <label class="pc-addon"><div><div class="nm">Ear cleaning</div><div class="pr">$15</div></div><input type="checkbox" data-groom-price="15" data-name="Ear cleaning"></label>
           </div>
         </div>
 
@@ -343,10 +358,10 @@
     // Training package savings: % off the training fee at these day thresholds
     // (from training.html). Applied to whichever program is selected.
     trainPkg: [ {days: 33, pct: 0.18}, {days: 24, pct: 0.15}, {days: 17, pct: 0.12} ],
-    // Grooming: [min, max] for bath ranges, single number for fixed prices
+    // Grooming: price by size. Add-on prices live on the checkboxes above.
     grooming: {
-      bath:    { label: "Bath",    mini:[70,80], small:[80,90], medium:[90,100], large:[100,110], xl:[110,120] },
-      haircut: { label: "Haircut", mini:95,      small:115,     medium:125,      large:150,       xl:180 }
+      bath:    { label: "Bath",    mini:70, small:80,  medium:90,  large:100, xl:110 },
+      haircut: { label: "Haircut", mini:95, small:115, medium:125, large:150, xl:180 }
     }
   };
 
@@ -364,7 +379,7 @@
 
   function calc(){
     const lines = [];
-    let min = 0, max = 0;
+    let min = 0, max = 0, openEnded = false;
 
     // 1. The stay — multi-dog rate + extended-stay package pricing, auto-applied.
     const stay = PRICES.stay[document.querySelector('input[name="stay"]:checked').value];
@@ -430,13 +445,20 @@
       const g = PRICES.grooming[pkg], p = g[size];
       if (Array.isArray(p)) { min += p[0]; max += p[1]; lines.push([g.label + " · " + $("groom-size").options[$("groom-size").selectedIndex].text, money(p[0]) + "–" + money(p[1])]); }
       else { min += p; max += p; lines.push([g.label + " · " + $("groom-size").options[$("groom-size").selectedIndex].text, money(p)]); }
+      // Grooming add-ons (only counted with a bath or haircut)
+      document.querySelectorAll("input[data-groom-price]:checked").forEach(cb => {
+        const cost = +cb.dataset.groomPrice, from = cb.dataset.from === "1";
+        min += cost; max += cost;
+        if (from) openEnded = true;
+        lines.push([cb.dataset.name, money(cost) + (from ? "+" : "")]);
+      });
     }
 
     // Render
     linesEl.innerHTML = lines.length
       ? lines.map(([l, v]) => '<div class="pc-line"><span class="l">' + l + '</span><span class="v">' + v + "</span></div>").join("")
       : '<p class="pc-empty">Pick a stay to get started.</p>';
-    totalEl.textContent = min === max ? money(min) : money(min) + "–" + money(max);
+    totalEl.textContent = (min === max ? money(min) : money(min) + "–" + money(max)) + (openEnded ? "+" : "");
 
     // Nudges toward the next discount tier (any discount reached is already
     // applied in the lines above).
