@@ -32,6 +32,10 @@
      the preview image shown when the page is shared/texted ═══ -->
 <link rel="icon" type="image/png" href="images/favicon.png">
 <link rel="stylesheet" href="css/styles.css">
+<style>
+/* Grooming price table: tighter cells so all four columns fit on phones */
+@media(max-width:480px){.groom-prices th,.groom-prices td{padding:12px 10px}.groom-prices th{letter-spacing:.04em}}
+</style>
 </head>
 <body>
 
@@ -119,7 +123,7 @@
          sync when these change. ═══ -->
     <div class="scroll-x reveal">
       <div class="table-round">
-        <table class="price-table" style="min-width:0">
+        <table class="price-table groom-prices" style="min-width:0">
           <tr><th>Size</th><th>Weight</th><th>Bath</th><th>Haircut</th></tr>
           <tr><td>Mini</td><td>Under 15 lbs</td><td>$70</td><td>$95</td></tr>
           <tr><td>Small</td><td>15–25 lbs</td><td>$80</td><td>$115</td></tr>
@@ -140,7 +144,7 @@
     <div class="reveal" style="margin-top:26px;background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:24px 26px 20px">
       <h3 style="font-size:1.3rem">Add-ons</h3>
       <p style="color:var(--muted);font-size:.9rem;margin:4px 0 14px">Add any of these to a bath or haircut.</p>
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));column-gap:32px">
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,400px),1fr));column-gap:40px">
         <div style="display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-top:1px solid var(--line)"><span>Dematting</span><b>$30+</b></div>
         <div style="display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-top:1px solid var(--line)"><span>Extra brush out</span><b>$25+</b></div>
         <div style="display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-top:1px solid var(--line)"><span>De-shedding</span><b>$30</b></div>
