@@ -322,6 +322,9 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--orange);outline-off
   .foot-logo{height:100px}
 }
 @media(max-width:480px){
+  .brand{font-size:1.08rem;gap:8px;white-space:nowrap}
+  .brand .badge-logo{width:34px;height:34px;border-radius:9px}
+  .nav-book{white-space:nowrap}
   .cta-row{flex-direction:column;align-items:stretch}
   .cta-row .btn{justify-content:center}
   .door{padding:28px 22px}
@@ -359,3 +362,12 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--orange);outline-off
 .legal th{background:var(--black);color:#fff;font-family:var(--body);font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;text-align:left;padding:12px 16px}
 .legal td{padding:12px 16px;border-top:1px solid var(--line);vertical-align:top}
 .legal tr:first-child td{border-top:0}
+@media(max-width:360px){
+  .wrap.nav{gap:10px}
+  .brand{font-size:.95rem;gap:6px}
+  .brand .badge-logo{width:30px;height:30px;border-radius:8px}
+  .nav-book{padding:8px 11px;font-size:.78rem}
+}
+@media(max-width:340px){
+  .brand{white-space:normal;line-height:1.05;max-width:7.5em}
+}
