@@ -111,7 +111,7 @@
     <div class="sec-head reveal">
       <span class="eyebrow">Salon price list</span>
       <h2>Two services, sized to your dog</h2>
-      <p><b>All grooming services include a nail trim.</b> Final pricing depends on coat condition and temperament; we'll confirm before we start.</p>
+      <p><b>All grooming services include a nail trim.</b> Final pricing depends on coat condition, length, and temperament; we'll confirm it with you before we start.</p>
     </div>
 
     <!-- ═══ EDIT: SALON PRICES — update any number below. Each row is a
@@ -120,12 +120,12 @@
     <div class="scroll-x reveal">
       <div class="table-round">
         <table class="price-table" style="min-width:0">
-          <tr><th>Size</th><th>Bath</th><th>Haircut</th></tr>
-          <tr><td>Mini</td><td>$70–80</td><td>$95</td></tr>
-          <tr><td>Small</td><td>$80–90</td><td>$115</td></tr>
-          <tr><td>Medium</td><td>$90–100</td><td>$125</td></tr>
-          <tr><td>Large</td><td>$100–110</td><td>$150</td></tr>
-          <tr><td>Extra Large</td><td>$110–120</td><td>$180</td></tr>
+          <tr><th>Size</th><th>Weight</th><th>Bath</th><th>Haircut</th></tr>
+          <tr><td>Mini</td><td>Under 15 lbs</td><td>$70</td><td>$95</td></tr>
+          <tr><td>Small</td><td>15–25 lbs</td><td>$80</td><td>$115</td></tr>
+          <tr><td>Medium</td><td>26–45 lbs</td><td>$90</td><td>$125</td></tr>
+          <tr><td>Large</td><td>46–70 lbs</td><td>$100</td><td>$150</td></tr>
+          <tr><td>Extra Large</td><td>Over 70 lbs</td><td>$110</td><td>$180</td></tr>
         </table>
       </div>
     </div>
@@ -135,7 +135,20 @@
       <div class="pkg reveal"><h3>Bath</h3><p>A full bath, blow out, and brush out, finished with a nail trim. They'll leave smelling as good as they look.</p></div>
       <div class="pkg reveal"><h3>Haircut</h3><p>Everything in the bath, plus a breed-specific haircut and styling. Nail trim included.</p></div>
     </div>
-    <p class="reveal" style="color:var(--muted);font-size:.9rem;margin-top:18px">À la carte add-ons are also available. Ask at the front desk or when you book.</p>
+    <!-- ═══ EDIT: ADD-ONS — copy a whole row (one <div> line) to add one.
+         Keep pricing-calculator.html in sync when these change. ═══ -->
+    <div class="reveal" style="margin-top:26px;background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:24px 26px 20px">
+      <h3 style="font-size:1.3rem">Add-ons</h3>
+      <p style="color:var(--muted);font-size:.9rem;margin:4px 0 14px">Add any of these to a bath or haircut.</p>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));column-gap:32px">
+        <div style="display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-top:1px solid var(--line)"><span>Dematting</span><b>$30+</b></div>
+        <div style="display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-top:1px solid var(--line)"><span>Extra brush out</span><b>$25+</b></div>
+        <div style="display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-top:1px solid var(--line)"><span>De-shedding</span><b>$30</b></div>
+        <div style="display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-top:1px solid var(--line)"><span>Teeth brushing</span><b>$15</b></div>
+        <div style="display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-top:1px solid var(--line)"><span>Ear cleaning</span><b>$15</b></div>
+      </div>
+      <p style="color:var(--muted);font-size:.9rem;margin-top:12px">Dematting and brush out costs depend on coat condition and length. We'll be in touch before the service to confirm final pricing.</p>
+    </div>
     <p class="reveal" style="margin-top:12px"><a href="pricing-calculator.html" style="color:var(--orange-deep);font-weight:600">Estimate the total for your dog’s whole stay, add-ons included →</a></p>
 
     <!-- ═══ EDIT: SPA HOURS — update here if they change ═══ -->
@@ -162,17 +175,17 @@
 
     <details class="faq-item reveal">
       <summary>What's included with grooming?</summary>
-      <div class="a">All grooming services include a nail trim. A bath covers the bath, blow out, and brush out. A haircut includes everything in the bath, plus a breed-specific cut and styling.</div>
+      <div class="a">All grooming services include a nail trim. A bath covers the bath, blow out, and brush out. A haircut includes everything in the bath, plus a breed-specific cut and styling. Dematting, extra brush outs, de-shedding, teeth brushing, and ear cleaning are available as add-ons.</div>
     </details>
 
     <details class="faq-item reveal">
-      <summary>Why are some prices shown as a range?</summary>
-      <div class="a">Final pricing depends on your dog's size, coat condition, and temperament, so bath prices are shown as a range. We'll always confirm the price with you before we start.</div>
+      <summary>Why might my final price be different?</summary>
+      <div class="a">Prices are based on your dog's size, but coat condition, length, and temperament can add time, especially when a dog needs dematting or an extra brush out. We'll be in touch before the service to confirm the final price.</div>
     </details>
 
     <details class="faq-item reveal">
       <summary>Can I add grooming to a daycare or boarding stay?</summary>
-      <div class="a">Yes. Grooming is an easy add-on to any daycare or boarding reservation, and it can also be booked on its own. À la carte add-ons are available too, just ask at the front desk or when you book.</div>
+      <div class="a">Yes. Grooming is an easy add-on to any daycare or boarding reservation, and it can also be booked on its own. Grooming add-ons like de-shedding and teeth brushing can be added to any bath or haircut.</div>
     </details>
 
     <details class="faq-item reveal">
