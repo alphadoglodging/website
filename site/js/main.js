@@ -9,7 +9,7 @@
    ═══ EDIT: GINGR LINKS — change them HERE and every "Book" and
    "Log in" button across the whole site updates automatically. ═══
 
-   APPLICATION_URL = where "Apply Now" / "Start your application"
+   APPLICATION_URL = where "Book Now" / "Start your application"
                  buttons go (the Gingr new-client application)
    LOGIN_URL   = where "Log in to Gingr" buttons go
                  (your Gingr client login page)
