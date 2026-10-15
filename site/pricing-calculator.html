@@ -223,16 +223,14 @@
         <!-- ─── 4. GROOMING ─── -->
         <div class="pc-card">
           <h3>4. Grooming</h3>
-          <p class="hint">A spa visit before pick-up. Bath prices are a range; the final price depends on coat condition and temperament, confirmed before we start.</p>
+          <p class="hint">A spa visit before pick-up. Every grooming service includes a nail trim. Bath prices are a range; the final price depends on coat condition and temperament, confirmed before we start.</p>
           <div class="pc-inline">
             <div class="pc-field">
-              <label class="pc-label" for="groom-pkg">Package</label>
+              <label class="pc-label" for="groom-pkg">Service</label>
               <select class="pc-select" id="groom-pkg">
                 <option value="none" selected>No grooming</option>
-                <option value="beta">Beta Bath</option>
-                <option value="alpha">Alpha Bath</option>
-                <option value="luna">Luna's Full Groom</option>
-                <option value="vip">Alpha VIP Groom</option>
+                <option value="bath">Bath</option>
+                <option value="haircut">Haircut</option>
               </select>
             </div>
             <div class="pc-field">
@@ -347,10 +345,8 @@
     trainPkg: [ {days: 33, pct: 0.18}, {days: 24, pct: 0.15}, {days: 17, pct: 0.12} ],
     // Grooming: [min, max] for bath ranges, single number for fixed prices
     grooming: {
-      beta:  { label: "Beta Bath",         mini:[55,65],  small:[65,75],  medium:[75,85],   large:[85,95],   xl:[95,105] },
-      alpha: { label: "Alpha Bath",        mini:[70,80],  small:[80,90],  medium:[90,100],  large:[100,110], xl:[110,120] },
-      luna:  { label: "Luna's Full Groom", mini:85,       small:95,       medium:115,       large:125,       xl:150 },
-      vip:   { label: "Alpha VIP Groom",   mini:95,       small:115,      medium:125,       large:150,       xl:180 }
+      bath:    { label: "Bath",    mini:[70,80], small:[80,90], medium:[90,100], large:[100,110], xl:[110,120] },
+      haircut: { label: "Haircut", mini:95,      small:115,     medium:125,      large:150,       xl:180 }
     }
   };
 
