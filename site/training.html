@@ -47,6 +47,82 @@
   .hero-split-media{margin:0 0 40px;max-width:360px}
   .hero-split-media img{max-height:340px}
 }
+
+/* ═══ LEARN WITH MIKE — resource wheel (dark HUD style). Colors come from
+   the site tokens in css/styles.css. ═══ */
+.ww2-sec{background:var(--black);color:#F3EEE5;position:relative;overflow:hidden}
+.ww2-sec::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 28% 62%,rgba(232,172,52,.13),transparent 46%);pointer-events:none}
+.ww2-sec .wrap{position:relative}
+.ww2-sec .sec-head h2{color:#fff}
+.ww2-sec .sec-head p{color:#C9C1B5}
+.ww2-sec .eyebrow{color:var(--yellow)}
+.ww2{display:grid;grid-template-columns:minmax(0,560px) minmax(0,1fr);gap:48px;align-items:center}
+.ww2-wheel{position:relative;width:100%;max-width:560px;aspect-ratio:1/1}
+.ww2-svg{width:100%;height:100%;display:block;overflow:visible}
+.ww2-ring{fill:none;stroke:rgba(255,255,255,.1);stroke-width:1}
+.ww2-ticks .tk{stroke:rgba(255,255,255,.18);stroke-width:1}
+.ww2-ticks .tk-major{stroke:rgba(232,172,52,.55);stroke-width:1.4}
+.ww2-ticks{opacity:0;transform:rotate(-30deg);transition:opacity .6s ease,transform 1s cubic-bezier(.2,.8,.2,1)}
+.is-open .ww2-ticks{opacity:1;transform:none}
+.ww2-pointer{fill:var(--yellow);transition:transform .45s cubic-bezier(.3,1.3,.5,1);opacity:0}
+.is-open .ww2-pointer{opacity:1}
+
+/* inner ring: topic slices */
+.ww2-seg{cursor:pointer;outline:none;opacity:0;transform:scale(.3) rotate(-24deg);
+  transition:transform .55s cubic-bezier(.2,.9,.25,1.15) calc(var(--i) * 70ms),opacity .3s ease calc(var(--i) * 70ms)}
+.is-open .ww2-seg{opacity:1;transform:none}
+.ww2.settled .ww2-seg{transition-delay:0s}
+.is-open .ww2-seg[aria-selected="true"]{transform:translate(var(--dx),var(--dy))}
+.ww2-seg path{fill:rgba(255,255,255,.05);stroke:rgba(255,255,255,.16);stroke-width:1;transition:fill .18s,stroke .18s}
+.ww2-seg:hover path{fill:rgba(232,172,52,.16);stroke:rgba(232,172,52,.5)}
+.ww2-seg[aria-selected="true"] path{fill:var(--orange);stroke:var(--yellow)}
+.ww2-seg:focus-visible path{stroke:#fff;stroke-width:2}
+.ww2-seg .lbl{font-family:var(--body);font-size:10.5px;font-weight:700;fill:#EDE6DA;pointer-events:none}
+.ww2-seg .cnt{font-family:var(--body);font-size:7px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;fill:var(--yellow);pointer-events:none}
+.ww2-seg[aria-selected="true"] .lbl{fill:#2b1d08}
+.ww2-seg[aria-selected="true"] .cnt{fill:#5a3a0c}
+
+/* outer ring: individual resources, fans out from the chosen slice */
+.ww2-opt{outline:none;opacity:0;transform:scale(.78)}
+.ww2-outer.in .ww2-opt{opacity:1;transform:none;transition:transform .42s cubic-bezier(.2,.9,.25,1.2) calc(var(--k) * 45ms),opacity .25s ease calc(var(--k) * 45ms)}
+.ww2-opt path{fill:rgba(232,172,52,.1);stroke:rgba(232,172,52,.45);stroke-width:1;transition:fill .15s,stroke .15s}
+.ww2-opt .olbl{font-family:var(--body);font-size:9px;font-weight:600;fill:#F3EEE5;pointer-events:none}
+.ww2-opt:hover path,.ww2-opt:focus-visible path,.ww2-opt.is-hot path{fill:var(--yellow);stroke:#fff}
+.ww2-opt:hover .olbl,.ww2-opt:focus-visible .olbl,.ww2-opt.is-hot .olbl{fill:#2b1d08}
+
+/* center readout */
+.ww2-hub{position:absolute;left:50%;top:50%;width:29%;height:29%;overflow:hidden;transform:translate(-50%,-50%);border-radius:50%;
+  background:#171412;border:1.5px solid rgba(232,172,52,.7);box-shadow:0 0 0 6px rgba(232,172,52,.08),0 0 40px rgba(232,172,52,.18);
+  color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;padding:0 4%;text-align:center;cursor:pointer;font-family:var(--body)}
+.ww2-hub:focus-visible{outline:2px solid #fff;outline-offset:3px}
+.ww2-hub .k{font-size:clamp(.5rem,1.3vw,.62rem);font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--yellow)}
+.ww2-hub .t{font-family:var(--display);font-weight:600;font-size:clamp(.9rem,2.3vw,1.2rem);line-height:1.1;text-wrap:balance}
+.ww2-hub .m{font-size:clamp(.56rem,1.4vw,.72rem);color:#C9C1B5;font-variant-numeric:tabular-nums}
+.ww2:not(.is-open) .ww2-hub{animation:ww2-pulse 1.8s ease-in-out infinite}
+@keyframes ww2-pulse{50%{box-shadow:0 0 0 14px rgba(232,172,52,.06),0 0 48px rgba(232,172,52,.3)}}
+
+/* resource list beside the wheel */
+.ww2-panels{min-width:0;display:grid;gap:16px}
+.ww2-panel{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.12);border-radius:var(--r);padding:28px}
+.ww2-kicker{font-size:.74rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--yellow)}
+.ww2-panel h3{font-size:1.5rem;margin:8px 0 14px;color:#fff}
+.ww2-items{list-style:none;display:grid;gap:8px}
+.ww2-items a{display:block;border:1px solid rgba(255,255,255,.12);border-radius:12px;padding:11px 15px;transition:border-color .15s,background .15s}
+.ww2-items a:hover,.ww2-items a.is-hot{border-color:var(--yellow);background:rgba(232,172,52,.1)}
+.ww2-items b{display:block;font-weight:600;color:#fff}
+.ww2-items span{display:block;color:#B9B0A3;font-size:.88rem}
+.ww2.no-wheel{grid-template-columns:1fr}
+.ww2.no-wheel .ww2-wheel{display:none}
+
+@media(max-width:900px){
+  .ww2{grid-template-columns:1fr;gap:28px}
+  .ww2-wheel{max-width:420px;margin:0 auto}
+  .ww2-panel{padding:22px 18px}
+}
+@media (prefers-reduced-motion:reduce){
+  .ww2-seg,.ww2-ticks,.ww2-pointer,.ww2-outer.in .ww2-opt{transition:none}
+  .ww2:not(.is-open) .ww2-hub{animation:none}
+}
 </style>
 </head>
 <body>
@@ -101,6 +177,7 @@
       <span class="eyebrow">Training</span>
       <h1>Training that lasts a lifetime</h1>
       <p>AlphaDog University is our training program, designed and run day to day by Mike Wombacher, one of the Bay Area's most experienced trainers.</p>
+      <p style="margin-top:18px"><a href="#resources" style="color:var(--yellow);font-weight:600">Free guides, articles &amp; videos from Mike ↓</a></p>
     </div>
     <div class="hero-split-media">
       <img src="images/training-hero.jpg" alt="Piper, a red merle Australian shepherd, sitting attentively on leash in the sun" loading="eager">
@@ -242,6 +319,258 @@
     </div>
   </div>
 </section>
+
+<!-- ═══ LEARN WITH MIKE — resource wheel ═════════════════════════════════
+     The wheel is drawn automatically from the lists below, so you only
+     ever edit the lists:
+       • Each <div class="ww2-panel"> is one slice of the inner ring.
+         data-wheel = the slice label ( | starts a new line ).
+       • Each link inside <ul class="ww2-items"> becomes one segment of
+         the outer ring that fans out when the slice is picked.
+         data-short = the short label on the wheel ( | starts a new line )
+         data-meta  = the line shown in the center of the wheel.
+     Without JavaScript the lists simply show one after another.
+     The housebreaking guide is docs/three-pillars-of-housebreaking.pdf. ═══ -->
+<section class="ww2-sec pad" id="resources" style="scroll-margin-top:90px">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Free resources</span>
+      <h2>Learn with Mike</h2>
+      <p>Guides, articles, videos, and books from Mike Wombacher, so you can practice at home what your dog learns here. Pick a topic on the wheel, then choose a resource from the outer ring.</p>
+    </div>
+
+    <div class="ww2 no-wheel">
+      <div class="ww2-wheel" aria-hidden="false"></div>
+
+      <div class="ww2-panels">
+        <div class="ww2-panel" id="ww2-housebreaking" data-label="Housebreaking" data-wheel="Housebreaking">
+          <span class="ww2-kicker">Housebreaking</span>
+          <h3>Fewer accidents, sooner</h3>
+          <ul class="ww2-items">
+            <li><a href="docs/three-pillars-of-housebreaking.pdf" target="_blank" rel="noopener" data-short="Three Pillars|guide" data-meta="Free guide · PDF · 15 pages"><b>The Three Pillars of Housebreaking</b><span>Mike's day by day plan for puppy owners: confine, supervise, regulate. Includes a sample day and night routine.</span></a></li>
+            <li><a href="https://doggonegood.org/articles/" target="_blank" rel="noopener" data-short="Crate or|not?" data-meta="Article · Summer 2009"><b>To Crate or Not to Crate?</b><span>Why a crate feels like a den to your dog, and how to introduce one.</span></a></li>
+            <li><a href="https://www.amazon.com/dp/0971303312" target="_blank" rel="noopener" data-short="Puppy in|the House" data-meta="Book · first five months"><b>There's a Puppy in the House</b><span>The book the housebreaking guide comes from, with a full day by day timeline.</span></a></li>
+          </ul>
+        </div>
+
+        <div class="ww2-panel" id="ww2-separation" data-label="Separation anxiety" data-wheel="Separation|anxiety">
+          <span class="ww2-kicker">Separation anxiety</span>
+          <h3>Help your dog be okay alone</h3>
+          <ul class="ww2-items">
+            <li><a href="docs/home-alone-separation-anxiety.pdf" target="_blank" rel="noopener" data-short="Home|Alone" data-meta="Free guide · PDF"><b>Home Alone: Separation Anxiety in Dogs</b><span>How to tell true separation anxiety from boredom and frustration, with protocols for both.</span></a></li>
+            <li><a href="https://doggonegood.org/separation-anxiety/" target="_blank" rel="noopener" data-short="Separation|101" data-meta="Article · Dog Gone Good"><b>Separation Anxiety 101</b><span>Gradual alone time, low key goodbyes and hellos, and plenty of exercise.</span></a></li>
+          </ul>
+        </div>
+
+        <div class="ww2-panel" id="ww2-articles" data-label="Articles" data-wheel="Articles">
+          <span class="ww2-kicker">Articles · <i>The American Dog</i></span>
+          <h3>Mike's magazine columns</h3>
+          <ul class="ww2-items">
+            <li><a href="https://doggonegood.org/articles/" target="_blank" rel="noopener" data-short="Childproof|dog" data-meta="Article · Fall 2008"><b>5 Steps to a Childproof Dog</b><span>Fall 2008</span></a></li>
+            <li><a href="https://doggonegood.org/articles/" target="_blank" rel="noopener" data-short="Doorbell|barking" data-meta="Article · Spring 2009"><b>Does your dog go into a barking frenzy when the doorbell rings?</b><span>Spring 2009</span></a></li>
+            <li><a href="https://doggonegood.org/articles/" target="_blank" rel="noopener" data-short="Crate or|not?" data-meta="Article · Summer 2009"><b>To Crate or Not to Crate?</b><span>Summer 2009</span></a></li>
+            <li><a href="https://doggonegood.org/articles/" target="_blank" rel="noopener" data-short="Three|Pillars" data-meta="Article · Fall 2009"><b>The Three Pillars of Housebreaking</b><span>Fall 2009 · the original column behind our guide</span></a></li>
+            <li><a href="https://doggonegood.org/articles/" target="_blank" rel="noopener" data-short="Baby on|the way" data-meta="Article · Winter 2009"><b>Don't Get Rid of the Dog Because a Baby Is on the Way!</b><span>Winter 2009</span></a></li>
+            <li><a href="https://doggonegood.org/articles/" target="_blank" rel="noopener" data-short="Dog meets|cat" data-meta="Article · Spring 2010"><b>Can You Bring a Cat Home if Your Dog Thinks the Cat Is Prey?</b><span>Spring 2010</span></a></li>
+            <li><a href="https://doggonegood.org/articles/" target="_blank" rel="noopener" data-short="Dog on|dog" data-meta="Article · 2010"><b>Overcoming Dog on Dog Aggression</b><span>2010</span></a></li>
+          </ul>
+        </div>
+
+        <div class="ww2-panel" id="ww2-videos" data-label="Video series" data-wheel="Video|series">
+          <span class="ww2-kicker">Video series · 17 short videos</span>
+          <h3>Puppy training, step by step</h3>
+          <ul class="ww2-items">
+            <li><a href="https://doggonegood.org/training-video-series/" target="_blank" rel="noopener" data-short="Handling" data-meta="5 videos"><b>Handling</b><span>Puppy cradling, body exams, and getting your pup used to being handled.</span></a></li>
+            <li><a href="https://doggonegood.org/training-video-series/" target="_blank" rel="noopener" data-short="Positions" data-meta="7 videos"><b>Positions</b><span>Sit and watch, down, stand, and introducing hand signals.</span></a></li>
+            <li><a href="https://doggonegood.org/training-video-series/" target="_blank" rel="noopener" data-short="Stays" data-meta="3 videos"><b>Stays</b><span>Sit stay, down stay, and stand stay.</span></a></li>
+            <li><a href="https://doggonegood.org/training-video-series/" target="_blank" rel="noopener" data-short="Recall|&amp; play" data-meta="2 videos"><b>Recall &amp; play</b><span>Coming when called, and how to play tug of war.</span></a></li>
+          </ul>
+        </div>
+
+        <div class="ww2-panel" id="ww2-books" data-label="Books" data-wheel="Books">
+          <span class="ww2-kicker">Books by Mike Wombacher</span>
+          <h3>Go deeper</h3>
+          <ul class="ww2-items">
+            <li><a href="https://www.amazon.com/dp/0971303312" target="_blank" rel="noopener" data-short="Puppy in|the House" data-meta="Book · Amazon"><b>There's a Puppy in the House</b><span>The first five months, day by day, with over 200 illustrations.</span></a></li>
+            <li><a href="https://www.amazon.com/dp/1608683494" target="_blank" rel="noopener" data-short="Good Dog,|Happy Baby" data-meta="Book · Amazon"><b>Good Dog, Happy Baby</b><span>A twelve step plan for getting your dog ready for a new baby.</span></a></li>
+            <li><a href="https://doggonegood.org/new-integrated-dog-training/" target="_blank" rel="noopener" data-short="Integrated|Training" data-meta="Book · Dog Gone Good"><b>Integrated Dog Training</b><span>A large photo guide to training any dog, puppy or adult.</span></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<script>
+/* ═══ Resource wheel. Builds the wheel from the lists above. You should
+   not need to edit this; edit the lists instead. ═══ */
+(function(){
+  var root = document.querySelector('.ww2');
+  if (!root || !document.createElementNS) return;
+  var NS = 'http://www.w3.org/2000/svg';
+  var wheelBox = root.querySelector('.ww2-wheel');
+  var panels = [].slice.call(root.querySelectorAll('.ww2-panel'));
+  var cats = panels.map(function(p){
+    return {
+      label: p.dataset.label,
+      lines: (p.dataset.wheel || p.dataset.label).split('|'),
+      panel: p,
+      items: [].slice.call(p.querySelectorAll('.ww2-items a')).map(function(a){
+        return { a: a, short: (a.dataset.short || a.querySelector('b').textContent).split('|'),
+                 meta: a.dataset.meta || '' };
+      })
+    };
+  });
+  var N = cats.length, R0 = 62, R1 = 118, O0 = 130, O1 = 180;
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function pt(r, deg){ var a = deg * Math.PI / 180; return (r*Math.cos(a)).toFixed(2) + ' ' + (r*Math.sin(a)).toFixed(2); }
+  function xy(r, deg){ var a = deg * Math.PI / 180; return [r*Math.cos(a), r*Math.sin(a)]; }
+  function arc(r0, r1, a0, a1){
+    var big = (a1 - a0) > 180 ? 1 : 0;
+    return 'M' + pt(r1,a0) + ' A' + r1 + ' ' + r1 + ' 0 ' + big + ' 1 ' + pt(r1,a1) +
+           ' L' + pt(r0,a1) + ' A' + r0 + ' ' + r0 + ' 0 ' + big + ' 0 ' + pt(r0,a0) + 'Z';
+  }
+  function el(tag, attrs, parent){
+    var n = document.createElementNS(NS, tag);
+    for (var k in attrs) n.setAttribute(k, attrs[k]);
+    if (parent) parent.appendChild(n);
+    return n;
+  }
+  function label(parent, lines, x, y, lh, cls){
+    var t = el('text', { 'text-anchor': 'middle', 'class': cls || '' }, parent);
+    lines.forEach(function(s, j){
+      var ts = el('tspan', { x: x.toFixed(1), y: (y + (j - (lines.length - 1) / 2) * lh).toFixed(1) }, t);
+      ts.textContent = s;
+    });
+    return t;
+  }
+
+  /* ── Build the SVG ── */
+  var svg = el('svg', { viewBox: '-196 -196 392 392', 'class': 'ww2-svg' });
+  var ticks = el('g', { 'class': 'ww2-ticks' }, svg);
+  el('circle', { r: 188, 'class': 'ww2-ring' }, ticks);
+  for (var d = 0; d < 360; d += 6) {
+    var p1 = xy(d % 30 ? 185 : 181, d), p2 = xy(191, d);
+    el('line', { x1: p1[0].toFixed(1), y1: p1[1].toFixed(1), x2: p2[0].toFixed(1), y2: p2[1].toFixed(1), 'class': d % 30 ? 'tk' : 'tk tk-major' }, ticks);
+  }
+  var pointer = el('g', { 'class': 'ww2-pointer' }, svg);
+  el('path', { d: 'M0 -178 L-7 -192 L7 -192Z' }, pointer);
+  var outer = el('g', { 'class': 'ww2-outer' }, svg);
+  var inner = el('g', { 'class': 'ww2-inner', role: 'tablist', 'aria-label': 'Resource topics' }, svg);
+
+  var span = 360 / N;
+  var segs = cats.map(function(c, i){
+    var mid = -90 + i * span, push = xy(9, mid);
+    var g = el('g', { 'class': 'ww2-seg', role: 'tab', tabindex: i ? -1 : 0,
+      'aria-selected': 'false', 'aria-label': c.label + ', ' + c.items.length + ' resources',
+      style: '--i:' + i + ';--dx:' + push[0].toFixed(2) + 'px;--dy:' + push[1].toFixed(2) + 'px' }, inner);
+    el('path', { d: arc(R0, R1, mid - span/2 + 1.4, mid + span/2 - 1.4) }, g);
+    var c0 = xy((R0 + R1) / 2, mid);
+    label(g, c.lines, c0[0], c0[1] - 4, 11, 'lbl');
+    var cnt = el('text', { 'text-anchor': 'middle', x: c0[0].toFixed(1), y: (c0[1] + c.lines.length * 5.5 + 6).toFixed(1), 'class': 'cnt' }, g);
+    cnt.textContent = c.items.length + (c.items.length === 1 ? ' item' : ' items');
+    c.mid = mid;
+    return g;
+  });
+
+  /* Center readout (HTML, so long titles wrap) */
+  var hub = document.createElement('button');
+  hub.type = 'button';
+  hub.className = 'ww2-hub';
+  hub.setAttribute('aria-expanded', 'false');
+  hub.innerHTML = '<span class="k"></span><span class="t"></span><span class="m"></span>';
+  var hk = hub.querySelector('.k'), ht = hub.querySelector('.t'), hm = hub.querySelector('.m');
+
+  wheelBox.appendChild(svg);
+  wheelBox.appendChild(hub);
+  root.classList.remove('no-wheel');
+
+  var cur = 0, open = false;
+  function readout(k, t, m){ hk.textContent = k; ht.textContent = t; hm.textContent = m; }
+  function resting(){
+    if (!open) { readout('Learn with Mike', 'Open the wheel', 'Tap here'); return; }
+    var c = cats[cur];
+    readout('Learn with Mike', c.label, c.items.length + ' resources · pick one');
+  }
+  function hot(c, k, on){
+    var it = c.items[k];
+    it.a.classList.toggle('is-hot', on);
+    if (it.node) it.node.classList.toggle('is-hot', on);
+    if (on) readout(c.label, it.short.join(' '), it.meta); else resting();
+  }
+
+  /* Outer ring: fans out around the chosen slice */
+  function drawOuter(){
+    while (outer.firstChild) outer.removeChild(outer.firstChild);
+    var c = cats[cur], n = c.items.length, s = Math.min(34, 230 / n), start = c.mid - n * s / 2;
+    c.items.forEach(function(it, k){
+      var a0 = start + k * s + 1, a1 = start + (k + 1) * s - 1, mid = (a0 + a1) / 2;
+      var link = el('a', { href: it.a.getAttribute('href'), 'class': 'ww2-opt',
+        'aria-label': it.a.querySelector('b').textContent + ' (' + it.meta + ')',
+        style: '--k:' + k }, outer);
+      if (it.a.target) { link.setAttribute('target', it.a.target); link.setAttribute('rel', 'noopener'); }
+      el('path', { d: arc(O0, O1, a0, a1) }, link);
+      var c0 = xy((O0 + O1) / 2, mid);
+      label(link, it.short, c0[0], c0[1] + 3, 10, 'olbl');
+      ['mouseenter', 'focus'].forEach(function(ev){ link.addEventListener(ev, function(){ hot(c, k, true); }); });
+      ['mouseleave', 'blur'].forEach(function(ev){ link.addEventListener(ev, function(){ hot(c, k, false); }); });
+      it.node = link;
+    });
+    requestAnimationFrame(function(){ requestAnimationFrame(function(){ outer.classList.add('in'); }); });
+  }
+
+  function select(i, focus){
+    cur = i;
+    outer.classList.remove('in');
+    segs.forEach(function(g, k){
+      var on = k === i;
+      g.setAttribute('aria-selected', on ? 'true' : 'false');
+      g.setAttribute('tabindex', on ? 0 : -1);
+      cats[k].panel.hidden = !on;
+    });
+    pointer.style.transform = 'rotate(' + (cats[i].mid + 90) + 'deg)';
+    if (focus) segs[i].focus();
+    if (open) drawOuter();
+    resting();
+  }
+
+  function setOpen(v){
+    open = v;
+    root.classList.toggle('is-open', v);
+    hub.setAttribute('aria-expanded', v ? 'true' : 'false');
+    hub.setAttribute('aria-label', v ? 'Close the resource wheel' : 'Open the resource wheel');
+    if (v) { drawOuter(); setTimeout(function(){ root.classList.add('settled'); }, 900); }
+    else { outer.classList.remove('in'); root.classList.remove('settled'); }
+    resting();
+  }
+
+  segs.forEach(function(g, i){
+    g.addEventListener('click', function(){ if (!open) setOpen(true); select(i); });
+    g.addEventListener('keydown', function(e){
+      if (e.key === 'ArrowRight' || e.key === 'ArrowDown') { e.preventDefault(); select((i + 1) % N, true); }
+      if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') { e.preventDefault(); select((i + N - 1) % N, true); }
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); if (!open) setOpen(true); select(i); }
+    });
+  });
+  cats.forEach(function(c){
+    c.items.forEach(function(it, k){
+      it.a.addEventListener('mouseenter', function(){ if (cats[cur] === c) hot(c, k, true); });
+      it.a.addEventListener('mouseleave', function(){ if (cats[cur] === c) hot(c, k, false); });
+    });
+  });
+  hub.addEventListener('click', function(){ setOpen(!open); });
+
+  select(0);
+  /* Bloom open the first time the wheel scrolls into view */
+  if (reduce || !('IntersectionObserver' in window)) { setOpen(true); }
+  else {
+    var io = new IntersectionObserver(function(es){
+      es.forEach(function(e){ if (e.isIntersecting) { setOpen(true); io.disconnect(); } });
+    }, { threshold: 0.45 });
+    io.observe(wheelBox);
+  }
+})();
+</script>
 
 <!-- ═══ TRAINING HOURS & FAQ ═══ -->
 <section class="alt pad">
