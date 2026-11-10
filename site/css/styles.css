@@ -47,7 +47,7 @@ h1,h2,h3{font-family:var(--display);font-weight:600;line-height:1.1;letter-spaci
 
 /* ── Header & navigation ─────────────────────────────────────────── */
 header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.9);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
-.nav{display:flex;align-items:center;justify-content:space-between;height:74px}
+.nav{display:flex;align-items:center;justify-content:space-between;height:var(--nav-h)}
 .brand{display:flex;align-items:center;gap:11px;font-family:var(--display);font-weight:700;font-size:1.42rem;color:var(--black)}
 .brand .badge{width:40px;height:40px;border-radius:50%;background:var(--black);display:grid;place-items:center;flex:none}
 .menu{display:flex;align-items:center;gap:26px;list-style:none}
@@ -258,7 +258,7 @@ footer a:hover{color:var(--yellow)}
   .door-grid,.q-grid,.split{grid-template-columns:1fr}
   .split.flip>.media-slot{order:0}
   .foot-grid{grid-template-columns:1fr 1fr}
-  .menu{position:fixed;inset:74px 0 auto 0;background:#fff;flex-direction:column;align-items:flex-start;gap:0;padding:10px 22px 22px;border-bottom:1px solid var(--line);box-shadow:0 20px 40px rgba(0,0,0,.08);display:none;max-height:calc(100vh - 74px);overflow:auto}
+  .menu{position:fixed;inset:var(--nav-h) 0 auto 0;background:#fff;flex-direction:column;align-items:flex-start;gap:0;padding:10px 22px 22px;border-bottom:1px solid var(--line);box-shadow:0 20px 40px rgba(0,0,0,.08);display:none;max-height:calc(100vh - var(--nav-h));overflow:auto}
   .menu.open{display:flex}
   .menu>li{width:100%;border-bottom:1px solid var(--cloud)}
   .menu>li>a{display:block;padding:14px 0}
@@ -292,7 +292,9 @@ footer a:hover{color:var(--yellow)}
 @media(max-width:700px){.pkg-grid{grid-template-columns:1fr}}
 
 /* ── Logo ────────────────────────────────────────────────────────── */
-.brand .badge-logo{height:60px;width:auto;flex:none}
+/* Header logo matches the footer logo size; header height follows it */
+:root{--logo-h:118px;--nav-h:calc(var(--logo-h) + 16px)}
+.brand .badge-logo{height:var(--logo-h);width:auto;flex:none}
 .foot-logo{height:118px;width:auto;margin-bottom:16px;display:block}
 
 /* ── Pro finishing details ───────────────────────────────────────── */
@@ -320,10 +322,10 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--orange);outline-off
   .wrap{padding:0 20px}
   .foot-grid{grid-template-columns:1fr;gap:26px}
   .foot-logo{height:100px}
+  :root{--logo-h:100px}
 }
 @media(max-width:480px){
   .brand{font-size:1.08rem;gap:8px;white-space:nowrap}
-  .brand .badge-logo{height:48px}
   .nav-book{white-space:nowrap}
   .cta-row{flex-direction:column;align-items:stretch}
   .cta-row .btn{justify-content:center}
@@ -346,15 +348,15 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--orange);outline-off
 
 /* ── Legal pages (privacy, terms, cookies, disclaimer) ───────────── */
 .legal{max-width:780px;margin:0 auto;font-size:.98rem;line-height:1.7}
-.legal h2{font-size:1.35rem;margin:2.4em 0 .7em;scroll-margin-top:100px}
-.legal h3{font-family:var(--body);font-size:1.05rem;font-weight:700;margin:1.8em 0 .6em;scroll-margin-top:100px}
+.legal h2{font-size:1.35rem;margin:2.4em 0 .7em;scroll-margin-top:calc(var(--nav-h) + 26px)}
+.legal h3{font-family:var(--body);font-size:1.05rem;font-weight:700;margin:1.8em 0 .6em;scroll-margin-top:calc(var(--nav-h) + 26px)}
 .legal h2:first-child,.legal h3:first-child{margin-top:0}
 .legal p,.legal ul{margin-bottom:1em}
 .legal ul{padding-left:1.4em}
 .legal ul ul{margin:.4em 0 0}
 .legal li{margin-bottom:.4em}
 .legal a{color:var(--orange-deep);font-weight:600;overflow-wrap:anywhere}
-.legal [id]{scroll-margin-top:100px}
+.legal [id]{scroll-margin-top:calc(var(--nav-h) + 26px)}
 .legal .scroll-x{margin:1.2em 0 1.6em;border:1px solid var(--line);border-radius:var(--r)}
 .legal table{width:100%;border-collapse:collapse;background:#fff;font-size:.9rem}
 .legal table:has(th){min-width:520px}
@@ -365,9 +367,14 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--orange);outline-off
 @media(max-width:360px){
   .wrap.nav{gap:10px}
   .brand{font-size:.95rem;gap:6px}
-  .brand .badge-logo{height:42px}
   .nav-book{padding:8px 11px;font-size:.78rem}
 }
 @media(max-width:340px){
   .brand{white-space:normal;line-height:1.05;max-width:7.5em}
+}
+
+/* Phones: the full logo already reads "AlphaDog Lodging", so the text beside it
+   is hidden visually (still read by screen readers) to make room for Book Now */
+@media(max-width:560px){
+  .brand{font-size:0;gap:0}
 }
