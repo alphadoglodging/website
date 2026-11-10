@@ -76,7 +76,7 @@ header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.9);backdrop
 
 /* ── Home hero ───────────────────────────────────────────────────── */
 .hero{background:var(--black);color:#fff;overflow:hidden;position:relative}
-.hero .grid{display:grid;grid-template-columns:1.05fr .95fr;gap:52px;align-items:center;padding:84px 0 92px}
+.hero .grid{display:grid;grid-template-columns:1.05fr .95fr;gap:52px;align-items:center;padding-top:84px;padding-bottom:92px}
 .hero h1{font-size:clamp(2.7rem,5.4vw,4.3rem);color:#fff}
 .hero h1 em{font-style:normal;color:var(--yellow);display:block}
 .hero p.sub{font-size:1.16rem;color:#DDD6CB;margin:22px 0 32px;max-width:32ch}
@@ -252,7 +252,7 @@ footer a:hover{color:var(--yellow)}
   .gallery-grid{grid-template-columns:repeat(3,1fr)}
 }
 @media(max-width:900px){
-  .hero .grid{grid-template-columns:1fr;gap:36px;padding:56px 0}
+  .hero .grid{grid-template-columns:1fr;gap:36px;padding-top:56px;padding-bottom:56px}
   .hero .media{order:-1;aspect-ratio:16/10}
   .svc-grid,.steps{grid-template-columns:1fr 1fr}
   .door-grid,.q-grid,.split{grid-template-columns:1fr}
@@ -316,7 +316,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--orange);outline-off
   section.pad{padding:52px 0}
   section.pad-sm{padding:40px 0}
   .page-hero{padding:46px 0 42px}
-  .hero .grid{padding:40px 0 48px}
+  .hero .grid{padding-top:40px;padding-bottom:48px}
   .banner-cta .inner{padding:50px 22px}
   .sec-head{margin-bottom:30px}
   .wrap{padding:0 20px}
@@ -376,5 +376,21 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--orange);outline-off
 /* Phones: the full logo already reads "AlphaDog Lodging", so the text beside it
    is hidden visually (still read by screen readers) to make room for Book Now */
 @media(max-width:560px){
-  .brand{font-size:0;gap:0}
+  .brand{font-size:0;gap:0;max-width:none}
+}
+
+/* Three-photo row (enrichment "Scenes from our outdoor adventures"):
+   one row on desktop and tablet, stacked on phones */
+.wrap.wrap-trio{max-width:1040px}
+.gallery-grid.trio{grid-template-columns:repeat(3,1fr)}
+.gallery-grid.trio .g-item{aspect-ratio:3/4}
+@media(max-width:560px){.gallery-grid.trio{grid-template-columns:1fr}}
+
+/* Promo bar on phones and tablets: message and link flow as one paragraph,
+   with space reserved on the right for the close button */
+@media(max-width:900px){
+  .promo{font-size:.86rem;line-height:1.45}
+  .promo .wrap{display:block;text-align:left;padding:10px 52px 10px 20px}
+  .promo a{margin-left:4px}
+  .promo .x{top:50%;right:6px;transform:translateY(-50%);width:40px;height:40px;display:grid;place-items:center}
 }
