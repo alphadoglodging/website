@@ -23,7 +23,11 @@ document.querySelectorAll('a[data-gingr="login"]').forEach(a => { a.href = GINGR
 // Mobile hamburger menu
 const hamb = document.getElementById('hamb');
 const menu = document.getElementById('menu');
-if (hamb && menu) hamb.addEventListener('click', () => menu.classList.toggle('open'));
+if (hamb && menu) hamb.addEventListener('click', () => {
+  menu.classList.toggle('open');
+  // Keep the whole open menu on screen, even when the promo bar pushes the header down
+  if (menu.classList.contains('open')) menu.style.maxHeight = (window.innerHeight - menu.getBoundingClientRect().top) + 'px';
+});
 
 // Fade-in on scroll for elements with class="reveal"
 const io = new IntersectionObserver(entries => {
