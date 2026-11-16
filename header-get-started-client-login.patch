@@ -1,0 +1,644 @@
+From 0f054440c7367e666341a894d137669c28d4934a Mon Sep 17 00:00:00 2001
+From: Charlie Gross <noreply@alphadoglodging.com>
+Date: Sat, 14 Nov 2026 00:39:48 +0000
+Subject: [PATCH] Replace header Book Now button with Get started and Client
+ login
+
+Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01PkP64QAZjPpVzCPC952gmT
+---
+ site/about.html                       |  8 ++++++--
+ site/contact.html                     | 10 +++++++---
+ site/cookie-policy.html               |  8 ++++++--
+ site/css/styles.css                   | 25 +++++++++++++++++++++++++
+ site/data-subject-access-request.html |  8 ++++++--
+ site/daycare-boarding.html            |  8 ++++++--
+ site/disclaimer.html                  |  8 ++++++--
+ site/enrichment.html                  |  8 ++++++--
+ site/faq-policies.html                | 10 +++++++---
+ site/gallery.html                     |  8 ++++++--
+ site/grooming.html                    |  8 ++++++--
+ site/index.html                       |  8 ++++++--
+ site/js/main.js                       |  6 +++++-
+ site/local-resources.html             |  8 ++++++--
+ site/partners.html                    |  8 ++++++--
+ site/pricing-calculator.html          | 10 +++++++---
+ site/privacy-policy.html              |  8 ++++++--
+ site/service-training.html            |  8 ++++++--
+ site/services.html                    |  8 ++++++--
+ site/terms-conditions.html            |  8 ++++++--
+ site/training.html                    |  8 ++++++--
+ 21 files changed, 147 insertions(+), 42 deletions(-)
+
+diff --git a/site/about.html b/site/about.html
+index ef9d4f3..3471d7e 100644
+--- a/site/about.html
++++ b/site/about.html
+@@ -39,7 +39,7 @@
+      HEADER / NAVIGATION — identical on every page.
+      ⚠ If you edit the menu, make the same edit on ALL pages so the
+      nav stays consistent across the site.
+-     ═══ NOTE: The "Book Now" button's link is set in ONE place:
++     ═══ NOTE: The "Get started" and "Client login" links is set in ONE place:
+      js/main.js (top of the file). Edit it there and every booking
+      button on every page updates automatically. ═══
+      ════════════════════════════════════════════════════════════════ -->
+@@ -69,9 +69,13 @@
+           </div>
+         </li>
+         <li><a href="contact.html">Contact</a></li>
++        <li class="menu-login"><a href="https://alphadoglodging.portal.gingrapp.com/public/login/Ii9zZWN1cmUvaG9tZSI=" data-gingr="login"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M5 21c0-4 3-6 7-6s7 2 7 6"/></svg>Client login</a><span>Already an AlphaDog? Log in to book and manage visits.</span></li>
+       </ul>
+     </nav>
+-    <a href="https://alphadoglodging.portal.gingrapp.com/public/login/Ii9zZWN1cmUvaG9tZSI=" data-gingr="apply" class="btn btn-book nav-book">Book Now</a>
++    <div class="nav-cta">
++      <a href="https://alphadoglodging.portal.gingrapp.com/public/login/Ii9zZWN1cmUvaG9tZSI=" data-gingr="login" class="nav-login"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M5 21c0-4 3-6 7-6s7 2 7 6"/></svg>Client login</a>
++      <a href="https://alphadoglodging.portal.gingrapp.com/public/login/Ii9zZWN1cmUvaG9tZSI=" data-gingr="apply" class="btn btn-book nav-book">Get started</a>
++    </div>
+     <button class="hamb" id="hamb" aria-label="Open menu"><span></span><span></span><span></span></button>
+   </div>
+ </header>
+diff --git a/site/contact.html b/site/contact.html
+index 3a61e20..302c148 100644
+--- a/site/contact.html
++++ b/site/contact.html
+@@ -39,7 +39,7 @@
+      HEADER / NAVIGATION — identical on every page.
+      ⚠ If you edit the menu, make the same edit on ALL pages so the
+      nav stays consistent across the site.
+-     ═══ NOTE: The "Book Now" button's link is set in ONE place:
++     ═══ NOTE: The "Get started" and "Client login" links is set in ONE place:
+      js/main.js (top of the file). Edit it there and every booking
+      button on every page updates automatically. ═══
+      ════════════════════════════════════════════════════════════════ -->
+@@ -69,9 +69,13 @@
+           </div>
+         </li>
+         <li><a href="contact.html" class="active">Contact</a></li>
++        <li class="menu-login"><a href="https://alphadoglodging.portal.gingrapp.com/public/login/Ii9zZWN1cmUvaG9tZSI=" data-gingr="login"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M5 21c0-4 3-6 7-6s7 2 7 6"/></svg>Client login</a><span>Already an AlphaDog? Log in to book and manage visits.</span></li>
+       </ul>
+     </nav>
+-    <a href="https://alphadoglodging.portal.gingrapp.com/public/login/Ii9zZWN1cmUvaG9tZSI=" data-gingr="apply" class="btn btn-book nav-book">Book Now</a>
++    <div class="nav-cta">
++      <a href="https://alphadoglodging.portal.gingrapp.com/public/login/Ii9zZWN1cmUvaG9tZSI=" data-gingr="login" class="nav-login"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M5 21c0-4 3-6 7-6s7 2 7 6"/></svg>Client login</a>
++      <a href="https://alphadoglodging.portal.gingrapp.com/public/login/Ii9zZWN1cmUvaG9tZSI=" data-gingr="apply" class="btn btn-book nav-book">Get started</a>
++    </div>
+     <button class="hamb" id="hamb" aria-label="Open menu"><span></span><span></span><span></span></button>
+   </div>
+ </header>
+@@ -121,7 +125,7 @@
+     <h2>New to AlphaDog?</h2>
+     <p>Start with our online application, then we'll schedule your dog's complimentary four-hour assessment.</p>
+     <!-- ═══ This button goes to the Gingr application (URL set in js/main.js) ═══ -->
+-    <a href="https://alphadoglodging.portal.gingrapp.com/public/login/Ii9zZWN1cmUvaG9tZSI=" data-gingr="apply" class="btn btn-gold">Start your application</a>
++    <a href="https://alphadoglodging.portal.gingrapp.com/public/login/Ii9zZWN1cmUvaG9tZSI=" data-gingr="apply" class="btn btn-gold">Get started</a>
+   </div>
+ </section>
+ 
+diff --git a/site/cookie-policy.html b/site/cookie-policy.html
+index e311602..a5e7148 100644
+--- a/site/cookie-policy.html
++++ b/site/cookie-policy.html
+@@ -39,7 +39,7 @@
+      HEADER / NAVIGATION — identical on every page.
+      ⚠ If you edit the menu, make the same edit on ALL pages so the
+      nav stays consistent across the site.
+-     ═══ NOTE: The "Book Now" button's link is set in ONE place:
++     ═══ NOTE: The "Get started" and "Client login" links is set in ONE place:
+      js/main.js (top of the file). Edit it there and every booking
+      button on every page updates automatically. ═══
+      ════════════════════════════════════════════════════════════════ -->
+@@ -69,9 +69,13 @@
+           </div>
+         </li>
+         <li><a href="contact.html">Contact</a></li>
++        <li class="menu-login"><a href="https://alphadoglodging.portal.gingrapp.com/public/login/Ii9zZWN1cmUvaG9tZSI=" data-gingr="login"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M5 21c0-4 3-6 7-6s7 2 7 6"/></svg>Client login</a><span>Already an AlphaDog? Log in to book and manage visits.</span></li>
+       </ul>
+     </nav>
+-    <a href="https://alphadoglodging.portal.gingrapp.com/public/login/Ii9zZWN1cmUvaG9tZSI=" data-gingr="apply" class="btn btn-book nav-book">Book Now</a>
++    <div class="nav-cta">
++      <a href="https://alphadoglodging.portal.gingrapp.com/public/login/Ii9zZWN1cmUvaG9tZSI=" data-gingr="login" class="nav-login"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M5 21c0-4 3-6 7-6s7 2 7 6"/></svg>Client login</a>
++      <a href="https://alphadoglodging.portal.gingrapp.com/public/login/Ii9zZWN1cmUvaG9tZSI=" data-gingr="apply" class="btn btn-book nav-book">Get started</a>
++    </div>
+     <button class="hamb" id="hamb" aria-label="Open menu"><span></span><span></span><span></span></button>
+   </div>
+ </header>
+diff --git a/site/css/styles.css b/site/css/styles.css
+index 8577414..4285110 100644
+--- a/site/css/styles.css
++++ b/site/css/styles.css
+@@ -394,3 +394,28 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--orange);outline-off
+   .promo a{margin-left:4px}
+   .promo .x{top:50%;right:6px;transform:translateY(-50%);width:40px;height:40px;display:grid;place-items:center}
+ }
++
++/* ── Header calls to action: "Client login" + "Get started" ─────────
++   Both go to the Gingr page set in js/main.js. On phones the
++   "Client login" link moves into the hamburger menu. */
++.nav-cta{display:flex;align-items:center;gap:20px}
++.nav-login{display:inline-flex;align-items:center;gap:7px;font-weight:600;font-size:.9rem;color:var(--orange-deep);padding:10px 4px;white-space:nowrap;transition:color .2s}
++.nav-login:hover{color:var(--black)}
++.menu>li.menu-login{display:none}
++@media(max-width:900px){
++  .nav-cta{gap:0}
++  .nav-cta .nav-login{display:none}
++  .menu>li.menu-login{display:block;border-bottom:none;padding-top:16px;text-align:center}
++  .menu>li.menu-login>a{display:flex;align-items:center;justify-content:center;gap:8px;padding:13px 16px;border:1.5px solid var(--black);border-radius:10px;color:var(--black)}
++  .menu>li.menu-login>a::after{display:none}
++  .menu-login span{display:block;margin-top:10px;font-size:.82rem;color:var(--muted)}
++}
++/* Mid-size screens (tablets, small laptops): keep the header on one line.
++   "Client login" shows as its person icon only; the label stays for screen readers. */
++.nav-book,.menu>li>a{white-space:nowrap}
++@media(min-width:901px) and (max-width:1100px){
++  .menu{gap:20px}
++  .nav-cta{gap:12px}
++  .nav-login{font-size:0;gap:0;padding:10px}
++  .nav-login svg{width:21px;height:21px}
++}
+diff --git a/site/data-subject-access-request.html b/site/data-subject-access-request.html
+index 7380731..ea3457d 100644
+--- a/site/data-subject-access-request.html
++++ b/site/data-subject-access-request.html
+@@ -39,7 +39,7 @@
+      HEADER / NAVIGATION — identical on every page.
+      ⚠ If you edit the menu, make the same edit on ALL pages so the
+      nav stays consistent across the site.
+-     ═══ NOTE: The "Book Now" button's link is set in ONE place:
++     ═══ NOTE: The "Get started" and "Client login" links is set in ONE place:
+      js/main.js (top of the file). Edit it there and every booking
+      button on every page updates automatically. ═══
+      ════════════════════════════════════════════════════════════════ -->
+@@ -69,9 +69,13 @@
+           </div>
+         </li>
+         <li><a href="contact.html">Contact</a></li>
++        <li class="menu-login"><a href="https://alphadoglodging.portal.gingrapp.com/public/login/Ii9zZWN1cmUvaG9tZSI=" data-gingr="login"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M5 21c0-4 3-6 7-6s7 2 7 6"/></svg>Client login</a><span>Already an AlphaDog? Log in to book and manage visits.</span></li>
+       </ul>
+     </nav>
+-    <a href="https://alphadoglodging.portal.gingrapp.com/public/login/Ii9zZWN1cmUvaG9tZSI=" data-gingr="apply" class="btn btn-book nav-book">Book Now</a>
++    <div class="nav-cta">
++      <a href="https://alphadoglodging.portal.gingrapp.com/public/login/Ii9zZWN1cmUvaG9tZSI=" data-gingr="login" class="nav-login"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M5 21c0-4 3-6 7-6s7 2 7 6"/></svg>Client login</a>
++      <a href="https://alphadoglodging.portal.gingrapp.com/public/login/Ii9zZWN1cmUvaG9tZSI=" data-gingr="apply" class="btn btn-book nav-book">Get started</a>
++    </div>
+     <button class="hamb" id="hamb" aria-label="Open menu"><span></span><span></span><span></span></button>
+   </div>
+ </header>
+diff --git a/site/daycare-boarding.html b/site/daycare-boarding.html
+index e44d45c..81cf4f2 100644
+--- a/site/daycare-boarding.html
++++ b/site/daycare-boarding.html
+@@ -39,7 +39,7 @@
+      HEADER / NAVIGATION — identical on every page.
+      ⚠ If you edit the menu, make the same edit on ALL pages so the
+      nav stays consistent across the site.
+-     ═══ NOTE: The "Book Now" button's link is set in ONE place:
++     ═══ NOTE: The "Get started" and "Client login" links is set in ONE place:
+      js/main.js (top of the file). Edit it there and every booking
+      button on every page updates automatically. ═══
+      ════════════════════════════════════════════════════════════════ -->
+@@ -69,9 +69,13 @@
+           </div>
+         </li>
+         <li><a href="contact.html">Contact</a></li>
++        <li class="menu-login"><a href="https://alphadoglodging.portal.gingrapp.com/public/login/Ii9zZWN1cmUvaG9tZSI=" data-gingr="login"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M5 21c0-4 3-6 7-6s7 2 7 6"/></svg>Client login</a><span>Already an AlphaDog? Log in to book and manage visits.</span></li>
+       </ul>
+     </nav>
+-    <a href="https://alphadoglodging.portal.gingrapp.com/public/login/Ii9zZWN1cmUvaG9tZSI=" data-gingr="apply" class="btn btn-book nav-book">Book Now</a>
++    <div class="nav-cta">
++      <a href="https://alphadoglodging.portal.gingrapp.com/public/login/Ii9zZWN1cmUvaG9tZSI=" data-gingr="login" class="nav-login"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M5 21c0-4 3-6 7-6s7 2 7 6"/></svg>Client login</a>
++      <a href="https://alphadoglodging.portal.gingrapp.com/public/login/Ii9zZWN1cmUvaG9tZSI=" data-gingr="apply" class="btn btn-book nav-book">Get started</a>
++    </div>
+     <button class="hamb" id="hamb" aria-label="Open menu"><span></span><span></span><span></span></button>
+   </div>
+ </header>
+diff --git a/site/disclaimer.html b/site/disclaimer.html
+index 5f154f1..e59b864 100644
+--- a/site/disclaimer.html
++++ b/site/disclaimer.html
+@@ -39,7 +39,7 @@
+      HEADER / NAVIGATION — identical on every page.
+      ⚠ If you edit the menu, make the same edit on ALL pages so the
+      nav stays consistent across the site.
+-     ═══ NOTE: The "Book Now" button's link is set in ONE place:
++     ═══ NOTE: The "Get started" and "Client login" links is set in ONE place:
+      js/main.js (top of the file). Edit it there and every booking
+      button on every page updates automatically. ═══
+      ════════════════════════════════════════════════════════════════ -->
+@@ -69,9 +69,13 @@
+           </div>
+         </li>
+         <li><a href="contact.html">Contact</a></li>
++        <li class="menu-login"><a href="https://alphadoglodging.portal.gingrapp.com/public/login/Ii9zZWN1cmUvaG9tZSI=" data-gingr="login"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M5 21c0-4 3-6 7-6s7 2 7 6"/></svg>Client login</a><span>Already an AlphaDog? Log in to book and manage visits.</span></li>
+       </ul>
+     </nav>
+-    <a href="https://alphadoglodging.portal.gingrapp.com/public/login/Ii9zZWN1cmUvaG9tZSI=" data-gingr="apply" class="btn btn-book nav-book">Book Now</a>
++    <div class="nav-cta">
++      <a href="https://alphadoglodging.portal.gingrapp.com/public/login/Ii9zZWN1cmUvaG9tZSI=" data-gingr="login" class="nav-login"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M5 21c0-4 3-6 7-6s7 2 7 6"/></svg>Client login</a>
++      <a href="https://alphadoglodging.portal.gingrapp.com/public/login/Ii9zZWN1cmUvaG9tZSI=" data-gingr="apply" class="btn btn-book nav-book">Get started</a>
++    </div>
+     <button class="hamb" id="hamb" aria-label="Open menu"><span></span><span></span><span></span></button>
+   </div>
+ </header>
+diff --git a/site/enrichment.html b/site/enrichment.html
+index dc4a4e6..06fbb40 100644
+--- a/site/enrichment.html
++++ b/site/enrichment.html
+@@ -39,7 +39,7 @@
+      HEADER / NAVIGATION — identical on every page.
+      ⚠ If you edit the menu, make the same edit on ALL pages so the
+      nav stays consistent across the site.
+-     ═══ NOTE: The "Book Now" button's link is set in ONE place:
++     ═══ NOTE: The "Get started" and "Client login" links is set in ONE place:
+      js/main.js (top of the file). Edit it there and every booking
+      button on every page updates automatically. ═══
+      ════════════════════════════════════════════════════════════════ -->
+@@ -69,9 +69,13 @@
+           </div>
+         </li>
+         <li><a href="contact.html">Contact</a></li>
++        <li class="menu-login"><a href="https://alphadoglodging.portal.gingrapp.com/public/login/Ii9zZWN1cmUvaG9tZSI=" data-gingr="login"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M5 21c0-4 3-6 7-6s7 2 7 6"/></svg>Client login</a><span>Already an AlphaDog? Log in to book and manage visits.</span></li>
+       </ul>
+     </nav>
+-    <a href="https://alphadoglodging.portal.gingrapp.com/public/login/Ii9zZWN1cmUvaG9tZSI=" data-gingr="apply" class="btn btn-book nav-book">Book Now</a>
++    <div class="nav-cta">
++      <a href="https://alphadoglodging.portal.gingrapp.com/public/login/Ii9zZWN1cmUvaG9tZSI=" data-gingr="login" class="nav-login"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M5 21c0-4 3-6 7-6s7 2 7 6"/></svg>Client login</a>
++      <a href="https://alphadoglodging.portal.gingrapp.com/public/login/Ii9zZWN1cmUvaG9tZSI=" data-gingr="apply" class="btn btn-book nav-book">Get started</a>
++    </div>
+     <button class="hamb" id="hamb" aria-label="Open menu"><span></span><span></span><span></span></button>
+   </div>
+ </header>
+diff --git a/site/faq-policies.html b/site/faq-policies.html
+index 3bb6083..40a9a4d 100644
+--- a/site/faq-policies.html
++++ b/site/faq-policies.html
+@@ -39,7 +39,7 @@
+      HEADER / NAVIGATION — identical on every page.
+      ⚠ If you edit the menu, make the same edit on ALL pages so the
+      nav stays consistent across the site.
+-     ═══ NOTE: The "Book Now" button's link is set in ONE place:
++     ═══ NOTE: The "Get started" and "Client login" links is set in ONE place:
+      js/main.js (top of the file). Edit it there and every booking
+      button on every page updates automatically. ═══
+      ════════════════════════════════════════════════════════════════ -->
+@@ -69,9 +69,13 @@
+           </div>
+         </li>
+         <li><a href="contact.html">Contact</a></li>
++        <li class="menu-login"><a href="https://alphadoglodging.portal.gingrapp.com/public/login/Ii9zZWN1cmUvaG9tZSI=" data-gingr="login"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M5 21c0-4 3-6 7-6s7 2 7 6"/></svg>Client login</a><span>Already an AlphaDog? Log in to book and manage visits.</span></li>
+       </ul>
+     </nav>
+-    <a href="https://alphadoglodging.portal.gingrapp.com/public/login/Ii9zZWN1cmUvaG9tZSI=" data-gingr="apply" class="btn btn-book nav-book">Book Now</a>
++    <div class="nav-cta">
++      <a href="https://alphadoglodging.portal.gingrapp.com/public/login/Ii9zZWN1cmUvaG9tZSI=" data-gingr="login" class="nav-login"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M5 21c0-4 3-6 7-6s7 2 7 6"/></svg>Client login</a>
++      <a href="https://alphadoglodging.portal.gingrapp.com/public/login/Ii9zZWN1cmUvaG9tZSI=" data-gingr="apply" class="btn btn-book nav-book">Get started</a>
++    </div>
+     <button class="hamb" id="hamb" aria-label="Open menu"><span></span><span></span><span></span></button>
+   </div>
+ </header>
+@@ -95,7 +99,7 @@
+ 
+     <details class="faq-item reveal" open>
+       <summary>What does my dog need to visit?</summary>
+-      <div class="a">A completed application (via the "Book Now" button above), with current vaccination records: DHPP (or a variation), Rabies, Bordetella, Canine Influenza, and an annual fecal test covering both Giardia Antigen and Ova/Parasites. We also require proof of current flea/tick treatment, and a collar that follows our guidelines. After we've received everything, our team will contact you to schedule an introductory visit: an Assessment.</div>
++      <div class="a">A completed application (via the "Get started" button above), with current vaccination records: DHPP (or a variation), Rabies, Bordetella, Canine Influenza, and an annual fecal test covering both Giardia Antigen and Ova/Parasites. We also require proof of current flea/tick treatment, and a collar that follows our guidelines. After we've received everything, our team will contact you to schedule an introductory visit: an Assessment.</div>
+     </details>
+ 
+     <details class="faq-item reveal">
+diff --git a/site/gallery.html b/site/gallery.html
+index 67a4b94..1da95c1 100644
+--- a/site/gallery.html
++++ b/site/gallery.html
+@@ -39,7 +39,7 @@
+      HEADER / NAVIGATION — identical on every page.
+      ⚠ If you edit the menu, make the same edit on ALL pages so the
+      nav stays consistent across the site.
+-     ═══ NOTE: The "Book Now" button's link is set in ONE place:
++     ═══ NOTE: The "Get started" and "Client login" links is set in ONE place:
+      js/main.js (top of the file). Edit it there and every booking
+      button on every page updates automatically. ═══
+      ════════════════════════════════════════════════════════════════ -->
+@@ -69,9 +69,13 @@
+           </div>
+         </li>
+         <li><a href="contact.html">Contact</a></li>
++        <li class="menu-login"><a href="https://alphadoglodging.portal.gingrapp.com/public/login/Ii9zZWN1cmUvaG9tZSI=" data-gingr="login"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M5 21c0-4 3-6 7-6s7 2 7 6"/></svg>Client login</a><span>Already an AlphaDog? Log in to book and manage visits.</span></li>
+       </ul>
+     </nav>
+-    <a href="https://alphadoglodging.portal.gingrapp.com/public/login/Ii9zZWN1cmUvaG9tZSI=" data-gingr="apply" class="btn btn-book nav-book">Book Now</a>
++    <div class="nav-cta">
++      <a href="https://alphadoglodging.portal.gingrapp.com/public/login/Ii9zZWN1cmUvaG9tZSI=" data-gingr="login" class="nav-login"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M5 21c0-4 3-6 7-6s7 2 7 6"/></svg>Client login</a>
++      <a href="https://alphadoglodging.portal.gingrapp.com/public/login/Ii9zZWN1cmUvaG9tZSI=" data-gingr="apply" class="btn btn-book nav-book">Get started</a>
++    </div>
+     <button class="hamb" id="hamb" aria-label="Open menu"><span></span><span></span><span></span></button>
+   </div>
+ </header>
+diff --git a/site/grooming.html b/site/grooming.html
+index cde0581..de6081a 100644
+--- a/site/grooming.html
++++ b/site/grooming.html
+@@ -43,7 +43,7 @@
+      HEADER / NAVIGATION — identical on every page.
+      ⚠ If you edit the menu, make the same edit on ALL pages so the
+      nav stays consistent across the site.
+-     ═══ NOTE: The "Book Now" button's link is set in ONE place:
++     ═══ NOTE: The "Get started" and "Client login" links is set in ONE place:
+      js/main.js (top of the file). Edit it there and every booking
+      button on every page updates automatically. ═══
+      ════════════════════════════════════════════════════════════════ -->
+@@ -73,9 +73,13 @@
+           </div>
+         </li>
+         <li><a href="contact.html">Contact</a></li>
++        <li class="menu-login"><a href="https://alphadoglodging.portal.gingrapp.com/public/login/Ii9zZWN1cmUvaG9tZSI=" data-gingr="login"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M5 21c0-4 3-6 7-6s7 2 7 6"/></svg>Client login</a><span>Already an AlphaDog? Log in to book and manage visits.</span></li>
+       </ul>
+     </nav>
+-    <a href="https://alphadoglodging.portal.gingrapp.com/public/login/Ii9zZWN1cmUvaG9tZSI=" data-gingr="apply" class="btn btn-book nav-book">Book Now</a>
++    <div class="nav-cta">
++      <a href="https://alphadoglodging.portal.gingrapp.com/public/login/Ii9zZWN1cmUvaG9tZSI=" data-gingr="login" class="nav-login"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M5 21c0-4 3-6 7-6s7 2 7 6"/></svg>Client login</a>
++      <a href="https://alphadoglodging.portal.gingrapp.com/public/login/Ii9zZWN1cmUvaG9tZSI=" data-gingr="apply" class="btn btn-book nav-book">Get started</a>
++    </div>
+     <button class="hamb" id="hamb" aria-label="Open menu"><span></span><span></span><span></span></button>
+   </div>
+ </header>
+diff --git a/site/index.html b/site/index.html
+index 4ee0c19..94f43fa 100644
+--- a/site/index.html
++++ b/site/index.html
+@@ -52,7 +52,7 @@
+      HEADER / NAVIGATION — identical on every page.
+      ⚠ If you edit the menu, make the same edit on ALL pages so the
+      nav stays consistent across the site.
+-     ═══ NOTE: The "Book Now" button's link is set in ONE place:
++     ═══ NOTE: The "Get started" and "Client login" links is set in ONE place:
+      js/main.js (top of the file). Edit it there and every booking
+      button on every page updates automatically. ═══
+      ════════════════════════════════════════════════════════════════ -->
+@@ -82,9 +82,13 @@
+           </div>
+         </li>
+         <li><a href="contact.html">Contact</a></li>
++        <li class="menu-login"><a href="https://alphadoglodging.portal.gingrapp.com/public/login/Ii9zZWN1cmUvaG9tZSI=" data-gingr="login"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M5 21c0-4 3-6 7-6s7 2 7 6"/></svg>Client login</a><span>Already an AlphaDog? Log in to book and manage visits.</span></li>
+       </ul>
+     </nav>
+-    <a href="https://alphadoglodging.portal.gingrapp.com/public/login/Ii9zZWN1cmUvaG9tZSI=" data-gingr="apply" class="btn btn-book nav-book">Book Now</a>
++    <div class="nav-cta">
++      <a href="https://alphadoglodging.portal.gingrapp.com/public/login/Ii9zZWN1cmUvaG9tZSI=" data-gingr="login" class="nav-login"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M5 21c0-4 3-6 7-6s7 2 7 6"/></svg>Client login</a>
++      <a href="https://alphadoglodging.portal.gingrapp.com/public/login/Ii9zZWN1cmUvaG9tZSI=" data-gingr="apply" class="btn btn-book nav-book">Get started</a>
++    </div>
+     <button class="hamb" id="hamb" aria-label="Open menu"><span></span><span></span><span></span></button>
+   </div>
+ </header>
+diff --git a/site/js/main.js b/site/js/main.js
+index b6eb0d0..55b4a10 100644
+--- a/site/js/main.js
++++ b/site/js/main.js
+@@ -23,7 +23,11 @@ document.querySelectorAll('a[data-gingr="login"]').forEach(a => { a.href = GINGR
+ // Mobile hamburger menu
+ const hamb = document.getElementById('hamb');
+ const menu = document.getElementById('menu');
+-if (hamb && menu) hamb.addEventListener('click', () => menu.classList.toggle('open'));
++if (hamb && menu) hamb.addEventListener('click', () => {
++  menu.classList.toggle('open');
++  // Keep the whole open menu on screen, even when the promo bar pushes the header down
++  if (menu.classList.contains('open')) menu.style.maxHeight = (window.innerHeight - menu.getBoundingClientRect().top) + 'px';
++});
+ 
+ // Fade-in on scroll for elements with class="reveal"
+ const io = new IntersectionObserver(entries => {
+diff --git a/site/local-resources.html b/site/local-resources.html
+index f63407d..8a02a24 100644
+--- a/site/local-resources.html
++++ b/site/local-resources.html
+@@ -39,7 +39,7 @@
+      HEADER / NAVIGATION — identical on every page.
+      ⚠ If you edit the menu, make the same edit on ALL pages so the
+      nav stays consistent across the site.
+-     ═══ NOTE: The "Book Now" button's link is set in ONE place:
++     ═══ NOTE: The "Get started" and "Client login" links is set in ONE place:
+      js/main.js (top of the file). Edit it there and every booking
+      button on every page updates automatically. ═══
+      ════════════════════════════════════════════════════════════════ -->
+@@ -69,9 +69,13 @@
+           </div>
+         </li>
+         <li><a href="contact.html">Contact</a></li>
++        <li class="menu-login"><a href="https://alphadoglodging.portal.gingrapp.com/public/login/Ii9zZWN1cmUvaG9tZSI=" data-gingr="login"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M5 21c0-4 3-6 7-6s7 2 7 6"/></svg>Client login</a><span>Already an AlphaDog? Log in to book and manage visits.</span></li>
+       </ul>
+     </nav>
+-    <a href="https://alphadoglodging.portal.gingrapp.com/public/login/Ii9zZWN1cmUvaG9tZSI=" data-gingr="apply" class="btn btn-book nav-book">Book Now</a>
++    <div class="nav-cta">
++      <a href="https://alphadoglodging.portal.gingrapp.com/public/login/Ii9zZWN1cmUvaG9tZSI=" data-gingr="login" class="nav-login"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M5 21c0-4 3-6 7-6s7 2 7 6"/></svg>Client login</a>
++      <a href="https://alphadoglodging.portal.gingrapp.com/public/login/Ii9zZWN1cmUvaG9tZSI=" data-gingr="apply" class="btn btn-book nav-book">Get started</a>
++    </div>
+     <button class="hamb" id="hamb" aria-label="Open menu"><span></span><span></span><span></span></button>
+   </div>
+ </header>
+diff --git a/site/partners.html b/site/partners.html
+index 9b270c6..d7187f8 100644
+--- a/site/partners.html
++++ b/site/partners.html
+@@ -39,7 +39,7 @@
+      HEADER / NAVIGATION — identical on every page.
+      ⚠ If you edit the menu, make the same edit on ALL pages so the
+      nav stays consistent across the site.
+-     ═══ NOTE: The "Book Now" button's link is set in ONE place:
++     ═══ NOTE: The "Get started" and "Client login" links is set in ONE place:
+      js/main.js (top of the file). Edit it there and every booking
+      button on every page updates automatically. ═══
+      ════════════════════════════════════════════════════════════════ -->
+@@ -69,9 +69,13 @@
+           </div>
+         </li>
+         <li><a href="contact.html">Contact</a></li>
++        <li class="menu-login"><a href="https://alphadoglodging.portal.gingrapp.com/public/login/Ii9zZWN1cmUvaG9tZSI=" data-gingr="login"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M5 21c0-4 3-6 7-6s7 2 7 6"/></svg>Client login</a><span>Already an AlphaDog? Log in to book and manage visits.</span></li>
+       </ul>
+     </nav>
+-    <a href="https://alphadoglodging.portal.gingrapp.com/public/login/Ii9zZWN1cmUvaG9tZSI=" data-gingr="apply" class="btn btn-book nav-book">Book Now</a>
++    <div class="nav-cta">
++      <a href="https://alphadoglodging.portal.gingrapp.com/public/login/Ii9zZWN1cmUvaG9tZSI=" data-gingr="login" class="nav-login"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M5 21c0-4 3-6 7-6s7 2 7 6"/></svg>Client login</a>
++      <a href="https://alphadoglodging.portal.gingrapp.com/public/login/Ii9zZWN1cmUvaG9tZSI=" data-gingr="apply" class="btn btn-book nav-book">Get started</a>
++    </div>
+     <button class="hamb" id="hamb" aria-label="Open menu"><span></span><span></span><span></span></button>
+   </div>
+ </header>
+diff --git a/site/pricing-calculator.html b/site/pricing-calculator.html
+index a79c7da..0a4e1c1 100644
+--- a/site/pricing-calculator.html
++++ b/site/pricing-calculator.html
+@@ -86,7 +86,7 @@ label.pc-addon input{width:20px;height:20px;flex:none;accent-color:var(--orange-
+      HEADER / NAVIGATION — identical on every page.
+      ⚠ If you edit the menu, make the same edit on ALL pages so the
+      nav stays consistent across the site.
+-     ═══ NOTE: The "Book Now" button's link is set in ONE place:
++     ═══ NOTE: The "Get started" and "Client login" links is set in ONE place:
+      js/main.js (top of the file). Edit it there and every booking
+      button on every page updates automatically. ═══
+      ════════════════════════════════════════════════════════════════ -->
+@@ -116,9 +116,13 @@ label.pc-addon input{width:20px;height:20px;flex:none;accent-color:var(--orange-
+           </div>
+         </li>
+         <li><a href="contact.html">Contact</a></li>
++        <li class="menu-login"><a href="https://alphadoglodging.portal.gingrapp.com/public/login/Ii9zZWN1cmUvaG9tZSI=" data-gingr="login"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M5 21c0-4 3-6 7-6s7 2 7 6"/></svg>Client login</a><span>Already an AlphaDog? Log in to book and manage visits.</span></li>
+       </ul>
+     </nav>
+-    <a href="https://alphadoglodging.portal.gingrapp.com/public/login/Ii9zZWN1cmUvaG9tZSI=" data-gingr="apply" class="btn btn-book nav-book">Book Now</a>
++    <div class="nav-cta">
++      <a href="https://alphadoglodging.portal.gingrapp.com/public/login/Ii9zZWN1cmUvaG9tZSI=" data-gingr="login" class="nav-login"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M5 21c0-4 3-6 7-6s7 2 7 6"/></svg>Client login</a>
++      <a href="https://alphadoglodging.portal.gingrapp.com/public/login/Ii9zZWN1cmUvaG9tZSI=" data-gingr="apply" class="btn btn-book nav-book">Get started</a>
++    </div>
+     <button class="hamb" id="hamb" aria-label="Open menu"><span></span><span></span><span></span></button>
+   </div>
+ </header>
+@@ -279,7 +283,7 @@ label.pc-addon input{width:20px;height:20px;flex:none;accent-color:var(--orange-
+         <div class="pc-tip" id="tip-stay-pkg">Reach 11 days or nights and <a href="daycare-boarding.html">package pricing</a> (a free day or night) applies automatically — 17 saves even more.</div>
+         <div class="pc-tip" id="tip-train-pkg">Reach 17 training days and <a href="training.html">package savings</a> of 12–18% apply automatically.</div>
+         <p class="pc-note">This is an estimate, not a quote. Holiday and peak periods carry deposits and minimum stays, and final grooming prices are confirmed in person. The front desk will always walk you through exact pricing before you book.</p>
+-        <a href="https://alphadoglodging.portal.gingrapp.com/public/login/Ii9zZWN1cmUvaG9tZSI=" data-gingr="apply" class="btn btn-gold">Start your application</a>
++        <a href="https://alphadoglodging.portal.gingrapp.com/public/login/Ii9zZWN1cmUvaG9tZSI=" data-gingr="apply" class="btn btn-gold">Get started</a>
+       </aside>
+ 
+     </div>
+diff --git a/site/privacy-policy.html b/site/privacy-policy.html
+index 4289c36..4a651f9 100644
+--- a/site/privacy-policy.html
++++ b/site/privacy-policy.html
+@@ -39,7 +39,7 @@
+      HEADER / NAVIGATION — identical on every page.
+      ⚠ If you edit the menu, make the same edit on ALL pages so the
+      nav stays consistent across the site.
+-     ═══ NOTE: The "Book Now" button's link is set in ONE place:
++     ═══ NOTE: The "Get started" and "Client login" links is set in ONE place:
+      js/main.js (top of the file). Edit it there and every booking
+      button on every page updates automatically. ═══
+      ════════════════════════════════════════════════════════════════ -->
+@@ -69,9 +69,13 @@
+           </div>
+         </li>
+         <li><a href="contact.html">Contact</a></li>
++        <li class="menu-login"><a href="https://alphadoglodging.portal.gingrapp.com/public/login/Ii9zZWN1cmUvaG9tZSI=" data-gingr="login"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M5 21c0-4 3-6 7-6s7 2 7 6"/></svg>Client login</a><span>Already an AlphaDog? Log in to book and manage visits.</span></li>
+       </ul>
+     </nav>
+-    <a href="https://alphadoglodging.portal.gingrapp.com/public/login/Ii9zZWN1cmUvaG9tZSI=" data-gingr="apply" class="btn btn-book nav-book">Book Now</a>
++    <div class="nav-cta">
++      <a href="https://alphadoglodging.portal.gingrapp.com/public/login/Ii9zZWN1cmUvaG9tZSI=" data-gingr="login" class="nav-login"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M5 21c0-4 3-6 7-6s7 2 7 6"/></svg>Client login</a>
++      <a href="https://alphadoglodging.portal.gingrapp.com/public/login/Ii9zZWN1cmUvaG9tZSI=" data-gingr="apply" class="btn btn-book nav-book">Get started</a>
++    </div>
+     <button class="hamb" id="hamb" aria-label="Open menu"><span></span><span></span><span></span></button>
+   </div>
+ </header>
+diff --git a/site/service-training.html b/site/service-training.html
+index f25a95a..1589523 100644
+--- a/site/service-training.html
++++ b/site/service-training.html
+@@ -49,7 +49,7 @@
+      HEADER / NAVIGATION — identical on every page.
+      ⚠ If you edit the menu, make the same edit on ALL pages so the
+      nav stays consistent across the site.
+-     ═══ NOTE: The "Book Now" button's link is set in ONE place:
++     ═══ NOTE: The "Get started" and "Client login" links is set in ONE place:
+      js/main.js (top of the file). Edit it there and every booking
+      button on every page updates automatically. ═══
+      ════════════════════════════════════════════════════════════════ -->
+@@ -79,9 +79,13 @@
+           </div>
+         </li>
+         <li><a href="contact.html">Contact</a></li>
++        <li class="menu-login"><a href="https://alphadoglodging.portal.gingrapp.com/public/login/Ii9zZWN1cmUvaG9tZSI=" data-gingr="login"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M5 21c0-4 3-6 7-6s7 2 7 6"/></svg>Client login</a><span>Already an AlphaDog? Log in to book and manage visits.</span></li>
+       </ul>
+     </nav>
+-    <a href="https://alphadoglodging.portal.gingrapp.com/public/login/Ii9zZWN1cmUvaG9tZSI=" data-gingr="apply" class="btn btn-book nav-book">Book Now</a>
++    <div class="nav-cta">
++      <a href="https://alphadoglodging.portal.gingrapp.com/public/login/Ii9zZWN1cmUvaG9tZSI=" data-gingr="login" class="nav-login"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M5 21c0-4 3-6 7-6s7 2 7 6"/></svg>Client login</a>
++      <a href="https://alphadoglodging.portal.gingrapp.com/public/login/Ii9zZWN1cmUvaG9tZSI=" data-gingr="apply" class="btn btn-book nav-book">Get started</a>
++    </div>
+     <button class="hamb" id="hamb" aria-label="Open menu"><span></span><span></span><span></span></button>
+   </div>
+ </header>
+diff --git a/site/services.html b/site/services.html
+index f419cea..968c489 100644
+--- a/site/services.html
++++ b/site/services.html
+@@ -39,7 +39,7 @@
+      HEADER / NAVIGATION — identical on every page.
+      ⚠ If you edit the menu, make the same edit on ALL pages so the
+      nav stays consistent across the site.
+-     ═══ NOTE: The "Book Now" button's link is set in ONE place:
++     ═══ NOTE: The "Get started" and "Client login" links is set in ONE place:
+      js/main.js (top of the file). Edit it there and every booking
+      button on every page updates automatically. ═══
+      ════════════════════════════════════════════════════════════════ -->
+@@ -69,9 +69,13 @@
+           </div>
+         </li>
+         <li><a href="contact.html">Contact</a></li>
++        <li class="menu-login"><a href="https://alphadoglodging.portal.gingrapp.com/public/login/Ii9zZWN1cmUvaG9tZSI=" data-gingr="login"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M5 21c0-4 3-6 7-6s7 2 7 6"/></svg>Client login</a><span>Already an AlphaDog? Log in to book and manage visits.</span></li>
+       </ul>
+     </nav>
+-    <a href="https://alphadoglodging.portal.gingrapp.com/public/login/Ii9zZWN1cmUvaG9tZSI=" data-gingr="apply" class="btn btn-book nav-book">Book Now</a>
++    <div class="nav-cta">
++      <a href="https://alphadoglodging.portal.gingrapp.com/public/login/Ii9zZWN1cmUvaG9tZSI=" data-gingr="login" class="nav-login"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M5 21c0-4 3-6 7-6s7 2 7 6"/></svg>Client login</a>
++      <a href="https://alphadoglodging.portal.gingrapp.com/public/login/Ii9zZWN1cmUvaG9tZSI=" data-gingr="apply" class="btn btn-book nav-book">Get started</a>
++    </div>
+     <button class="hamb" id="hamb" aria-label="Open menu"><span></span><span></span><span></span></button>
+   </div>
+ </header>
+diff --git a/site/terms-conditions.html b/site/terms-conditions.html
+index 2af5f75..db9a59c 100644
+--- a/site/terms-conditions.html
++++ b/site/terms-conditions.html
+@@ -39,7 +39,7 @@
+      HEADER / NAVIGATION — identical on every page.
+      ⚠ If you edit the menu, make the same edit on ALL pages so the
+      nav stays consistent across the site.
+-     ═══ NOTE: The "Book Now" button's link is set in ONE place:
++     ═══ NOTE: The "Get started" and "Client login" links is set in ONE place:
+      js/main.js (top of the file). Edit it there and every booking
+      button on every page updates automatically. ═══
+      ════════════════════════════════════════════════════════════════ -->
+@@ -69,9 +69,13 @@
+           </div>
+         </li>
+         <li><a href="contact.html">Contact</a></li>
++        <li class="menu-login"><a href="https://alphadoglodging.portal.gingrapp.com/public/login/Ii9zZWN1cmUvaG9tZSI=" data-gingr="login"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M5 21c0-4 3-6 7-6s7 2 7 6"/></svg>Client login</a><span>Already an AlphaDog? Log in to book and manage visits.</span></li>
+       </ul>
+     </nav>
+-    <a href="https://alphadoglodging.portal.gingrapp.com/public/login/Ii9zZWN1cmUvaG9tZSI=" data-gingr="apply" class="btn btn-book nav-book">Book Now</a>
++    <div class="nav-cta">
++      <a href="https://alphadoglodging.portal.gingrapp.com/public/login/Ii9zZWN1cmUvaG9tZSI=" data-gingr="login" class="nav-login"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M5 21c0-4 3-6 7-6s7 2 7 6"/></svg>Client login</a>
++      <a href="https://alphadoglodging.portal.gingrapp.com/public/login/Ii9zZWN1cmUvaG9tZSI=" data-gingr="apply" class="btn btn-book nav-book">Get started</a>
++    </div>
+     <button class="hamb" id="hamb" aria-label="Open menu"><span></span><span></span><span></span></button>
+   </div>
+ </header>
+diff --git a/site/training.html b/site/training.html
+index 231d48b..10ed2d3 100644
+--- a/site/training.html
++++ b/site/training.html
+@@ -55,7 +55,7 @@
+      HEADER / NAVIGATION — identical on every page.
+      ⚠ If you edit the menu, make the same edit on ALL pages so the
+      nav stays consistent across the site.
+-     ═══ NOTE: The "Book Now" button's link is set in ONE place:
++     ═══ NOTE: The "Get started" and "Client login" links is set in ONE place:
+      js/main.js (top of the file). Edit it there and every booking
+      button on every page updates automatically. ═══
+      ════════════════════════════════════════════════════════════════ -->
+@@ -85,9 +85,13 @@
+           </div>
+         </li>
+         <li><a href="contact.html">Contact</a></li>
++        <li class="menu-login"><a href="https://alphadoglodging.portal.gingrapp.com/public/login/Ii9zZWN1cmUvaG9tZSI=" data-gingr="login"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M5 21c0-4 3-6 7-6s7 2 7 6"/></svg>Client login</a><span>Already an AlphaDog? Log in to book and manage visits.</span></li>
+       </ul>
+     </nav>
+-    <a href="https://alphadoglodging.portal.gingrapp.com/public/login/Ii9zZWN1cmUvaG9tZSI=" data-gingr="apply" class="btn btn-book nav-book">Book Now</a>
++    <div class="nav-cta">
++      <a href="https://alphadoglodging.portal.gingrapp.com/public/login/Ii9zZWN1cmUvaG9tZSI=" data-gingr="login" class="nav-login"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M5 21c0-4 3-6 7-6s7 2 7 6"/></svg>Client login</a>
++      <a href="https://alphadoglodging.portal.gingrapp.com/public/login/Ii9zZWN1cmUvaG9tZSI=" data-gingr="apply" class="btn btn-book nav-book">Get started</a>
++    </div>
+     <button class="hamb" id="hamb" aria-label="Open menu"><span></span><span></span><span></span></button>
+   </div>
+ </header>
+-- 
+2.43.0
+
