@@ -14,7 +14,7 @@
    LOGIN_URL   = where "Log in to Gingr" buttons go
                  (your Gingr client login page)
    ════════════════════════════════════════════════════════════════════ */
-const GINGR_APPLICATION_URL = "https://alphadoglodging.portal.gingrapp.com/public/login/Ii9zZWN1cmUvaG9tZSI=";
+const GINGR_APPLICATION_URL = "https://alphadoglodging.portal.gingrapp.com/public/new_customer";
 const GINGR_LOGIN_URL   = "https://alphadoglodging.portal.gingrapp.com/public/login/Ii9zZWN1cmUvaG9tZSI=";
 
 document.querySelectorAll('a[data-gingr="apply"]').forEach(a => { a.href = GINGR_APPLICATION_URL; a.target = "_blank"; a.rel = "noopener"; });
