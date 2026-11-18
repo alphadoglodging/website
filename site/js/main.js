@@ -14,7 +14,7 @@
    LOGIN_URL   = where "Log in to Gingr" buttons go
                  (your Gingr client login page)
    ════════════════════════════════════════════════════════════════════ */
-const GINGR_APPLICATION_URL = "https://alphadoglodging.portal.gingrapp.com/public/login/Ii9zZWN1cmUvaG9tZSI=";
+const GINGR_APPLICATION_URL = "https://alphadoglodging.portal.gingrapp.com/public/new_customer";
 const GINGR_LOGIN_URL   = "https://alphadoglodging.portal.gingrapp.com/public/login/Ii9zZWN1cmUvaG9tZSI=";
 
 document.querySelectorAll('a[data-gingr="apply"]').forEach(a => { a.href = GINGR_APPLICATION_URL; a.target = "_blank"; a.rel = "noopener"; });
@@ -23,7 +23,11 @@ document.querySelectorAll('a[data-gingr="login"]').forEach(a => { a.href = GINGR
 // Mobile hamburger menu
 const hamb = document.getElementById('hamb');
 const menu = document.getElementById('menu');
-if (hamb && menu) hamb.addEventListener('click', () => menu.classList.toggle('open'));
+if (hamb && menu) hamb.addEventListener('click', () => {
+  menu.classList.toggle('open');
+  // Keep the whole open menu on screen, even when the promo bar pushes the header down
+  if (menu.classList.contains('open')) menu.style.maxHeight = (window.innerHeight - menu.getBoundingClientRect().top) + 'px';
+});
 
 // Fade-in on scroll for elements with class="reveal"
 const io = new IntersectionObserver(entries => {

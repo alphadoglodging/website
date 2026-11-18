@@ -394,3 +394,28 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--orange);outline-off
   .promo a{margin-left:4px}
   .promo .x{top:50%;right:6px;transform:translateY(-50%);width:40px;height:40px;display:grid;place-items:center}
 }
+
+/* ── Header calls to action: "Client login" + "Get started" ─────────
+   Both go to the Gingr page set in js/main.js. On phones the
+   "Client login" link moves into the hamburger menu. */
+.nav-cta{display:flex;align-items:center;gap:20px}
+.nav-login{display:inline-flex;align-items:center;gap:7px;font-weight:600;font-size:.9rem;color:var(--orange-deep);padding:10px 4px;white-space:nowrap;transition:color .2s}
+.nav-login:hover{color:var(--black)}
+.menu>li.menu-login{display:none}
+@media(max-width:900px){
+  .nav-cta{gap:0}
+  .nav-cta .nav-login{display:none}
+  .menu>li.menu-login{display:block;border-bottom:none;padding-top:16px;text-align:center}
+  .menu>li.menu-login>a{display:flex;align-items:center;justify-content:center;gap:8px;padding:13px 16px;border:1.5px solid var(--black);border-radius:10px;color:var(--black)}
+  .menu>li.menu-login>a::after{display:none}
+  .menu-login span{display:block;margin-top:10px;font-size:.82rem;color:var(--muted)}
+}
+/* Mid-size screens (tablets, small laptops): keep the header on one line.
+   "Client login" shows as its person icon only; the label stays for screen readers. */
+.nav-book,.menu>li>a{white-space:nowrap}
+@media(min-width:901px) and (max-width:1100px){
+  .menu{gap:20px}
+  .nav-cta{gap:12px}
+  .nav-login{font-size:0;gap:0;padding:10px}
+  .nav-login svg{width:21px;height:21px}
+}
